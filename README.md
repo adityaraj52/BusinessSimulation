@@ -1,7 +1,7 @@
 # BusinessSimulation
 BusinessSimulation Website
 
-![InterCultural Learning Logo](/images/logo.png)
+![InterCultural Learning Logo](/images/business_logo.png)
 
 Intercultural Learning Network
 The Intercultural Learning Network (ICLN) is a virtual classroom project that focusses on the development of
