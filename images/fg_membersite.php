@@ -19,7 +19,7 @@ http://www.html-form-guide.com/php-form/php-login-form.html
 
 */
 
-require_once("class.phpmailer.php");
+
 require_once("formvalidator.php");
 
 class FGMembersite
