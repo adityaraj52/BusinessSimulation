@@ -15,16 +15,13 @@ if(!$fgmembersite->CheckLogin())
     <title>Home | Business Simultion</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/sl-slide.css">
     <link rel="stylesheet" href="css/mysetting.css">
-
     <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
@@ -32,7 +29,6 @@ if(!$fgmembersite->CheckLogin())
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
     <title>Login</title>
-    <!--    <link rel="STYLESHEET" type="text/css" href="style/fg_membersite.css" />-->
     <script type='text/javascript' src='scripts/gen_validatorv31.js'></script>
 </head>
 
@@ -40,25 +36,24 @@ if(!$fgmembersite->CheckLogin())
 
 <!--Header-->
 
-<header class="navbar navbar-fixed-top" >
-    <div class="navbar-inner>
-        <div class="container">
-    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+<header class="navbar navbar-fixed-top">
+    <a class="navbar-brand pull-left" href="index.php">
+        <img src="images/logo.gif" alt=" " width="100%">
     </a>
-    <a class="pull-left" href="index.php">
-        <img src="images/logo.gif" alt=" " width="100%" style="max-height:400px">
-    </a>
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
 
+            <div class="nav-collapse pull-right">
+                <ul class="nav pull-right">
+                    <li class="active"><a href="index.php">Home</a></li>
 
-    <div class="nav-collapse collapse pull-right">
-        <ul class="nav">
-            <li class="active"><a href="index.php">Home</a></li>
 
             <li><a href="about-us.html">About Us</a></li>
-
 
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Business Simulation <i
@@ -95,7 +90,7 @@ if(!$fgmembersite->CheckLogin())
                             class="icon-angle-down"></i></a>
                 <ul class="dropdown-menu">
                     <li><a href="logout.php">Logout</a></li>
-                    <li><a href="logout.php">Change Password</a></li>
+                    <li><a href="#">Change Password</a></li>
                 </ul>
             </li>
 

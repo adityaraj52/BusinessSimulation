@@ -5,9 +5,8 @@ if (isset($_POST['submitted'])) {
     if ($fgmembersite->Login()) {
         echo("done");
         $fgmembersite->RedirectToURL("login-home.php");
-    }
-    else{
-        echo ("Wrong Password Try Again");
+    } else {
+        echo("Wrong Password Try Again");
     }
 }
 
@@ -30,7 +29,7 @@ if ($fgmembersite->CheckLogin()) {
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/sl-slide.css">
-<!--    <link rel="stylesheet" href="css/mysetting.css">-->
+    <link rel="stylesheet" href="css/mySettings.css">
 
     <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 
@@ -40,8 +39,7 @@ if ($fgmembersite->CheckLogin()) {
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-    <title>Login</title>
-    <!--    <link rel="STYLESHEET" type="text/css" href="style/fg_membersite.css" />-->
+    <link rel="stylesheet" href="css/mySettings.css">
     <script type='text/javascript' src='scripts/gen_validatorv31.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
@@ -49,26 +47,23 @@ if ($fgmembersite->CheckLogin()) {
 <body>
 
 <!--Header-->
-<header class="navbar navbar-fixed-top ">
-    <div class="navbar-inner>
-        <div class=" container
-    ">
+<header class="navbar navbar-fixed-top">
+    <a class="navbar-brand pull-left" href="index.php">
+        <img src="images/logo.gif" alt=" " width="100%">
+    </a>
+    <div class="navbar-inner">
+        <div class="container-fluid">
     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </a>
-    <a class="pull-left" href="index.php">
-        <img src="images/logo.gif" alt=" " width="100%" style="max-height:400px">
-    </a>
 
-
-    <div class="nav-collapse collapse pull-right">
-        <ul class="nav">
+    <div class="nav-collapse pull-right">
+        <ul class="nav pull-right">
             <li class="active"><a href="index.php">Home</a></li>
 
             <li><a href="about-us.html">About Us</a></li>
-
 
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Business Simulation <i
@@ -104,9 +99,10 @@ if ($fgmembersite->CheckLogin()) {
             </li>
         </ul>
     </div>
+        </div>
+    </div>
 
-    </div>
-    </div>
+
 </header>
 <!-- /header -->
 
@@ -570,28 +566,6 @@ if ($fgmembersite->CheckLogin()) {
 </footer>
 <!--/Footer-->
 
-<!--<!--  Login form -->-->
-<!--<div class="modal hide fade in" id="loginForm" aria-hidden="false">-->
-<!--    <div class="modal-header">-->
-<!--        <i class="icon-remove" data-dismiss="modal" aria-hidden="true"></i>-->
-<!--        <h4>Login Form</h4>-->
-<!--    </div>-->
-<!--    <!--Modal Body-->-->
-<!--    <div class="modal-body">-->
-<!--        <form class="form-inline" action="index.php" method="post" id="form-login">-->
-<!--            <input type="text" class="input-large" placeholder="Email">-->
-<!--            <input type="password" class="input-large" placeholder="Password">-->
-<!--            <label class="checkbox">-->
-<!--                <input type="checkbox"> Remember me-->
-<!--            </label>-->
-<!--            <button type="submit" class="btn btn-primary">Sign in</button>-->
-<!--        </form>-->
-<!--        <a href="#">Forgot your password?</a>-->
-<!--    </div>-->
-<!--    <!--/Modal Body-->-->
-<!--</div>-->
-<!--<!--  /Login form -->-->
-
 <!--  Login form -->
 <div class="modal hide fade in" id="loginForm" aria-hidden="false">
     <div class="modal-header">
@@ -605,15 +579,15 @@ if ($fgmembersite->CheckLogin()) {
 
             <input type='hidden' name='submitted' id='submitted' value='1'/>
 
-                <input type='text' placeholder="Username" name='username' id='username'
-                       value='<?php echo $fgmembersite->SafeDisplay('username') ?>'
-                       maxlength="50" class="input-large btn-block"/>
+            <input type='text' placeholder="Username" name='username' id='username'
+                   value='<?php echo $fgmembersite->SafeDisplay('username') ?>'
+                   maxlength="50" class="input-large btn-block"/>
             <span id='login_password_errorloc' class='error'></span>
             <br>
             <br>
 
-                <input type='password' name='password' id='password' maxlength="50"
-                       placeholder="Password" class="input-large btn-block"/>
+            <input type='password' name='password' id='password' maxlength="50"
+                   placeholder="Password" class="input-large btn-block"/>
 
             <span id='login_username_errorloc' class='error'></span>
             <br>
@@ -638,7 +612,6 @@ if ($fgmembersite->CheckLogin()) {
     <!--/Modal Body-->
 </div>
 <!--  /Login form -->
-
 
 
 <script src="js/vendor/jquery-1.9.1.min.js"></script>

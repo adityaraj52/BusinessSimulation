@@ -1,0 +1,55 @@
+
+
+.navbar-fixed-top {
+    min-height: 80px;
+    padding-top: 0px;
+}
+
+.navbar-inner {
+    max-height: 80px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.navbar-nav > li > a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    line-height: 0px;
+}
+
+@media (min-width: 768px) {
+    .navbar-nav {
+        float: right;
+        margin: 0;
+    }
+    .navbar-nav > li {
+        float: right;
+    }
+    .navbar-nav > li > a {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+
+.navbar-brand {
+    float: left;
+    height: 80px;
+    padding: 8px 0px;
+    padding-bottom: 0px;
+    font-size: 18px;
+    line-height: 20px;
+    min-height: 80px;
+    margin-bottom: 0px;
+}
+
+.sl-slider-wrapper{
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.container-fluid {
+    padding-right: 10px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
