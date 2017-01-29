@@ -54,14 +54,14 @@ if (isset($_POST['submitted'])) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="pull-left" href="index.html">
+            <a class="pull-left" href="index.php">
                 <img src="images/logo.gif" alt=" " width="100%" style="max-height:400px">
             </a>
 
 
             <div class="nav-collapse collapse pull-right">
                 <ul class="nav">
-                    <li class="active"><a href="index.html">Home</a></li>
+                    <li class="active"><a href="index.php">Home</a></li>
 
                     <li><a href="about-us.html">About Us</a></li>
 
@@ -115,7 +115,7 @@ if (isset($_POST['submitted'])) {
             </div>
             <div class="span6">
                 <ul class="breadcrumb pull-right">
-                    <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+                    <li><a href="index.php">Home</a> <span class="divider">/</span></li>
                     <li class="active">Registration</li>
                 </ul>
             </div>
@@ -322,7 +322,7 @@ if (isset($_POST['submitted'])) {
     </div>
     <!--Modal Body-->
     <div class="modal-body">
-        <form class="form-inline" action="index.html" method="post" id="form-login">
+        <form class="form-inline" action="index.php" method="post" id="form-login">
             <input type="text" class="input-small" placeholder="Email">
             <input type="password" class="input-small" placeholder="Password">
 

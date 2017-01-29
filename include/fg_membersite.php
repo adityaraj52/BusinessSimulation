@@ -690,7 +690,7 @@ class FGMembersite
         {
             return false;
         }
-        $mailer = new PHPMailer();
+        $mailer = $this->createPHPMailer();
 
         $mailer->CharSet = 'utf-8';
 

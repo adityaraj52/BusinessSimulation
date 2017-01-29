@@ -1,13 +1,22 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>
-<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>
-<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>
-<html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js">
-<!--<![endif]-->
+<?PHP
+require_once("./include/membersite_config.php");
+
+if (isset($_POST['submitted'])) {
+    if ($fgmembersite->Login()) {
+        echo("done");
+        $fgmembersite->RedirectToURL("login-home.php");
+    }
+    else{
+        echo ("Wrong Password Try Again");
+    }
+}
+
+if ($fgmembersite->CheckLogin()) {
+    $fgmembersite->RedirectToURL("login-home.php");
+    exit;
+}
+
+?>
 
 <head>
     <meta charset="utf-8">
@@ -21,6 +30,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/sl-slide.css">
+<!--    <link rel="stylesheet" href="css/mysetting.css">-->
 
     <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 
@@ -30,67 +40,72 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    <title>Login</title>
+    <!--    <link rel="STYLESHEET" type="text/css" href="style/fg_membersite.css" />-->
+    <script type='text/javascript' src='scripts/gen_validatorv31.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 
 <body>
 
 <!--Header-->
-<header class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
-            <a class="pull-left" href="index.html">
-                <img src="images/logo.gif" alt=" " width="100%" style="max-height:400px">
-            </a>
+<header class="navbar navbar-fixed-top ">
+    <div class="navbar-inner>
+        <div class=" container
+    ">
+    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </a>
+    <a class="pull-left" href="index.php">
+        <img src="images/logo.gif" alt=" " width="100%" style="max-height:400px">
+    </a>
 
 
-            <div class="nav-collapse collapse pull-right">
-                <ul class="nav">
-                    <li class="active"><a href="index.html">Home</a></li>
+    <div class="nav-collapse collapse pull-right">
+        <ul class="nav">
+            <li class="active"><a href="index.php">Home</a></li>
 
-                    <li><a href="about-us.html">About Us</a></li>
+            <li><a href="about-us.html">About Us</a></li>
 
 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Business Simulation <i
-                                class="icon-angle-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="career.html">Educational Concept</a></li>
-                            <li><a href="blog-item.html">Course Structure</a></li>
-                            <li><a href="faq.html">Experiences</a></li>
-                            <li><a href="pricing.html">Video</a></li>
-                            <li class="divider"></li>
-                            <li><a href="privacy.html">Privacy Policy</a></li>
-                            <li><a href="terms.html">Terms of Use</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">International Partners <i
-                                class="icon-angle-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="career.html">Tallin University</a></li>
-                            <li><a href="blog-item.html">Vancouver Island University</a></li>
-                            <li><a href="faq.html">University of TyumenI</a></li>
-                            <li><a href="pricing.html">Costs</a></li>
-                            <li class="divider"></li>
-                            <li><a href="privacy.html">Participate</a></li>
-                            <li><a href="terms.html">Terms of Use</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a href="contact-us.html">Contact</a></li>
-                    <li class="login">
-                        <a data-toggle="modal" href="#loginForm"><i class="icon-lock"> Member Login </i></a>
-                    </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Business Simulation <i
+                            class="icon-angle-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="career.html">Educational Concept</a></li>
+                    <li><a href="blog-item.html">Course Structure</a></li>
+                    <li><a href="faq.html">Experiences</a></li>
+                    <li><a href="pricing.html">Video</a></li>
+                    <li class="divider"></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Use</a></li>
                 </ul>
-            </div>
+            </li>
 
-        </div>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">International Partners <i
+                            class="icon-angle-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="career.html">Tallin University</a></li>
+                    <li><a href="blog-item.html">Vancouver Island University</a></li>
+                    <li><a href="faq.html">University of TyumenI</a></li>
+                    <li><a href="pricing.html">Costs</a></li>
+                    <li class="divider"></li>
+                    <li><a href="privacy.html">Participate</a></li>
+                    <li><a href="terms.html">Terms of Use</a></li>
+                </ul>
+            </li>
+
+            <li><a href="contact-us.html">Contact</a></li>
+            <li class="login">
+                <a data-toggle="modal" href="#loginForm"><i class="icon-lock"> Member Login </i></a>
+            </li>
+        </ul>
+    </div>
+
+    </div>
     </div>
 </header>
 <!-- /header -->
@@ -281,7 +296,7 @@
                     </div>
                     <div class="links">
                         <a data-toggle="modal" href="#modal-1"><i class="icon-eye-open"></i></a><a href="#"><i
-                            class="icon-link"></i></a>
+                                    class="icon-link"></i></a>
                     </div>
                 </div>
                 <div class="desc">
@@ -289,7 +304,7 @@
                 </div>
                 <div id="modal-1" class="modal hide fade">
                     <a class="close-modal" href="javascript:;" data-dismiss="modal" aria-hidden="true"><i
-                            class="icon-remove"></i></a>
+                                class="icon-remove"></i></a>
                     <div class="modal-body">
                         <img src="images/portfolio/full/item1.jpg" alt=" " width="100%" style="max-height:400px">
                     </div>
@@ -305,7 +320,7 @@
                     </div>
                     <div class="links">
                         <a data-toggle="modal" href="#modal-1"><i class="icon-eye-open"></i></a><a href="#"><i
-                            class="icon-link"></i></a>
+                                    class="icon-link"></i></a>
                     </div>
                 </div>
                 <div class="desc">
@@ -313,7 +328,7 @@
                 </div>
                 <div id="modal-1" class="modal hide fade">
                     <a class="close-modal" href="javascript:;" data-dismiss="modal" aria-hidden="true"><i
-                            class="icon-remove"></i></a>
+                                class="icon-remove"></i></a>
                     <div class="modal-body">
                         <img src="images/portfolio/full/item2.jpg" alt=" " width="100%" style="max-height:400px">
                     </div>
@@ -329,7 +344,7 @@
                     </div>
                     <div class="links">
                         <a data-toggle="modal" href="#modal-3"><i class="icon-eye-open"></i></a><a href="#"><i
-                            class="icon-link"></i></a>
+                                    class="icon-link"></i></a>
                     </div>
                 </div>
                 <div class="desc">
@@ -337,7 +352,7 @@
                 </div>
                 <div id="modal-3" class="modal hide fade">
                     <a class="close-modal" href="javascript:;" data-dismiss="modal" aria-hidden="true"><i
-                            class="icon-remove"></i></a>
+                                class="icon-remove"></i></a>
                     <div class="modal-body">
                         <img src="images/portfolio/full/item3.jpg" alt=" " width="100%" style="max-height:400px">
                     </div>
@@ -353,7 +368,7 @@
                     </div>
                     <div class="links">
                         <a data-toggle="modal" href="#modal-4"><i class="icon-eye-open"></i></a><a href="#"><i
-                            class="icon-link"></i></a>
+                                    class="icon-link"></i></a>
                     </div>
                 </div>
                 <div class="desc">
@@ -361,7 +376,7 @@
                 </div>
                 <div id="modal-4" class="modal hide fade">
                     <a class="close-modal" href="javascript:;" data-dismiss="modal" aria-hidden="true"><i
-                            class="icon-remove"></i></a>
+                                class="icon-remove"></i></a>
                     <div class="modal-body">
                         <img src="images/portfolio/full/item4.jpg" alt=" " width="100%" style="max-height:400px">
                     </div>
@@ -535,7 +550,7 @@
         <div class="row-fluid">
             <div class="span5 cp">
                 &copy; 2017 <a target="_blank" href="http://tu-clausthal.de/" title="Business Simulation">TU
-                Clausthal</a>. All Rights Reserved.
+                    Clausthal</a>. All Rights Reserved.
             </div>
             <!--/Copyright-->
 
@@ -555,6 +570,28 @@
 </footer>
 <!--/Footer-->
 
+<!--<!--  Login form -->-->
+<!--<div class="modal hide fade in" id="loginForm" aria-hidden="false">-->
+<!--    <div class="modal-header">-->
+<!--        <i class="icon-remove" data-dismiss="modal" aria-hidden="true"></i>-->
+<!--        <h4>Login Form</h4>-->
+<!--    </div>-->
+<!--    <!--Modal Body-->-->
+<!--    <div class="modal-body">-->
+<!--        <form class="form-inline" action="index.php" method="post" id="form-login">-->
+<!--            <input type="text" class="input-large" placeholder="Email">-->
+<!--            <input type="password" class="input-large" placeholder="Password">-->
+<!--            <label class="checkbox">-->
+<!--                <input type="checkbox"> Remember me-->
+<!--            </label>-->
+<!--            <button type="submit" class="btn btn-primary">Sign in</button>-->
+<!--        </form>-->
+<!--        <a href="#">Forgot your password?</a>-->
+<!--    </div>-->
+<!--    <!--/Modal Body-->-->
+<!--</div>-->
+<!--<!--  /Login form -->-->
+
 <!--  Login form -->
 <div class="modal hide fade in" id="loginForm" aria-hidden="false">
     <div class="modal-header">
@@ -563,27 +600,46 @@
     </div>
     <!--Modal Body-->
     <div class="modal-body">
-        <form class="form-inline" action="index.html" method="post" id="form-login">
-            <input type="text" class="input-small" placeholder="Email">
-            <input type="password" class="input-small" placeholder="Password">
+        <form id='login' class="form-inline" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="post"
+              id="form-login">
 
-            <label class="checkbox">
+            <input type='hidden' name='submitted' id='submitted' value='1'/>
+
+                <input type='text' placeholder="Username" name='username' id='username'
+                       value='<?php echo $fgmembersite->SafeDisplay('username') ?>'
+                       maxlength="50" class="input-large btn-block"/>
+            <span id='login_password_errorloc' class='error'></span>
+            <br>
+            <br>
+
+                <input type='password' name='password' id='password' maxlength="50"
+                       placeholder="Password" class="input-large btn-block"/>
+
+            <span id='login_username_errorloc' class='error'></span>
+            <br>
+            <br>
+
+
+            <label class="checkbox pull-right">
                 <input type="checkbox"> Remember me
 
             </label>
-            <div class="pull-right col-xs-6">
-                <button type="submit" class="btn btn-primary btn-block btn-large col-xs-6 pull-right">Sign In</button>
-                <a href="register.php" class="btn btn-primary btn-block btn-large col-xs-6 pull-right"
+            <div>
+                <input type='submit' name='Submit' value='Submit'
+                       class="btn btn-success btn-large"/>
+                <!--                <button type="submit" class="btn btn-primary btn-block btn-large col-xs-6 pull-right">Sign In</button>-->
+                <a href="register.php" class="btn btn-success btn-large"
                    role="button">Sign Up</a>
             </div>
 
-
         </form>
-        <a href="#">Forgot your password?</a>
+        <a href="reset-pwd-req.php">Forgot your password?</a>
     </div>
     <!--/Modal Body-->
 </div>
 <!--  /Login form -->
+
+
 
 <script src="js/vendor/jquery-1.9.1.min.js"></script>
 <script src="js/vendor/bootstrap.min.js"></script>
@@ -627,6 +683,21 @@
         Page.init();
     });
 </script>
+
+<script type='text/javascript'>
+    // <![CDATA[
+
+    var frmvalidator = new Validator("login");
+    frmvalidator.EnableOnPageErrorDisplay();
+    frmvalidator.EnableMsgsTogether();
+
+    frmvalidator.addValidation("username", "req", "Please provide your username");
+
+    frmvalidator.addValidation("password", "req", "Please provide the password");
+
+    // ]]>
+</script>
+
 <!-- /SL Slider -->
 </body>
 

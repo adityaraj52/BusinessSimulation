@@ -39,14 +39,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="pull-left" href="index.html">
+            <a class="pull-left" href="index.php">
                 <img src="images/logo.gif" alt=" " width="100%" style="max-height:400px">
             </a>
 
 
             <div class="nav-collapse collapse pull-right">
                 <ul class="nav">
-                    <li class="active"><a href="index.html">Home</a></li>
+                    <li class="active"><a href="index.php">Home</a></li>
 
                     <li><a href="about-us.html">About Us</a></li>
 
