@@ -7,15 +7,11 @@ if (isset($_POST['submitted'])) {
     }
 }
 ?>
-<html>
-<body>
 
-<!DOCTYPE html>
-<html class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Registration | Nova</title>
+    <title>Home | Business Simultion</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
@@ -24,6 +20,7 @@ if (isset($_POST['submitted'])) {
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/sl-slide.css">
+    <link rel="stylesheet" href="css/mySettings.css">
 
     <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 
@@ -33,35 +30,30 @@ if (isset($_POST['submitted'])) {
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
-    <title>Register</title>
-
-    <!--    <link rel="STYLESHEET" type="text/css" href="style/fg_membersite.css"/>    -->
+    <link rel="stylesheet" href="css/mySettings.css">
     <script type='text/javascript' src='scripts/gen_validatorv31.js'></script>
-
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 
 <body>
 
 <!--Header-->
 <header class="navbar navbar-fixed-top">
+    <a class="navbar-brand pull-left" href="index.php">
+        <img src="images/logo.gif" alt=" " width="100%">
+    </a>
     <div class="navbar-inner">
-        <div class="container">
+        <div class="container-fluid">
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="pull-left" href="index.php">
-                <img src="images/logo.gif" alt=" " width="100%" style="max-height:400px">
-            </a>
 
-
-            <div class="nav-collapse collapse pull-right">
-                <ul class="nav">
+            <div class="nav-collapse pull-right">
+                <ul class="nav pull-right">
                     <li class="active"><a href="index.php">Home</a></li>
+
 
                     <li><a href="about-us.html">About Us</a></li>
 
@@ -322,23 +314,40 @@ if (isset($_POST['submitted'])) {
     </div>
     <!--Modal Body-->
     <div class="modal-body">
-        <form class="form-inline" action="index.php" method="post" id="form-login">
-            <input type="text" class="input-small" placeholder="Email">
-            <input type="password" class="input-small" placeholder="Password">
+        <form id='login' class="form-inline" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="post"
+              id="form-login">
 
-            <label class="checkbox">
+            <input type='hidden' name='submitted' id='submitted' value='1'/>
+
+            <input type='text' placeholder="Username" name='username' id='username'
+                   value='<?php echo $fgmembersite->SafeDisplay('username') ?>'
+                   maxlength="50" class="input-large btn-block"/>
+            <span id='login_password_errorloc' class='error'></span>
+            <br>
+            <br>
+
+            <input type='password' name='password' id='password' maxlength="50"
+                   placeholder="Password" class="input-large btn-block"/>
+
+            <span id='login_username_errorloc' class='error'></span>
+            <br>
+            <br>
+
+
+            <label class="checkbox pull-right">
                 <input type="checkbox"> Remember me
 
             </label>
-            <div class="pull-right col-xs-6">
-                <button type="submit" class="btn btn-primary btn-block btn-large col-xs-6 pull-right">Sign In</button>
-                <a href="register.php" class="btn btn-primary btn-block btn-large col-xs-6 pull-right"
+            <div>
+                <input type='submit' name='Submit' value='Submit'
+                       class="btn btn-success btn-large"/>
+                <!--                <button type="submit" class="btn btn-primary btn-block btn-large col-xs-6 pull-right">Sign In</button>-->
+                <a href="register.php" class="btn btn-success btn-large"
                    role="button">Sign Up</a>
             </div>
 
-
         </form>
-        <a href="#">Forgot your password?</a>
+        <a href="reset-pwd-req.php">Forgot your password?</a>
     </div>
     <!--/Modal Body-->
 </div>
@@ -348,6 +357,21 @@ if (isset($_POST['submitted'])) {
 <script src="js/vendor/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
 
+<!-- form validation -->
+<script type='text/javascript'>
+    // <![CDATA[
+
+    var frmvalidator = new Validator("login");
+    frmvalidator.EnableOnPageErrorDisplay();
+    frmvalidator.EnableMsgsTogether();
+
+    frmvalidator.addValidation("username", "req", "Please provide your username");
+
+    frmvalidator.addValidation("password", "req", "Please provide the password");
+
+    // ]]>
+</script>
+<!--form validation-->
 </body>
 
 </html>
