@@ -1,3 +1,19 @@
+<?PHP
+require_once("./include/membersite_config.php");
+
+if (isset($_POST['submitted'])) {
+    if ($fgmembersite->RegisterUser()) {
+        $fgmembersite->RedirectToURL("thank-you.html");
+    }
+}
+if (isset($_POST['submitted_login'])) {
+    if ($fgmembersite->Login()) {
+        echo("done");
+        $fgmembersite->RedirectToURL("login-home.php");
+    }
+}
+?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -10,7 +26,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>About Us | Nova</title>
+    <title>About Us </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
@@ -34,44 +50,61 @@
 
 <!--Header-->
 <header class="navbar navbar-fixed-top">
+    <a class="navbar-brand pull-left" href="index.php">
+        <img src="images/logo.gif" alt=" " width="100%">
+    </a>
     <div class="navbar-inner">
-        <div class="container">
+        <div class="container-fluid">
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a id="logo" class="pull-left" href="index.php"></a>
-            <div class="nav-collapse collapse pull-right">
-                <ul class="nav">
-                    <li><a href="index.php">Home</a></li>
-                    <li class="active"><a href="about-us.html">About Us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
+
+            <div class="nav-collapse pull-right">
+                <ul class="nav pull-right">
+                    <li class="active"><a href="index.php">Home</a></li>
+
+                    <li><a href="about-us.html">About Us</a></li>
+
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="icon-angle-down"></i></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Business Simulation <i
+                                    class="icon-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="career.html">Career</a></li>
-                            <li><a href="blog-item.html">Blog Single</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="pricing.html">Pricing</a></li>
-                            <li><a href="404.html">404</a></li>
-                            <li><a href="typography.html">Typography</a></li>
-                            <li><a href="registration.html">Registration</a></li>
+                            <li><a href="career.html">Educational Concept</a></li>
+                            <li><a href="blog-item.html">Course Structure</a></li>
+                            <li><a href="faq.html">Experiences</a></li>
+                            <li><a href="pricing.html">Video</a></li>
                             <li class="divider"></li>
                             <li><a href="privacy.html">Privacy Policy</a></li>
                             <li><a href="terms.html">Terms of Use</a></li>
                         </ul>
                     </li>
-                    <li><a href="blog.html">Blog</a></li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">International Partners <i
+                                    class="icon-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="career.html">Tallin University</a></li>
+                            <li><a href="blog-item.html">Vancouver Island University</a></li>
+                            <li><a href="faq.html">University of TyumenI</a></li>
+                            <li><a href="pricing.html">Costs</a></li>
+                            <li class="divider"></li>
+                            <li><a href="privacy.html">Participate</a></li>
+                            <li><a href="terms.html">Terms of Use</a></li>
+                        </ul>
+                    </li>
+
                     <li><a href="contact-us.html">Contact</a></li>
                     <li class="login">
-                        <a data-toggle="modal" href="#loginForm"><i class="icon-lock"></i></a>
+                        <a data-toggle="modal" href="#loginForm"><i class="icon-lock"> Member Login </i></a>
                     </li>
                 </ul>
-            </div><!--/.nav-collapse -->
+            </div>
         </div>
     </div>
+
+
 </header>
 <!-- /header -->
 
@@ -440,15 +473,36 @@
     </div>
     <!--Modal Body-->
     <div class="modal-body">
-        <form class="form-inline" action="index.php" method="post" id="form-login">
-            <input type="text" class="input-small" placeholder="Email">
-            <input type="password" class="input-small" placeholder="Password">
-            <label class="checkbox">
-                <input type="checkbox"> Remember me
-            </label>
-            <button type="submit" class="btn btn-primary">Sign in</button>
+        <form id='login' class="form-horizontal" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="post"
+              id="form-login">
+
+            <input type='hidden' name='submitted_login' id='submitted_login' value='1'/>
+
+            <div class="form-group">
+                <!-- Username -->
+                <div class='container'>
+                    <input type='text' class="input-xxlarge custom_login_form_input_size" name='username' id='username' placeholder="Username"
+                           value='<?php echo $fgmembersite->SafeDisplay(' username ') ?>' maxlength="50" style="width: 30%; min-height: 50px; margin-bottom: 10px"/>
+                    <span id='login_username_errorloc' class='error'></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <!-- Password -->
+                <div class='container'>
+                    <input type='password' class="input-xxlarge" name='password' id='password' placeholder="Password"
+                           maxlength="50" style="width: 30%; min-height: 50px"/>
+                    <span id='login_password_errorloc' class='error' style='clear:both'></span>
+                </div>
+            </div>
+
+            <div>
+                <legend></legend>
+                <input type='submit' name='Submit' value='Submit' class="btn-large custom_button_size" style="float: left; width: 30%; height: 50px"/>
+                <a href="register.php" class="btn-primary btn-large text-center" role="button" style="float: right; width: 30%; height: 30px; font-size: 22px">Sign Up</a>
+            </div>
+
         </form>
-        <a href="#">Forgot your password?</a>
     </div>
     <!--/Modal Body-->
 </div>

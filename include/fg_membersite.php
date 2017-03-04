@@ -642,6 +642,8 @@ class FGMembersite
         $formvars['email'] = $this->Sanitize($_POST['email']);
         $formvars['username'] = $this->Sanitize($_POST['username']);
         $formvars['password'] = $this->Sanitize($_POST['password']);
+        $formvars['university'] = $this->Sanitize($_POST['university']);
+
     }
 
     function SendUserConfirmationEmail(&$formvars)
@@ -650,28 +652,31 @@ class FGMembersite
 
         $mailer->CharSet = 'utf-8';
 
-        $mailer->AddAddress($formvars['email'],$formvars['name']);
+        $mailer->AddAddress($this->admin_email, $formvars['name']);
+        
+        // $mailer->AddAddress($formvars['email'],$formvars['name']); 
 
-        $mailer->Subject = "Your registration with ".$this->sitename;
+        $mailer->Subject = "New User Registration".$this->sitename;
 
-        $mailer->From = $this->GetFromAddress();
+        $mailer->From = "noreply@BusinessSimulation.com";//$this->GetFromAddress();
 
         $confirmcode = $formvars['confirmcode'];
 
         $confirm_url = $this->GetAbsoluteURLFolder().'/confirmreg.php?code='.$confirmcode;
 
-        $mailer->Body ="Hello ".$formvars['name']."\r\n\r\n".
-            "Thanks for your registration with ".$this->sitename."\r\n".
-            "Please click the link below to confirm your registration.\r\n".
+        $mailer->Body ="Hello ".$formvars['name'].",\r\n\r\n".
+            "<br><br>A new user has registered on ".$this->sitename."\r\n<br><br>".
+            "You can click the link below to confirm the user registration.\r\n<br><br>".
             "$confirm_url\r\n".
-            "\r\n".
-            "Regards,\r\n".
-            "Webmaster\r\n".
+            "\r\n<br><br>".
+            "Regards,\r\n<br>".
+            "Webmaster\r\n<br>".
             $this->sitename;
 
         if(!$mailer->Send())
         {
-            $this->HandleError("Failed sending registration confirmation email.");
+            $this->HandleError("Failed sending registration confirmation email.<br>There might be wrong server configuration.<br>
+                                Please check Username and password in $fgmembersite configuration");
             return false;
         }
         return true;
@@ -705,10 +710,10 @@ class FGMembersite
             "Email address: ".$formvars['email']."\r\n".
             "UserName: ".$formvars['username'];
 
-        if(!$mailer->Send())
-        {
-            return false;
-        }
+        // if(!$mailer->Send())
+        // {
+        //     return false;
+        // }
         return true;
     }
 
@@ -793,7 +798,7 @@ class FGMembersite
             "id_user INT NOT NULL AUTO_INCREMENT ,".
             "name VARCHAR( 128 ) NOT NULL ,".
             "email VARCHAR( 64 ) NOT NULL ,".
-            "phone_number VARCHAR( 16 ) NOT NULL ,".
+            "university VARCHAR( 16 ) NOT NULL ,".
             "username VARCHAR( 16 ) NOT NULL ,".
             "password VARCHAR( 32 ) NOT NULL ,".
             "confirmcode VARCHAR(32) ,".
@@ -818,6 +823,7 @@ class FGMembersite
         $insert_query = 'insert into '.$this->tablename.'(
                 name,
                 email,
+                university,
                 username,
                 password,
                 confirmcode
@@ -826,6 +832,7 @@ class FGMembersite
                 (
                 "' . $this->SanitizeForSQL($formvars['name']) . '",
                 "' . $this->SanitizeForSQL($formvars['email']) . '",
+                "' . $this->SanitizeForSQL($formvars['university']) . '",
                 "' . $this->SanitizeForSQL($formvars['username']) . '",
                 "' . md5($formvars['password']) . '",
                 "' . $confirmcode . '"

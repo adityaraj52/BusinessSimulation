@@ -1,12 +1,10 @@
 <?PHP
 require_once("./include/membersite_config.php");
 
-if (isset($_POST['submitted'])) {
+if (isset($_POST['submitted_login'])) {
     if ($fgmembersite->Login()) {
         echo("done");
         $fgmembersite->RedirectToURL("login-home.php");
-    } else {
-        echo("Wrong Password Try Again");
     }
 }
 
@@ -63,7 +61,7 @@ if ($fgmembersite->CheckLogin()) {
         <ul class="nav pull-right">
             <li class="active"><a href="index.php">Home</a></li>
 
-            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="about-us.php">About Us</a></li>
 
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Business Simulation <i
@@ -574,40 +572,36 @@ if ($fgmembersite->CheckLogin()) {
     </div>
     <!--Modal Body-->
     <div class="modal-body">
-        <form id='login' class="form-inline" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="post"
+        <form id='login' class="form-horizontal" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="post"
               id="form-login">
 
-            <input type='hidden' name='submitted' id='submitted' value='1'/>
+            <input type='hidden' name='submitted_login' id='submitted_login' value='1'/>
 
-            <input type='text' placeholder="Username" name='username' id='username'
-                   value='<?php echo $fgmembersite->SafeDisplay('username') ?>'
-                   maxlength="50" class="input-large btn-block"/>
-            <span id='login_password_errorloc' class='error'></span>
-            <br>
-            <br>
+            <div class="form-group">
+                <!-- Username -->
+                <div class='container'>
+                    <input type='text' class="input-xxlarge custom_login_form_input_size" name='username' id='username' placeholder="Username"
+                           value='<?php echo $fgmembersite->SafeDisplay(' username ') ?>' maxlength="50" style="width: 30%; min-height: 50px; margin-bottom: 10px"/>
+                    <span id='login_username_errorloc' class='error'></span>
+                </div>
+            </div>
 
-            <input type='password' name='password' id='password' maxlength="50"
-                   placeholder="Password" class="input-large btn-block"/>
+            <div class="form-group">
+                <!-- Password -->
+                <div class='container'>
+                    <input type='password' class="input-xxlarge" name='password' id='password' placeholder="Password"
+                           maxlength="50" style="width: 30%; min-height: 50px"/>
+                    <span id='login_password_errorloc' class='error' style='clear:both'></span>
+                </div>
+            </div>
 
-            <span id='login_username_errorloc' class='error'></span>
-            <br>
-            <br>
-
-
-            <label class="checkbox pull-right">
-                <input type="checkbox"> Remember me
-
-            </label>
             <div>
-                <input type='submit' name='Submit' value='Submit'
-                       class="btn btn-success btn-large"/>
-                <!--                <button type="submit" class="btn btn-primary btn-block btn-large col-xs-6 pull-right">Sign In</button>-->
-                <a href="register.php" class="btn btn-success btn-large"
-                   role="button">Sign Up</a>
+                <legend></legend>
+                <input type='submit' name='Submit' value='Submit' class="btn-large custom_button_size" style="float: left; width: 30%; height: 50px"/>
+                <a href="register.php" class="btn-primary btn-large text-center" style="float: right; width: 30%; height: 30px; font-size: 22px">Sign Up</a>
             </div>
 
         </form>
-        <a href="reset-pwd-req.php">Forgot your password?</a>
     </div>
     <!--/Modal Body-->
 </div>
@@ -663,6 +657,7 @@ if ($fgmembersite->CheckLogin()) {
 
     var frmvalidator = new Validator("login");
     frmvalidator.EnableOnPageErrorDisplay();
+    
     frmvalidator.EnableMsgsTogether();
 
     frmvalidator.addValidation("username", "req", "Please provide your username");

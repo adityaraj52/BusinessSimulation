@@ -6,6 +6,12 @@ if (isset($_POST['submitted'])) {
         $fgmembersite->RedirectToURL("thank-you.html");
     }
 }
+if (isset($_POST['submitted_login'])) {
+    if ($fgmembersite->Login()) {
+        echo("done");
+        $fgmembersite->RedirectToURL("login-home.php");
+    }
+}
 ?>
 
 <head>
@@ -54,9 +60,7 @@ if (isset($_POST['submitted'])) {
                 <ul class="nav pull-right">
                     <li class="active"><a href="index.php">Home</a></li>
 
-
-                    <li><a href="about-us.html">About Us</a></li>
-
+                    <li><a href="about-us.php">About Us</a></li>
 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Business Simulation <i
@@ -92,11 +96,13 @@ if (isset($_POST['submitted'])) {
                     </li>
                 </ul>
             </div>
-
         </div>
     </div>
+
+
 </header>
 <!-- /header -->
+
 
 <!--Title -->
 <section class="title">
@@ -117,66 +123,79 @@ if (isset($_POST['submitted'])) {
 <!-- / .title -->
 
 <!-- Form Code Start -->
-<div id=''>
-    <form id='register' class="center" action='<?php echo $fgmembersite->GetSelfScript(); ?>' method='post'
+
+<div class="container-fluid center">
+
+    <form id='register' class="form-inline" action='<?php echo $fgmembersite->GetSelfScript(); ?>' method='post'
           accept-charset='UTF-8'>
-        <fieldset class="registration-form ">
+
+        <fieldset class=" center">
 
             <input type='hidden' name='submitted' id='submitted' value='1'/>
 
-            <div class="control-group">
+            <div class="form-group">
                 <!-- Name -->
-                <div class="controls">
-                    <div><span class='error'><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
-                    <div class='container center'>
-                        <input type='text' name='name' id='name' placeholder="Your Full Name"
-                               value='<?php echo $fgmembersite->SafeDisplay('name') ?>' maxlength="50"/><br/>
-                        <span id='register_name_errorloc' class='error'></span>
-                    </div>
+                <div><span class='error'><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
+                <div class='container center'>
+                    <legend for="inputName"></legend>
+                    <input type='text' class="input-xxlarge" name='name' id='name' placeholder="Your Full Name"
+                           value='<?php echo $fgmembersite->SafeDisplay(' name ') ?>' maxlength="50"/>
+                    <br/>
+                    <span id='register_name_errorloc' class='error'></span>
                 </div>
             </div>
 
-
-            <div class="control-group">
+            <div class="form-group">
                 <!-- Email -->
-                <div class="controls">
-                    <div class='container center'>
-                        <input type='text' name='email' id='email' placeholder="Email"
-                               value='<?php echo $fgmembersite->SafeDisplay('email') ?>' maxlength="50"/><br/>
-                        <span id='register_email_errorloc' class='error'></span>
-                    </div>
+                <div class='container text-center'>
+                    <legend for="inputEmail"></legend>
+                    <input class="input-xxlarge" type='text' name='email' id='email' placeholder="Email"
+                           value='<?php echo $fgmembersite->SafeDisplay(' email ') ?>' maxlength="50"/>
+                    <br/>
+                    <span id='register_email_errorloc' class='error'></span>
                 </div>
             </div>
 
+            <div class="form-group">
+                <!-- University -->
+                <div class='container text-center'>
+                    <legend for="university"></legend>
+                    <select class="form-control input-xxlarge custom_button_size"  id="university" name='university' >
+                        <option value="TU Clausthal">TU Clausthal</option>
+                        <option value="Vancouver Island University">Vancouver Island University</option>
+                        <option value="University of Tyumen">University of Tyumen</option>
+                        <option value="Tallin University">Tallin University</option>
+                    </select>
+                </div>
+            </div>
 
-            <div class="control-group">
+            <div class="form-group">
                 <!-- Username -->
-                <div class="controls">
-                    <div class='container center'>
-                        <input type='text' name='username' id='username' placeholder="Username"
-                               value='<?php echo $fgmembersite->SafeDisplay('username') ?>' maxlength="50"/><br/>
-                        <span id='register_username_errorloc' class='error'></span>
-                    </div>
+
+                <div class='container text-center'>
+                    <legend for="username"></legend>
+                    <input type='text' class="input-xxlarge" name='username' id='username' placeholder="Username"
+                           value='<?php echo $fgmembersite->SafeDisplay(' username ') ?>' maxlength="50"/>
+                    <br/>
+                    <span id='register_username_errorloc' class='error'></span>
                 </div>
             </div>
 
-            <div class="control-group">
+            <div class="form-group">
                 <!-- Password -->
-                <div class="controls">
-                    <div class='container' style='height:80px;'>
-                        <div class='center' id=''></div>
-                            <input type='password' name='password' id='password' placeholder="Password" maxlength="50"/>
-                        <div id='register_password_errorloc' class='error' style='clear:both'></div>
-                    </div>
+                <div class='container text-center'>
+                    <legend for="password"></legend>
+                    <input type='password' class="input-xxlarge" name='password' id='password' placeholder="Password"
+                           maxlength="50"/>
+                    <div id='register_password_errorloc' class='error' style='clear:both'></div>
+                </div>
+            </div>
 
-                    <div class="control-group">
-                        <!-- Submit Button -->
-                        <div class="controls">
-                            <div class='container'>
-                                <input type='submit' class="btn-facebook btn-large active" name='Submit' value='Submit'/>
-                            </div>
-                        </div>
-                    </div>
+            <div class="form-group">
+                <!-- Submit Button -->
+                <div class='container'>
+                    <legend></legend>
+                    <input type='submit' class="btn-large" name='Submit' style="width: 20%" value='Submit'/>
                 </div>
             </div>
 
@@ -184,8 +203,8 @@ if (isset($_POST['submitted'])) {
     </form>
 </div>
 
-<script type='text/javascript'>
 
+<script type='text/javascript'>
     var frmvalidator = new Validator("register");
     frmvalidator.EnableOnPageErrorDisplay();
     frmvalidator.EnableMsgsTogether();
@@ -202,10 +221,6 @@ if (isset($_POST['submitted'])) {
 
 <!--Form Code End -->
 
-
-
-<!-- /#registration-page -->
-
 <!--Bottom-->
 <section id="bottom" class="main">
     <!--Container-->
@@ -219,7 +234,8 @@ if (isset($_POST['submitted'])) {
                 <h4>ADDRESS</h4>
                 <ul class="unstyled address">
                     <li>
-                        <i class="icon-home"></i><strong>Address:</strong> Julis-Albert-Strasse<br>38678-ClausthalZellerfeld
+                        <i class="icon-home"></i><strong>Address:</strong> Julis-Albert-Strasse
+                        <br>38678-ClausthalZellerfeld
                     </li>
                     <li>
                         <i class="icon-envelope"></i>
@@ -279,7 +295,6 @@ if (isset($_POST['submitted'])) {
 </section>
 <!--/bottom-->
 
-
 <!--Footer-->
 <footer id="footer">
     <div class="container">
@@ -314,40 +329,36 @@ if (isset($_POST['submitted'])) {
     </div>
     <!--Modal Body-->
     <div class="modal-body">
-        <form id='login' class="form-inline" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="post"
+        <form id='login' class="form-horizontal" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="post"
               id="form-login">
 
-            <input type='hidden' name='submitted' id='submitted' value='1'/>
+            <input type='hidden' name='submitted_login' id='submitted_login' value='1'/>
 
-            <input type='text' placeholder="Username" name='username' id='username'
-                   value='<?php echo $fgmembersite->SafeDisplay('username') ?>'
-                   maxlength="50" class="input-large btn-block"/>
-            <span id='login_password_errorloc' class='error'></span>
-            <br>
-            <br>
+            <div class="form-group">
+                <!-- Username -->
+                <div class='container'>
+                    <input type='text' class="input-xxlarge custom_login_form_input_size" name='username' id='username' placeholder="Username"
+                           value='<?php echo $fgmembersite->SafeDisplay(' username ') ?>' maxlength="50" style="width: 30%; min-height: 50px; margin-bottom: 10px"/>
+                    <span id='login_username_errorloc' class='error'></span>
+                </div>
+            </div>
 
-            <input type='password' name='password' id='password' maxlength="50"
-                   placeholder="Password" class="input-large btn-block"/>
+            <div class="form-group">
+                <!-- Password -->
+                <div class='container'>
+                    <input type='password' class="input-xxlarge" name='password' id='password' placeholder="Password"
+                           maxlength="50" style="width: 30%; min-height: 50px"/>
+                    <span id='login_password_errorloc' class='error' style='clear:both'></span>
+                </div>
+            </div>
 
-            <span id='login_username_errorloc' class='error'></span>
-            <br>
-            <br>
-
-
-            <label class="checkbox pull-right">
-                <input type="checkbox"> Remember me
-
-            </label>
             <div>
-                <input type='submit' name='Submit' value='Submit'
-                       class="btn btn-success btn-large"/>
-                <!--                <button type="submit" class="btn btn-primary btn-block btn-large col-xs-6 pull-right">Sign In</button>-->
-                <a href="register.php" class="btn btn-success btn-large"
-                   role="button">Sign Up</a>
+                <legend></legend>
+                <input type='submit' name='Submit' value='Submit' class="btn-large custom_button_size" style="float: left; width: 30%; height: 50px"/>
+                <a href="register.php" class="btn-primary btn-large text-center" role="button" style="float: right; width: 30%; height: 30px; font-size: 22px">Sign Up</a>
             </div>
 
         </form>
-        <a href="reset-pwd-req.php">Forgot your password?</a>
     </div>
     <!--/Modal Body-->
 </div>

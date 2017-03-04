@@ -1,7 +1,7 @@
 <?PHP
 require_once("./include/fg_membersite.php");
 
-$fgmembersite = new FGMembersite("smtp.gmail.com", 587, "adityaraj5252@gmail.com", "adityaraj52");
+$fgmembersite = new FGMembersite("smtp.gmail.com", 587, "adityaraj5252@gmail.com", "adityaraj123");
 
 //Provide your site name here
 $fgmembersite -> SetWebsiteName('BusinessSimulation.com');
