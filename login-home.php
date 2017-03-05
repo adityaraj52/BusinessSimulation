@@ -24,7 +24,6 @@ if (!$fgmembersite->CheckLogin()) {
     <link rel="stylesheet" href="css/formsignin.css">
     <link rel="stylesheet" href="css/mySettings.css">
 
-
     <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 
     <!-- Le fav and touch icons -->
