@@ -20,8 +20,7 @@ http://www.html-form-guide.com/php-form/php-login-form.html
 */
 
 require_once('/Applications/AMPPS/www/BusinessSimulation/resources/library/phpmailer/PHPMailerAutoload.php');
-//require_once('../library/phpmailer/PHPMailerAutoload.php');
-//require_once("../include/membersite_config.php");
+require_once("membersite_config.php");
 require_once("formvalidator.php");
 
 class FGMembersite
@@ -54,6 +53,13 @@ class FGMembersite
         $mailer->Password = $this->my_serpassword; // SMTP password
         //$mailer->SMTPDebug = 2;
         $mailer->SMTPSecure = 'tls';
+
+        $mailer->SMTPOptions = array(
+            'ssl' => array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+            ));
         return $mailer;
     }
 
@@ -184,6 +190,13 @@ class FGMembersite
             return false;
         }
         return true;
+    }
+
+    function CheckUserRole(){
+        if( isset($_SESSION['name_of_user']))
+        {
+            return (($_SESSION['role_of_user']) == 'Administrator')? true : false;
+        }
     }
 
     function UserFullName()
@@ -418,7 +431,7 @@ class FGMembersite
         }
         $confirmcode = $this->SanitizeForSQL($_GET['code']);
 
-        $result = mysqli_query($this->connection,"Select name, email from $this->tablename where confirmcode='$confirmcode'",$this->connection);
+        $result = mysqli_query($this->connection,"Select name, email from $this->tablename where confirmcode='$confirmcode'");
         if(!$result || mysqli_num_rows($result) <= 0)
         {
             $this->HandleError("Wrong confirm code.");
@@ -430,7 +443,7 @@ class FGMembersite
 
         $qry = "Update $this->tablename Set confirmcode='y' Where  confirmcode='$confirmcode'";
 
-        if(!mysqli_query($this->connection, $qry ,$this->connection))
+        if(!mysqli_query($this->connection, $qry))
         {
             $this->HandleDBError("Error inserting data to the table\nquery:$qry");
             return false;
@@ -655,20 +668,18 @@ class FGMembersite
     function SendUserConfirmationEmail(&$formvars)
     {
         $mailer = $this->createPHPMailer();
-
-        $mailer->CharSet = 'utf-8';
-
         $mailer->AddAddress($this->admin_email, $formvars['name']);
-        
-        // $mailer->AddAddress($formvars['email'],$formvars['name']); 
-
         $mailer->Subject = "New User Registration".$this->sitename;
-
         $mailer->From = "noreply@BusinessSimulation.com";//$this->GetFromAddress();
-
         $confirmcode = $formvars['confirmcode'];
-
         $confirm_url = $this->GetAbsoluteURLFolder().'/confirmreg.php?code='.$confirmcode;
+        $mailer->SMTPOptions = array(
+            'ssl' => array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+            )
+        );
 
         $mailer->Body ="Hello ".$formvars['name'].",\r\n\r\n".
             "<br><br>A new user has registered on ".$this->sitename."\r\n<br><br>".
@@ -681,8 +692,8 @@ class FGMembersite
 
         if(!$mailer->Send())
         {
-            $this->HandleError("Failed sending registration confirmation email.<br>There might be wrong server configuration.<br>
-                                Please check Username and password in $fgmembersite configuration");
+            $this->HandleError("Failed sending registration confirmation email.There might be wrong server configuration.
+                                Please check Username and password in configuration");
             return false;
         }
         return true;
@@ -757,7 +768,7 @@ class FGMembersite
     {
         $field_val = $this->SanitizeForSQL($formvars[$fieldname]);
         $qry = "select username from $this->tablename where $fieldname='".$field_val."'";
-        $result = mysqli_query($this->connection,$qry,$this->connection);
+        $result = mysqli_query($this->connection,$qry);
         if($result && mysqli_num_rows($result) > 0)
         {
             return false;
@@ -812,7 +823,7 @@ class FGMembersite
             "PRIMARY KEY ( id_user )".
             ")";
 
-        if(!mysqli_query($this->connection,$qry,$this->connection))
+        if(!mysqli_query($this->connection,$qry))
         {
             $this->HandleDBError("Error creating the table \nquery was\n $qry");
             return false;
@@ -844,7 +855,7 @@ class FGMembersite
                 "' . md5($formvars['password']) . '",
                 "' . $confirmcode . '"
                 )';
-        if(!mysqli_query($this->connection, $insert_query ,$this->connection))
+        if(!mysqli_query($this->connection, $insert_query ))
         {
             $this->HandleDBError("Error inserting data to the table\nquery:$insert_query");
             return false;
