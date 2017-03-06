@@ -20,7 +20,7 @@ if (!$fgmembersite->CheckLogin() ||
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <title>Administration controls</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -37,12 +37,13 @@ if (!$fgmembersite->CheckLogin() ||
 
 </head>
 
-<body>
+<body onload="viewData()">
 
 <!--<!--Header-->
 <header class="navbar navbar-fixed-top">
     <div class="navbar-inner">
-        <a href="#menu-toggle" class="btn btn-large pull-left" id="menu-toggle" style="width: 210px; height: 15px; margin-top: 0cm; margin-bottom: 0cm">Hide SideBar</a>
+        <a href="#menu-toggle" class="btn btn-large pull-left" id="menu-toggle"
+           style="width: 210px; height: 15px; margin-top: 0cm; margin-bottom: 0cm">Hide SideBar</a>
 
         <div class="container-fluid">
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -55,19 +56,19 @@ if (!$fgmembersite->CheckLogin() ||
                 <ul class="nav">
                     <li class="active"><a href="index.php">Home</a></li>
 
-                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="#">About Us</a></li>
 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Business Simulation <i
                                     class="icon-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="career.html">Educational Concept</a></li>
-                            <li><a href="blog-item.html">Course Structure</a></li>
-                            <li><a href="faq.html">Experiences</a></li>
-                            <li><a href="pricing.html">Video</a></li>
+                            <li><a href="#">Educational Concept</a></li>
+                            <li><a href="#">Course Structure</a></li>
+                            <li><a href="#">Experiences</a></li>
+                            <li><a href="#">Video</a></li>
                             <li class="divider"></li>
-                            <li><a href="privacy.html">Privacy Policy</a></li>
-                            <li><a href="terms.html">Terms of Use</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Use</a></li>
                         </ul>
                     </li>
 
@@ -100,13 +101,12 @@ if (!$fgmembersite->CheckLogin() ||
 
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
+        <ul class="sidebar-nav nav-list">
             <li class="sidebar-brand">
                 <a href="#">
-                    Start Bootstrap
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="#">Dashboard</a>
             </li>
             <li>
@@ -135,26 +135,42 @@ if (!$fgmembersite->CheckLogin() ||
     <div id="page-content-wrapper">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12">
-                    <h1>Simple Sidebar</h1>
-
-                    <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller
-                        screens, and will appear non-collapsed on larger screens. When toggled using the button below,
-                        the menu will appear/disappear. On small screens, the page content will be pushed off
-                        canvas.</p>
-                    <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-
+                <div class="col-lg-4" style="margin-top: 1cm">
+                    <h1 align="center">Membership Information</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div>
+                    <!--                    <h2>Contextual Classes</h2>-->
+                    <!--                    <p>Classes used are: .active, .success, .info, .warning, and .danger.</p>-->
+                    <table id="tableedit" class="table table-bordered">
+                        <thead style="text-align: center" align="center">
+                        <tr>
+                            <th align="center">Id</th>
+                            <th align="center">Name</th>
+                            <th align="center">Email</th>
+                            <th align="center">University</th>
+                            <th align="center">Username</th>
+                            <th align="center">Role</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
     <!-- /#page-content-wrapper -->
-
 </div>
 <!-- /#wrapper -->
 
 <!-- jQuery -->
 <script src="resources/library/scripts/others/jquery-slim.min.js"></script>
+<script src="js/vendor/jquery-1.9.1.min.js"></script>
+<script src="js/jquery.tabledit.js"></script>
+<script src="js/jquery.tabledit.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="resources/library/scripts/bootstrap/bootstrap.min.js"></script>
@@ -165,6 +181,71 @@ if (!$fgmembersite->CheckLogin() ||
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
+</script>
+
+<script>
+    function viewData() {
+        $.ajax({
+            url: 'process.php?p=view',
+            method: 'GET'
+        }).done(function (data) {
+            $('tbody').html(data)
+            tableData()
+        })
+    }
+
+    function tableData() {
+        $('#tableedit').Tabledit({
+            url: 'process.php',
+            eventType: 'dblclick',
+            editButton: true,
+            deleteButton: true,
+            hideIdentifier: true,
+            buttons: {
+                edit: {
+                    class: 'btn btn-sm btn-warning',
+                    html: '<span class="glyphicon glyphicon-pencil"></span> Edit',
+                    action: 'edit'
+                },
+                delete: {
+                    class: 'btn btn-sm btn-danger',
+                    html: '<span class="glyphicon glyphicon-trash"></span> Trash',
+                    action: 'delete'
+                },
+                save: {
+                    class: 'btn btn-sm btn-success',
+                    html: 'Save'
+                },
+                restore: {
+                    class: 'btn btn-sm btn-warning',
+                    html: 'Restore',
+                    action: 'restore'
+                },
+                confirm: {
+                    class: 'btn btn-sm btn-default',
+                    html: 'Confirm'
+                }
+            },
+            columns: {
+                identifier: [0, 'id_user'],
+                editable: [[1, 'name'], [2, 'email'], [3, 'university', '{"1": "TU Clausthal", "2": "Vancouver Island University", "3": "University of Tyumen", "4":"Tallin University"}'], [4, 'username'],[5, 'role', '{"1": "Guest", "2": "Member", "3": "Professor", "4": "Administrator"}']]
+            },
+            onSuccess: function (data, textStatus, jqXHR) {
+                viewData();
+            },
+            onFail: function (jqXHR, textStatus, errorThrown) {
+                console.log('onFail(jqXHR, textStatus, errorThrown)');
+                console.log(jqXHR);
+                console.log(textStatus);
+                console.log(errorThrown);
+            },
+            onAjax: function (action, serialize) {
+                console.log('onAjax(action, serialize)');
+                console.log(action);
+                console.log(serialize);
+            }
+        });
+    }
 </script>
 
 </body>

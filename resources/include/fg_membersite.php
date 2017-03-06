@@ -81,7 +81,6 @@ class FGMembersite
         $this->pwd  = $pwd;
         $this->database  = $database;
         $this->tablename = $tablename;
-
     }
 
     function SetAdminEmail($email)
@@ -815,11 +814,12 @@ class FGMembersite
             "id_user INT NOT NULL AUTO_INCREMENT ,".
             "name VARCHAR( 128 ) NOT NULL ,".
             "email VARCHAR( 64 ) NOT NULL ,".
-            "university VARCHAR( 16 ) NOT NULL ,".
+            "university ENUM('TU Clausthal', 'Vancouver Island University', 'University of Tyumen', 'Tallin University') NOT NULL ,".
             "username VARCHAR( 16 ) NOT NULL ,".
             "password VARCHAR( 32 ) NOT NULL ,".
             "confirmcode VARCHAR(32) ,".
             "role ENUM('Guest','Member','Professor','Administrator') DEFAULT 'Guest', ".
+            "deleted INT NOT NULL DEFAULT '0', ".
             "PRIMARY KEY ( id_user )".
             ")";
 
@@ -914,6 +914,29 @@ class FGMembersite
             $str = stripslashes($str);
         }
         return $str;
+    }
+
+    function getEntireDatabase()
+    {
+        if($this->CheckUserRole()){
+            if(!$this->DBLogin())
+            {
+                $this->HandleError("Database login failed!");
+                return false;
+            }
+
+            $query = "SELECT * FROM $this->tablename ORDER BY 'role'";
+            $result = mysqli_query($this->connection, $query);
+
+            while($row = $result->fetch_array())
+            {
+                $rows[] = $row;
+            }
+            return $rows;
+
+            /* free result set */
+            $result->close();
+        }
     }
 }
 ?>
