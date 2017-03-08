@@ -105,6 +105,16 @@ if (!$fgmembersite->CheckLogin()) {
                             <li><a href="dashboard.php">Manage Users</a></li>
                             <?php
                             }
+                            else if ($fgmembersite->UserRole() == 'Professor') {
+                                ?>
+                                <li><a href="dashboard.php">Manage Students</a></li>
+                                <?php
+                            }
+                            else {
+                                ?>
+                                <li><a href="dashboard.php">My Profile</a></li>
+                                <?php
+                            }
                             ?>
                         </ul>
                     </li>

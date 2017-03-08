@@ -4,8 +4,8 @@ require_once("resources/include/membersite_config.php");
 if (!$fgmembersite->CheckLogin() ||
     !$fgmembersite->CheckUserRole()
 ) {
-    $fgmembersite->RedirectToURL("index.php");
-    exit;
+//    $fgmembersite->RedirectToURL("index.php");
+//    exit;
 }
 ?>
 
@@ -110,7 +110,7 @@ if (!$fgmembersite->CheckLogin() ||
                 <a href="#">Dashboard</a>
             </li>
             <li>
-                <a href="#">Shortcuts</a>
+                <a href="#"><?echo ($_SESSION['email_of_user']); ?></a>
             </li>
             <li>
                 <a href="#">Overview</a>
@@ -145,15 +145,16 @@ if (!$fgmembersite->CheckLogin() ||
                 <div>
                     <!--                    <h2>Contextual Classes</h2>-->
                     <!--                    <p>Classes used are: .active, .success, .info, .warning, and .danger.</p>-->
-                    <table id="tableedit" class="table table-bordered">
-                        <thead style="text-align: center" align="center">
+                    <table id="tableedit" align="center" class="table tab-content table-striped" style="max-width: 1024px">
+                        <thead>
                         <tr>
-                            <th align="center">Id</th>
-                            <th align="center">Name</th>
-                            <th align="center">Email</th>
-                            <th align="center">University</th>
-                            <th align="center">Username</th>
-                            <th align="center">Role</th>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>University</th>
+                            <th>Username</th>
+                            <th>Role</th>
+                            <th id="toggle-sidebar">Edit/Delete</th>
                         </tr>
                         </thead>
                         <tbody></tbody>
@@ -186,7 +187,7 @@ if (!$fgmembersite->CheckLogin() ||
 <script>
     function viewData() {
         $.ajax({
-            url: 'process.php?p=view',
+            url: 'process.php?p=<?echo ($_SESSION['email_of_user']); ?>',
             method: 'GET'
         }).done(function (data) {
             $('tbody').html(data)
@@ -201,6 +202,7 @@ if (!$fgmembersite->CheckLogin() ||
             editButton: true,
             deleteButton: true,
             hideIdentifier: true,
+            confirm: true,
             buttons: {
                 edit: {
                     class: 'btn btn-sm btn-warning',
@@ -228,7 +230,18 @@ if (!$fgmembersite->CheckLogin() ||
             },
             columns: {
                 identifier: [0, 'id_user'],
-                editable: [[1, 'name'], [2, 'email'], [3, 'university', '{"1": "TU Clausthal", "2": "Vancouver Island University", "3": "University of Tyumen", "4":"Tallin University"}'], [4, 'username'],[5, 'role', '{"1": "Guest", "2": "Member", "3": "Professor", "4": "Administrator"}']]
+                <?php
+                    if($_SESSION['role_of_user'] == 'Administrator'){
+                ?>
+                editable: [[1, 'name'], [2, 'email'], [3, 'university', '{"1": "TU Clausthal", "2": "Vancouver Island University", "3": "University of Tyumen", "4":"Tallin University"}'], [4, 'username'], [5, 'role', '{"1": "Guest", "2": "Member", "3": "Professor", "4": "Administrator"}']]
+                <?php
+                }
+                else if($_SESSION['role_of_user'] == 'Professor'){
+                ?>
+                editable: [[1, 'name'], [2, 'email'], [3, 'university', '{"1": "TU Clausthal", "2": "Vancouver Island University", "3": "University of Tyumen", "4":"Tallin University"}'], [4, 'username']]
+                <?php
+                }
+                ?>
             },
             onSuccess: function (data, textStatus, jqXHR) {
                 viewData();

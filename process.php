@@ -1,5 +1,4 @@
 <?php
-
 $mysqli = new mysqli('localhost', 'root', 'mysql', 'testdb');
 
 if (mysqli_connect_errno()) {
@@ -9,30 +8,30 @@ if (mysqli_connect_errno()) {
 
 $page = isset($_GET['p']) ? $_GET['p'] : '';
 
-if ($page == 'view') {
-    $result = $mysqli->query("SELECT * FROM fgusers3 WHERE DELETED !='1' ORDER BY role DESC");
+if ($page != '') {
+
+    $my_data = $mysqli->query("SELECT university, role FROM fgusers3 WHERE email='$page'")->fetch_assoc();
+
+    $my_role = $my_data['role'];
+    $my_uni = $my_data['university'];
+
+    if($my_data['role'] == 'Administrator')
+        $result = $mysqli->query("SELECT * FROM fgusers3 WHERE (DELETED !='1') ORDER BY role DESC");
+    else if($my_data['role'] == 'Professor')
+        $result = $mysqli->query("SELECT * FROM fgusers3 WHERE (DELETED !='1') AND ( (role='Member' ) || (email='$page') ) AND (university='$my_uni') ");
+    else
+        $result = $mysqli->query("SELECT * FROM fgusers3 WHERE (DELETED !='1') AND (email='$page') ");
+
+    if($result)
     while ($row = $result->fetch_assoc()) {
-        $class = "";
-        if($row['role'] == 'Administrator'){
-            $class = "danger";
-        }
-        else if($row['role'] == 'Member'){
-            $class = "success";
-        }
-        else if($row['role'] == 'Member'){
-            $class = "warning";
-        }
-        else{
-            $class = "active";
-        }
         ?>
         <tr>
-            <td><?php echo($row['id_user']) ?></td>
-            <td><?php echo($row['name']) ?></td>
-            <td><?php echo($row['email']) ?></td>
-            <td><?php echo($row['university']) ?></td>
-            <td><?php echo($row['username']) ?></td>
-            <td><?php echo($row['role']) ?></td>
+            <td><?php echo($row['id_user']); ?></td>
+            <td><?php echo($row['name']); ?></td>
+            <td><?php echo($row['email']); ?></td>
+            <td><?php echo($row['university']); ?></td>
+            <td><?php echo($row['username']); ?></td>
+            <td><?php echo($row['role']); ?></td>
         </tr>
         <?php
     }
