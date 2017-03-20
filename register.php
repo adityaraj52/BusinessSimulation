@@ -1,5 +1,5 @@
 <?PHP
-require_once('resources/include/membersite_config.php');
+require_once('resources/phpmail/include/membersite_config.php');
 
 if (isset($_POST['submitted'])) {
     if ($fgmembersite->RegisterUser()) {
@@ -23,17 +23,16 @@ if (isset($_POST['submitted_login'])) {
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/sl-slide.css">
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/others/css/main.css">
+    <link rel="stylesheet" href="vendor/slider/css/sl-slide.css">
 
-    <link rel="stylesheet" href="css/formsignin.css">
-    <link rel="stylesheet" href="css/mySettings.css">
+    <link rel="stylesheet" href="vendor/others/css/formsignin.css">
+    <link rel="stylesheet" href="vendor/others/css/mySettings.css">
 
-
-    <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="vendor/others/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="images/ico/favicon.ico">
@@ -327,9 +326,9 @@ if (isset($_POST['submitted_login'])) {
 </footer>
 <!--/Footer-->
 
-<script src="js/vendor/jquery-1.9.1.min.js"></script>
-<script src="js/vendor/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
+<script src="vendor/jquery/jquery-1.9.1.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/others/js/main.js"></script>
 
 <!-- form validation -->
 <script type='text/javascript'>

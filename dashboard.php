@@ -1,11 +1,11 @@
 <?PHP
-require_once("resources/include/membersite_config.php");
+require_once("resources/phpmail/include/membersite_config.php");
 
 if (!$fgmembersite->CheckLogin() ||
     !$fgmembersite->CheckUserRole()
 ) {
-//    $fgmembersite->RedirectToURL("index.php");
-//    exit;
+    $fgmembersite->RedirectToURL("index.php");
+    exit;
 }
 ?>
 
@@ -13,7 +13,6 @@ if (!$fgmembersite->CheckLogin() ||
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
@@ -23,10 +22,11 @@ if (!$fgmembersite->CheckLogin() ||
     <title>Administration controls</title>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap-grid.min.css">
 
     <!-- Custom CSS -->
-    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="vendor/others/css/simple-sidebar.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -42,56 +42,51 @@ if (!$fgmembersite->CheckLogin() ||
 <!--<!--Header-->
 <header class="navbar navbar-fixed-top">
     <div class="navbar-inner">
-        <a href="#menu-toggle" class="btn btn-large pull-left" id="menu-toggle"
-           style="width: 210px; height: 15px; margin-top: 0cm; margin-bottom: 0cm">Hide SideBar</a>
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </a>
 
-        <div class="container-fluid">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
+        <div class="nav-collapse collapse pull-right">
+            <ul class="nav">
+                <li class="active"><a href="index.php">Home</a></li>
 
-            <div class="nav-collapse collapse pull-right">
-                <ul class="nav">
-                    <li class="active"><a href="index.php">Home</a></li>
+                <li><a href="#">About Us</a></li>
 
-                    <li><a href="#">About Us</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Business Simulation <i
+                                class="icon-angle-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Educational Concept</a></li>
+                        <li><a href="#">Course Structure</a></li>
+                        <li><a href="#">Experiences</a></li>
+                        <li><a href="#">Video</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                    </ul>
+                </li>
 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Business Simulation <i
-                                    class="icon-angle-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Educational Concept</a></li>
-                            <li><a href="#">Course Structure</a></li>
-                            <li><a href="#">Experiences</a></li>
-                            <li><a href="#">Video</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Use</a></li>
-                        </ul>
-                    </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">International Partners <i
+                                class="icon-angle-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="career.html">Tallin University</a></li>
+                        <li><a href="blog-item.html">Vancouver Island University</a></li>
+                        <li><a href="faq.html">University of TyumenI</a></li>
+                        <li><a href="pricing.html">Costs</a></li>
+                        <li class="divider"></li>
+                        <li><a href="privacy.html">Participate</a></li>
+                        <li><a href="terms.html">Terms of Use</a></li>
+                    </ul>
+                </li>
 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">International Partners <i
-                                    class="icon-angle-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="career.html">Tallin University</a></li>
-                            <li><a href="blog-item.html">Vancouver Island University</a></li>
-                            <li><a href="faq.html">University of TyumenI</a></li>
-                            <li><a href="pricing.html">Costs</a></li>
-                            <li class="divider"></li>
-                            <li><a href="privacy.html">Participate</a></li>
-                            <li><a href="terms.html">Terms of Use</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a href="contact-us.html">Contact</a></li>
-                    <li class="login">
-                        <a href="login.php"><i class="icon-lock"> Member Login </i></a>
-                    </li>
-                </ul>
-            </div>
+                <li><a href="contact-us.html">Contact</a></li>
+                <li class="login">
+                    <a href="login.php"><i class="icon-lock"> Member Login </i></a>
+                </li>
+            </ul>
         </div>
     </div>
 </header>
@@ -110,7 +105,7 @@ if (!$fgmembersite->CheckLogin() ||
                 <a href="#">Dashboard</a>
             </li>
             <li>
-                <a href="#"><?echo ($_SESSION['email_of_user']); ?></a>
+                <a href="#"><? echo($_SESSION['email_of_user']); ?></a>
             </li>
             <li>
                 <a href="#">Overview</a>
@@ -135,7 +130,7 @@ if (!$fgmembersite->CheckLogin() ||
     <div id="page-content-wrapper">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-4" style="margin-top: 1cm">
+                <div class="col-lg-12" style="margin-top: 1cm">
                     <h1 align="center">Membership Information</h1>
                 </div>
             </div>
@@ -145,7 +140,8 @@ if (!$fgmembersite->CheckLogin() ||
                 <div>
                     <!--                    <h2>Contextual Classes</h2>-->
                     <!--                    <p>Classes used are: .active, .success, .info, .warning, and .danger.</p>-->
-                    <table id="tableedit" align="center" class="table tab-content table-striped" style="max-width: 1024px">
+                    <table id="tableedit" align="center" class="table tab-content table-striped"
+                           style="max-width: 1024px">
                         <thead>
                         <tr>
                             <th>Id</th>
@@ -154,7 +150,7 @@ if (!$fgmembersite->CheckLogin() ||
                             <th>University</th>
                             <th>Username</th>
                             <th>Role</th>
-                            <th id="toggle-sidebar">Edit/Delete</th>
+                            <th>Edit/Delete</th>
                         </tr>
                         </thead>
                         <tbody></tbody>
@@ -168,13 +164,13 @@ if (!$fgmembersite->CheckLogin() ||
 <!-- /#wrapper -->
 
 <!-- jQuery -->
-<script src="resources/library/scripts/others/jquery-slim.min.js"></script>
-<script src="js/vendor/jquery-1.9.1.min.js"></script>
-<script src="js/jquery.tabledit.js"></script>
-<script src="js/jquery.tabledit.min.js"></script>
+<script src="vendor/jquery/jquery-slim.min.js"></script>
+<script src="vendor/jquery/jquery-1.9.1.min.js"></script>
+<script src="vendor/jquery/jquery.tabledit.js"></script>
+<script src="vendor/jquery/jquery.tabledit.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="resources/library/scripts/bootstrap/bootstrap.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
 <!-- Menu Toggle Script -->
 <script>
@@ -187,7 +183,7 @@ if (!$fgmembersite->CheckLogin() ||
 <script>
     function viewData() {
         $.ajax({
-            url: 'process.php?p=<?echo ($_SESSION['email_of_user']); ?>',
+            url: 'process.php?p=<?echo($_SESSION['email_of_user']); ?>',
             method: 'GET'
         }).done(function (data) {
             $('tbody').html(data)
@@ -231,7 +227,7 @@ if (!$fgmembersite->CheckLogin() ||
             columns: {
                 identifier: [0, 'id_user'],
                 <?php
-                    if($_SESSION['role_of_user'] == 'Administrator'){
+                if($_SESSION['role_of_user'] == 'Administrator'){
                 ?>
                 editable: [[1, 'name'], [2, 'email'], [3, 'university', '{"1": "TU Clausthal", "2": "Vancouver Island University", "3": "University of Tyumen", "4":"Tallin University"}'], [4, 'username'], [5, 'role', '{"1": "Guest", "2": "Member", "3": "Professor", "4": "Administrator"}']]
                 <?php

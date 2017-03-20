@@ -1,0 +1,48 @@
+.custom_login_form_input_size{
+    width: 45%;
+    height: 40%;
+}
+
+/*.container {*/
+    /*position: relative;*/
+    /*margin-top: 50px;*/
+    /*width: 500px;*/
+    /*height: 300px;*/
+/*}*/
+
+input[type="file"] {
+    opacity:1;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+img {
+    position: fixed;
+    width: 230px;
+    height: 100px;
+    margin-left: -7px;
+    margin-right: 0px;
+}
+
+.uploadButton input[type="file"] {
+    cursor:pointer;
+    position:absolute;
+    top:0px;
+    opacity:0;
+}
+
+.uploadButton {
+    position:relative;
+    overflow:hidden;
+    height:128px;
+    cursor:pointer;
+    width:128px;
+    background-image: url("../../../images/ico/upload_image.png");;
+    opacity:0;
+}
+.uploadButton:hover {
+    opacity:1;
+}
