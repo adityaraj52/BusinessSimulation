@@ -130,6 +130,25 @@ class FGMembersite
         return true;
     }
 
+    function UpdateProfile()
+    {
+        if(!isset($_POST['submitted']))
+        {
+            return false;
+        }
+
+        $formvars = array();
+
+        $this->CollectProfileUpdateInformation($formvars);
+
+        if(!$this->SaveProfileUpdateToDatabase($formvars))
+        {
+            return false;
+        }
+
+        return true;
+    }
+
     function ConfirmUser()
     {
         if(empty($_GET['code'])||strlen($_GET['code'])<=10)
@@ -639,7 +658,6 @@ class FGMembersite
         $validator->addValidation("username","req","Please fill in UserName");
         $validator->addValidation("password","req","Please fill in Password");
 
-
         if(!$validator->ValidateForm())
         {
             $error='';
@@ -662,6 +680,23 @@ class FGMembersite
         $formvars['password'] = $this->Sanitize($_POST['password']);
         $formvars['university'] = $this->Sanitize($_POST['university']);
 
+    }
+
+    function CollectProfileUpdateInformation(&$formvars)
+    {
+        $formvars['title'] = $this->Sanitize($_POST['title']);
+        $formvars['gender'] = $this->Sanitize($_POST['gender']);
+        $formvars['name'] = $this->Sanitize($_POST['name']);
+        $formvars['public_email'] = $this->Sanitize($_POST['public_email']);
+        $formvars['telephone'] = $this->Sanitize($_POST['telephone']);
+        $formvars['skype'] = $this->Sanitize($_POST['skype']);
+        $formvars['faculty'] = $this->Sanitize($_POST['faculty']);
+        $formvars['date_of_birth'] = $this->Sanitize($_POST['date_of_birth']);
+        $formvars['place_of_birth'] = $this->Sanitize($_POST['place_of_birth']);
+        $formvars['address'] = $this->Sanitize($_POST['address']);
+        $formvars['website'] = $this->Sanitize($_POST['website']);
+        $formvars['interest'] = $this->Sanitize($_POST['interest']);
+        $formvars['biography'] = $this->Sanitize($_POST['biography']);
     }
 
     function uploadImage(&$formvars)
@@ -706,7 +741,6 @@ class FGMembersite
         $mailer = $this->createPHPMailer();
         $mailer->AddAddress($this->admin_email, $formvars['name']);
         $mailer->Subject = "New User Registration".$this->sitename;
-        $mailer->From = "noreply@BusinessSimulation.com";//$this->GetFromAddress();
         $confirmcode = $formvars['confirmcode'];
         $confirm_url = $this->GetAbsoluteURLFolder().'/confirmreg.php?code='.$confirmcode;
         $mailer->SMTPOptions = array(
@@ -800,6 +834,30 @@ class FGMembersite
         return true;
     }
 
+    function SaveProfileUpdateToDatabase(&$formvars)
+    {
+        if(!$this->DBLogin())
+        {
+            $this->HandleError("Database login failed!");
+            return false;
+        }
+//        if(!$this->Ensuretable())
+//        {
+//            return false;
+//        }
+//        if(!$this->IsFieldUnique($formvars,'email'))
+//        {
+//            $this->HandleError("This email is already used");
+//            return false;
+//        }
+        if(!$this->InsertProfileUpdateIntoDB($formvars))
+        {
+            $this->HandleError("Inserting to Database failed!");
+            return false;
+        }
+        return true;
+    }
+
     function IsFieldUnique($formvars,$fieldname)
     {
         $field_val = $this->SanitizeForSQL($formvars[$fieldname]);
@@ -857,6 +915,18 @@ class FGMembersite
             "confirmcode VARCHAR(32) ,".
             "role ENUM('Guest','Member','Professor','Administrator') DEFAULT 'Guest', ".
             "deleted INT NOT NULL DEFAULT '0', ".
+            "title ENUM('Prof','Dr', 'Master', 'Bachelor', 'Mr.','Ms.') DEFAULT 'Mr.', ".
+            "gender ENUM('Female','Male') DEFAULT 'Male', ".
+            "public_email VARCHAR( 64 ),".
+            "telephone VARCHAR( 20 ),".
+            "skype VARCHAR( 20 ),".
+            "faculty VARCHAR( 64 ),".
+            "date_of_birth DATE NOT NULL,".
+            "place_of_birth VARCHAR( 64 ),".
+            "address VARCHAR( 64 ),".
+            "website VARCHAR( 64 ),".
+            "interest VARCHAR( 64 ),".
+            "biography VARCHAR( 300 ),".
             "PRIMARY KEY ( id_user )".
             ")";
 
@@ -893,6 +963,35 @@ class FGMembersite
                 "' . $confirmcode . '"
                 )';
         if(!mysqli_query($this->connection, $insert_query ))
+        {
+            $this->HandleDBError("Error inserting data to the table\nquery:$insert_query");
+            return false;
+        }
+        return true;
+    }
+
+    function InsertProfileUpdateIntoDB(&$formvars)
+    {
+        $query_stmt = "UPDATE fgusers3 SET 
+        
+        title='" . $this->SanitizeForSQL($formvars['title']) . "',
+        gender='" . $this->SanitizeForSQL($formvars['gender']) . "',
+        name='" . $this->SanitizeForSQL($formvars['name']) . "',
+        public_email='" . $this->SanitizeForSQL($formvars['public_email']) . "',
+        telephone='" . $this->SanitizeForSQL($formvars['telephone']) . "',
+        skype='" . $this->SanitizeForSQL($formvars['skype']) . "',
+        faculty='" . $this->SanitizeForSQL($formvars['faculty']) . "',
+        date_of_birth='" . $this->SanitizeForSQL($formvars['date_of_birth']) . "',
+        place_of_birth='" . $this->SanitizeForSQL($formvars['place_of_birth']) . "',
+        address='" . $this->SanitizeForSQL($formvars['address']) . "',
+        website='" . $this->SanitizeForSQL($formvars['website']) . "',
+        interest='" . $this->SanitizeForSQL($formvars['interest']) . "',
+        biography='" . $this->SanitizeForSQL($formvars['biography']) . "'
+        
+        WHERE email= '" . $this->UserEmail() . "'";
+
+
+        if(!mysqli_query($this->connection, $query_stmt ))
         {
             $this->HandleDBError("Error inserting data to the table\nquery:$insert_query");
             return false;

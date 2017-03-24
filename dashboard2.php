@@ -1,11 +1,17 @@
 <?PHP
-require_once("resources/phpmail/include/membersite_config.php");
+require_once('resources/phpmail/include/membersite_config.php');
 
 if (!$fgmembersite->CheckLogin() ||
     !$fgmembersite->CheckUserRole()
 ) {
 //    $fgmembersite->RedirectToURL("index.php");
 //    exit;
+}
+
+if (isset($_POST['submitted'])) {
+    if ($fgmembersite->UpdateProfile()) {
+        $fgmembersite->RedirectToURL("dashboard2.php");
+    }
 }
 
 ?>
@@ -117,15 +123,16 @@ if (!$fgmembersite->CheckLogin() ||
 
             <li>
                 <form id="form-profilepic" action="http://www.google.com" onsubmit="">
-                <div class="container">
-                 <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" class="img-thumbnail img-circle img-responsive" "/>
-                    <div style="padding:100px;">
-                        <div class="uploadButton">
-                            <input type="file" id = "file-profilepic" />
-                        </div>
+                    <div class="container">
+                        <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
+                             class="img-thumbnail img-circle img-responsive" "/>
+                        <div style="padding:100px;">
+                            <div class="uploadButton">
+                                <input type="file" id="file-profilepic"/>
+                            </div>
 
+                        </div>
                     </div>
-                </div>
                 </form>
             </li>
 
@@ -163,121 +170,152 @@ if (!$fgmembersite->CheckLogin() ||
                 </div>
             </div>
 
+            <form id='updateprofile' class="form-horizontal" action='<?php echo($fgmembersite->GetSelfScript()); ?>' method='post' accept-charset='UTF-8'>
+                <input type='hidden' name='submitted' id='submitted' value='1'/>
 
-            <div class="container-fluid">
-                <div class="col-lg-6" style="margin-top: 2cm">
+                <div class="container-fluid">
+                    <div class="col-lg-6" style="margin-top: 2cm">
 
-                    <div class="form-group row">
-                        <label for="example-text-input" class="col-3 col-form-label">Full Name</label>
-                        <div class="col-9">
-                            <input class="form-control input-block-level" type="text" value="Artisanal kale"
-                                   id="example-text-input">
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-3 col-form-label">Title</label>
+                            <div class="col-9">
+                                <select class="form-control input-block-level"  id="title" name='title' >
+                                    <option value="Prof.">Prof.</option>
+                                    <option value="Dr.">Dr.</option>
+                                    <option value="Master">Master</option>
+                                    <option value="Bachelor">Bachelor</option>
+                                    <option value="Mr.">Mr.</option>
+                                    <option value="Ms.">Mrs.</option>
+                                </select>
+                            </div>
                         </div>
+
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-3 col-form-label">Gender</label>
+                            <div class="col-9">
+                                <select class="form-control input-block-level"  id="gender" name='gender' >
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-3 col-form-label">Full Name</label>
+                            <div class="col-9">
+                                <input class="form-control input-block-level" type="text" value="<?php echo $fgmembersite->UserFullName()?>"
+                                       name='name' id='name'>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="example-email-input" class="col-3 col-form-label">Public Email</label>
+                            <div class="col-9">
+                                <input class="form-control input-block-level" type="email" value=""
+                                       name='public_email'
+                                       id='public_email'>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="example-tel-input" class="col-3 col-form-label">Telephone</label>
+                            <div class="col-9">
+                                <input class="form-control input-block-level" type="tel" value=""
+                                       id="telephone"
+                                       name="telephone">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="example-tel-input" class="col-3 col-form-label">Skype</label>
+                            <div class="col-9">
+                                <input class="form-control input-block-level" type="text" value=""
+                                       id="skype"
+                                       name="skype">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="example-tel-input" class="col-3 col-form-label">Study Major</label>
+                            <div class="col-9">
+                                <input class="form-control input-block-level" type="text" value=""
+                                       id="faculty"
+                                       name="faculty">
+                            </div>
+                        </div>
+
                     </div>
 
-                    <div class="form-group row">
-                        <label for="example-search-input" class="col-3 col-form-label">Search</label>
-                        <div class="col-9">
-                            <input class="form-control input-block-level" type="search" value="How do I shoot web"
-                                   id="example-search-input">
+                    <div class="col-lg-6" style="margin-top: 2cm">
+
+                        <div class="form-group row">
+                            <label for="example-datetime-local-input" class="col-3 col-form-label">Date Of Birth</label>
+                            <div class="col-9">
+                                <input class="form-control input-block-level" type="date"
+                                       value=""
+                                       id="date_of_birth"
+                                       name="date_of_birth">
+                            </div>
                         </div>
+
+                        <div class="form-group row">
+                            <label for="example-datetime-local-input" class="col-3 col-form-label">Place Of Birth</label>
+                            <div class="col-9">
+                                <input class="form-control input-block-level" type="text"
+                                       value=""
+                                       id="place_of_birth"
+                                       name="place_of_birth">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="example-color-input" class="col-3 col-form-label">Address</label>
+                            <div class="col-9">
+                                <input class="form-control input-block-level" type="text" value=""
+                                       id="address"
+                                       name="address">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="example-url-input" class="col-3 col-form-label">Personal URL</label>
+                            <div class="col-9">
+                                <input class="form-control input-block-level" type="url"
+                                       value=""
+                                       name="website"
+                                       id="website">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="example-search-input" class="col-3 col-form-label">Interests</label>
+                            <div class="col-9">
+                                <input class="form-control input-block-level" type="text" value=""
+                                       id="interest"
+                                       name="interest">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="example-search-input" class="col-3 col-form-label">Biography</label>
+                            <div class="col-9">
+                                <textarea class="input-block-level" placeholder="Describe yourself here..." name="biography" id="biography"></textarea>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <div class="form-group row">
-                        <label for="example-email-input" class="col-3 col-form-label">Email</label>
-                        <div class="col-9">
-                            <input class="form-control input-block-level" type="email" value="bootstrap@example.com"
-                                   id="example-email-input">
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="example-url-input" class="col-3 col-form-label">URL</label>
-                        <div class="col-9">
-                            <input class="form-control input-block-level" type="url" value="https://getbootstrap.com"
-                                   id="example-url-input">
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="example-tel-input" class="col-3 col-form-label">Telephone</label>
-                        <div class="col-9">
-                            <input class="form-control input-block-level" type="tel" value="1-(555)-555-5555" id="example-tel-input">
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="example-password-input" class="col-3 col-form-label">Password</label>
-                        <div class="col-9">
-                            <input class="form-control input-block-level" type="password" value="hunter2" id="example-password-input">
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="example-number-input" class="col-3 col-form-label">Number</label>
-                        <div class="col-9">
-                            <input class="form-control input-block-level" type="number" value="42" id="example-number-input">
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4"></div>
+                        <div class="col-lg-8">
+                            <button type="submit" class="btn btn-primary" style="width:50%; height: 100%">Update
+                            </button>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-6" style="margin-top: 2cm">
-                    <div class="form-group row">
-                        <label for="example-datetime-local-input" class="col-3 col-form-label">Date and time</label>
-                        <div class="col-9">
-                            <input class="form-control input-block-level" type="datetime-local" value="2011-08-19T13:45:00"
-                                   id="example-datetime-local-input">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="example-date-input" class="col-3 col-form-label">Date</label>
-                        <div class="col-9">
-                            <input class="form-control input-block-level" type="date" value="2011-08-19" id="example-date-input">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="example-month-input" class="col-3 col-form-label">Month</label>
-                        <div class="col-9">
-                            <input class="form-control input-block-level" type="month" value="2011-08" id="example-month-input">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="example-week-input" class="col-3 col-form-label">Week</label>
-                        <div class="col-9">
-                            <input class="form-control input-block-level" type="week" value="2011-W33" id="example-week-input">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="example-time-input" class="col-3 col-form-label">Time</label>
-                        <div class="col-9">
-                            <input class="form-control input-block-level" type="time" value="13:45:00" id="example-time-input">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="example-color-input" class="col-3 col-form-label">Color</label>
-                        <div class="col-9">
-                            <input class="form-control input-block-level" type="color" value="#563d7c" id="example-color-input">
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="example-color-input" class="col-3 col-form-label">Profile Photo</label>
-                        <div class="col-9">
-                            <input class="form-control input-block-level" type="file" value="#563d7c" id="example-color-input">
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-            <div class="container">
-            <div class="row">
-                <div class="col-lg-4"></div>
-                <div class="col-lg-8">
-                    <button type="submit" class="btn btn-primary" style="width:50%; height: 100%" >Update</button>
-                </div>
-            </div>
-            </div>
+            </form>
         </div>
         <!-- /#page-content-wrapper -->
     </div>
@@ -325,7 +363,7 @@ if (!$fgmembersite->CheckLogin() ||
             $("#wrapper").toggleClass("toggled");
         });
 
-        document.getElementById("file-profilepic").onchange = function() {
+        document.getElementById("file-profilepic").onchange = function () {
             document.getElementById("form-profilepic").submit();
         };
 
@@ -333,7 +371,7 @@ if (!$fgmembersite->CheckLogin() ||
             $('input[type="file"]').change(function () {
                 if ($(this).val() != "") {
                     $(this).css('color', '#333');
-                }else{
+                } else {
                     $(this).css('color', 'transparent');
                 }
             });
@@ -417,15 +455,15 @@ if (!$fgmembersite->CheckLogin() ||
         }
         }
 
-        $(function() {
-            $(".uploadButton").mousemove(function(e) {
+        $(function () {
+            $(".uploadButton").mousemove(function (e) {
                 var offL, offR, inpStart
                 offL = $(this).offset().left;
                 offT = $(this).offset().top;
-                aaa= $(this).find("input").width();
+                aaa = $(this).find("input").width();
                 $(this).find("input").css({
-                    left:e.pageX-aaa-30,
-                    top:e.pageY-offT-10
+                    left: e.pageX - aaa - 30,
+                    top: e.pageY - offT - 10
                 })
             });
         });
