@@ -101,11 +101,29 @@ if (!$fgmembersite->CheckLogin() ||
                 <a href="#">
                 </a>
             </li>
+
+            <li>
+                <form id="form-profilepic" action='<?php echo($fgmembersite->GetSelfScript()); ?>' method='post'
+                      enctype="multipart/form-data">
+                    <input type='hidden' name='image_submitted' id='image_submitted' value='1'/>
+                    <div class="container">
+                        <img src="<?php if (file_exists("images/uploads/" . $fgmembersite->UserEmail() . ".png"))
+                            echo("images/uploads/" . $fgmembersite->UserEmail() . ".png");
+                        else
+                            echo("http://s3.amazonaws.com/37assets/svn/765-default-avatar.png")
+                        ?>"
+                             class="img-thumbnail img-rounded img-responsive"  "/>
+                        <div style="padding:10px;">
+                        </div>
+                    </div>
+                </form>
+            </li>
+
             <li class="active">
                 <a href="#">Dashboard</a>
             </li>
             <li>
-                <a href="#"><? echo($_SESSION['email_of_user']); ?></a>
+                <a href="dashboard2.php">Profile Update</a>
             </li>
             <li>
                 <a href="#">Overview</a>

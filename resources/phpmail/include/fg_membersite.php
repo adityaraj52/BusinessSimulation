@@ -41,7 +41,8 @@ class FGMembersite
     var $my_sername;      // SMTP username
     var $my_serpassword;      // SMTP password
 
-    function createPHPMailer(){
+    function createPHPMailer()
+    {
         $mailer = new PHPMailer();
         $mailer->CharSet = 'utf-8';
         $mailer->IsSMTP();                                      // set mailer to use SMTP
@@ -74,12 +75,12 @@ class FGMembersite
         $this->my_serpassword = $p_ser_password;
     }
 
-    function InitDB($host,$uname,$pwd,$database,$tablename)
+    function InitDB($host, $uname, $pwd, $database, $tablename)
     {
-        $this->db_host  = $host;
+        $this->db_host = $host;
         $this->username = $uname;
-        $this->pwd  = $pwd;
-        $this->database  = $database;
+        $this->pwd = $pwd;
+        $this->database = $database;
         $this->tablename = $tablename;
     }
 
@@ -101,27 +102,23 @@ class FGMembersite
     //-------Main Operations ----------------------
     function RegisterUser()
     {
-        if(!isset($_POST['submitted']))
-        {
+        if (!isset($_POST['submitted'])) {
             return false;
         }
 
         $formvars = array();
 
-        if(!$this->ValidateRegistrationSubmission())
-        {
+        if (!$this->ValidateRegistrationSubmission()) {
             return false;
         }
 
         $this->CollectRegistrationSubmission($formvars);
 
-        if(!$this->SaveToDatabase($formvars))
-        {
+        if (!$this->SaveToDatabase($formvars)) {
             return false;
         }
 
-        if(!$this->SendUserConfirmationEmail($formvars))
-        {
+        if (!$this->SendUserConfirmationEmail($formvars)) {
             return false;
         }
 
@@ -132,8 +129,7 @@ class FGMembersite
 
     function UpdateProfile()
     {
-        if(!isset($_POST['submitted']))
-        {
+        if (!isset($_POST['submitted'])) {
             return false;
         }
 
@@ -141,24 +137,30 @@ class FGMembersite
 
         $this->CollectProfileUpdateInformation($formvars);
 
-        if(!$this->SaveProfileUpdateToDatabase($formvars))
-        {
+        if (!$this->SaveProfileUpdateToDatabase($formvars)) {
             return false;
         }
 
         return true;
     }
 
+    function CollectProfileData()
+    {
+        $formvars = array();
+
+        $this->CollectCurrentProfileInformation($formvars);
+
+        return $formvars;
+    }
+
     function ConfirmUser()
     {
-        if(empty($_GET['code'])||strlen($_GET['code'])<=10)
-        {
+        if (empty($_GET['code']) || strlen($_GET['code']) <= 10) {
             $this->HandleError("Please provide the confirm code");
             return false;
         }
         $user_rec = array();
-        if(!$this->UpdateDBRecForConfirmation($user_rec))
-        {
+        if (!$this->UpdateDBRecForConfirmation($user_rec)) {
             return false;
         }
 
@@ -171,14 +173,12 @@ class FGMembersite
 
     function Login()
     {
-        if(empty($_POST['username']))
-        {
+        if (empty($_POST['username'])) {
             $this->HandleError("UserName is empty!");
             return false;
         }
 
-        if(empty($_POST['password']))
-        {
+        if (empty($_POST['password'])) {
             $this->HandleError("Password is empty!");
             return false;
         }
@@ -186,9 +186,10 @@ class FGMembersite
         $username = trim($_POST['username']);
         $password = trim($_POST['password']);
 
-        if(!isset($_SESSION)){ session_start(); }
-        if(!$this->CheckLoginInDB($username,$password))
-        {
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+        if (!$this->CheckLoginInDB($username, $password)) {
             return false;
         }
 
@@ -199,36 +200,38 @@ class FGMembersite
 
     function CheckLogin()
     {
-        if(!isset($_SESSION)){ session_start(); }
+        if (!isset($_SESSION)) {
+            session_start();
+        }
 
         $sessionvar = $this->GetLoginSessionVar();
 
-        if(empty($_SESSION[$sessionvar]))
-        {
+        if (empty($_SESSION[$sessionvar])) {
             return false;
         }
         return true;
     }
 
-    function CheckUserRole(){
-        if( isset($_SESSION['name_of_user']))
-        {
-            return (($_SESSION['role_of_user']) == 'Administrator')? true : false;
+    function CheckUserRole()
+    {
+        if (isset($_SESSION['name_of_user'])) {
+            return (($_SESSION['role_of_user']) == 'Administrator') ? true : false;
         }
     }
 
     function UserFullName()
     {
-        return isset($_SESSION['name_of_user'])?$_SESSION['name_of_user']:'';
+        return isset($_SESSION['name_of_user']) ? $_SESSION['name_of_user'] : '';
     }
 
     function UserEmail()
     {
-        return isset($_SESSION['email_of_user'])?$_SESSION['email_of_user']:'';
+        return isset($_SESSION['email_of_user']) ? $_SESSION['email_of_user'] : '';
     }
 
-    function UserRole(){
-        return isset($_SESSION['name_of_user'])?$_SESSION['role_of_user']:'';
+    function UserRole()
+    {
+        return isset($_SESSION['name_of_user']) ? $_SESSION['role_of_user'] : '';
     }
 
     function LogOut()
@@ -237,25 +240,22 @@ class FGMembersite
 
         $sessionvar = $this->GetLoginSessionVar();
 
-        $_SESSION[$sessionvar]=NULL;
+        $_SESSION[$sessionvar] = NULL;
 
         unset($_SESSION[$sessionvar]);
     }
 
     function EmailResetPasswordLink()
     {
-        if(empty($_POST['email']))
-        {
+        if (empty($_POST['email'])) {
             $this->HandleError("Email is empty!");
             return false;
         }
         $user_rec = array();
-        if(false === $this->GetUserFromEmail($_POST['email'], $user_rec))
-        {
+        if (false === $this->GetUserFromEmail($_POST['email'], $user_rec)) {
             return false;
         }
-        if(false === $this->SendResetPasswordLink($user_rec))
-        {
+        if (false === $this->SendResetPasswordLink($user_rec)) {
             return false;
         }
         return true;
@@ -263,40 +263,34 @@ class FGMembersite
 
     function ResetPassword()
     {
-        if(empty($_GET['email']))
-        {
+        if (empty($_GET['email'])) {
             $this->HandleError("Email is empty!");
             return false;
         }
-        if(empty($_GET['code']))
-        {
+        if (empty($_GET['code'])) {
             $this->HandleError("reset code is empty!");
             return false;
         }
         $email = trim($_GET['email']);
         $code = trim($_GET['code']);
 
-        if($this->GetResetPasswordCode($email) != $code)
-        {
+        if ($this->GetResetPasswordCode($email) != $code) {
             $this->HandleError("Bad reset code!");
             return false;
         }
 
         $user_rec = array();
-        if(!$this->GetUserFromEmail($email,$user_rec))
-        {
+        if (!$this->GetUserFromEmail($email, $user_rec)) {
             return false;
         }
 
         $new_password = $this->ResetUserPasswordInDB($user_rec);
-        if(false === $new_password || empty($new_password))
-        {
+        if (false === $new_password || empty($new_password)) {
             $this->HandleError("Error updating new password");
             return false;
         }
 
-        if(false == $this->SendNewPassword($user_rec,$new_password))
-        {
+        if (false == $this->SendNewPassword($user_rec, $new_password)) {
             $this->HandleError("Error sending new password");
             return false;
         }
@@ -305,40 +299,34 @@ class FGMembersite
 
     function ChangePassword()
     {
-        if(!$this->CheckLogin())
-        {
+        if (!$this->CheckLogin()) {
             $this->HandleError("Not logged in!");
             return false;
         }
 
-        if(empty($_POST['oldpwd']))
-        {
+        if (empty($_POST['oldpwd'])) {
             $this->HandleError("Old password is empty!");
             return false;
         }
-        if(empty($_POST['newpwd']))
-        {
+        if (empty($_POST['newpwd'])) {
             $this->HandleError("New password is empty!");
             return false;
         }
 
         $user_rec = array();
-        if(!$this->GetUserFromEmail($this->UserEmail(),$user_rec))
-        {
+        if (!$this->GetUserFromEmail($this->UserEmail(), $user_rec)) {
             return false;
         }
 
         $pwd = trim($_POST['oldpwd']);
 
-        if($user_rec['password'] != md5($pwd))
-        {
+        if ($user_rec['password'] != md5($pwd)) {
             $this->HandleError("The old password does not match!");
             return false;
         }
         $newpwd = trim($_POST['newpwd']);
 
-        if(!$this->ChangePasswordInDB($user_rec, $newpwd))
-        {
+        if (!$this->ChangePasswordInDB($user_rec, $newpwd)) {
             return false;
         }
         return true;
@@ -352,9 +340,8 @@ class FGMembersite
 
     function SafeDisplay($value_name)
     {
-        if(empty($_POST[$value_name]))
-        {
-            return'';
+        if (empty($_POST[$value_name])) {
+            return '';
         }
         return htmlentities($_POST[$value_name]);
     }
@@ -367,54 +354,51 @@ class FGMembersite
 
     function GetSpamTrapInputName()
     {
-        return 'sp'.md5('KHGdnbvsgst'.$this->rand_key);
+        return 'sp' . md5('KHGdnbvsgst' . $this->rand_key);
     }
 
     function GetErrorMessage()
     {
-        if(empty($this->error_message))
-        {
+        if (empty($this->error_message)) {
             return '';
         }
         $errormsg = nl2br(htmlentities($this->error_message));
         return $errormsg;
     }
-    //-------Private Helper functions-----------
 
+    //-------Private Helper functions-----------
     function HandleError($err)
     {
-        $this->error_message .= $err."\r\n";
+        $this->error_message .= $err . "\r\n";
     }
 
     function HandleDBError($err)
     {
-       $this->HandleError($err."\r\n mysqlerror:".mysqli_error($this->connection));
+        $this->HandleError($err . "\r\n mysqlerror:" . mysqli_error($this->connection));
     }
 
     function GetFromAddress()
     {
-        if(!empty($this->from_address))
-        {
+        if (!empty($this->from_address)) {
             return $this->from_address;
         }
 
         $host = $_SERVER['SERVER_NAME'];
 
-        $from ="nobody@$host";
+        $from = "nobody@$host";
         return $from;
     }
 
     function GetLoginSessionVar()
     {
         $retvar = md5($this->rand_key);
-        $retvar = 'usr_'.substr($retvar,0,10);
+        $retvar = 'usr_' . substr($retvar, 0, 10);
         return $retvar;
     }
 
-    function CheckLoginInDB($username,$password)
+    function CheckLoginInDB($username, $password)
     {
-        if(!$this->DBLogin())
-        {
+        if (!$this->DBLogin()) {
             $this->HandleError("Database login failed!");
             return false;
         }
@@ -422,10 +406,9 @@ class FGMembersite
         $pwdmd5 = md5($password);
         $qry = "Select name, email, role from $this->tablename where username='$username' and password='$pwdmd5' and confirmcode='y'";
 
-        $result = mysqli_query($this->connection,$qry);
+        $result = mysqli_query($this->connection, $qry);
 
-        if(!$result || mysqli_num_rows($result) <= 0)
-        {
+        if (!$result || mysqli_num_rows($result) <= 0) {
             $this->HandleError("Error logging in. The username or password does not match");
             return false;
         }
@@ -433,7 +416,7 @@ class FGMembersite
         $row = mysqli_fetch_assoc($result);
 
 
-        $_SESSION['name_of_user']  = $row['name'];
+        $_SESSION['name_of_user'] = $row['name'];
         $_SESSION['email_of_user'] = $row['email'];
         $_SESSION['role_of_user'] = $row['role'];
 
@@ -442,27 +425,24 @@ class FGMembersite
 
     function UpdateDBRecForConfirmation(&$user_rec)
     {
-        if(!$this->DBLogin())
-        {
+        if (!$this->DBLogin()) {
             $this->HandleError("Database login failed!");
             return false;
         }
         $confirmcode = $this->SanitizeForSQL($_GET['code']);
 
-        $result = mysqli_query($this->connection,"Select name, email from $this->tablename where confirmcode='$confirmcode'");
-        if(!$result || mysqli_num_rows($result) <= 0)
-        {
+        $result = mysqli_query($this->connection, "Select name, email from $this->tablename where confirmcode='$confirmcode'");
+        if (!$result || mysqli_num_rows($result) <= 0) {
             $this->HandleError("Wrong confirm code.");
             return false;
         }
         $row = mysqli_fetch_assoc($result);
         $user_rec['name'] = $row['name'];
-        $user_rec['email']= $row['email'];
+        $user_rec['email'] = $row['email'];
 
         $qry = "Update $this->tablename Set confirmcode='y' Where  confirmcode='$confirmcode'";
 
-        if(!mysqli_query($this->connection, $qry))
-        {
+        if (!mysqli_query($this->connection, $qry)) {
             $this->HandleDBError("Error inserting data to the table\nquery:$qry");
             return false;
         }
@@ -471,10 +451,9 @@ class FGMembersite
 
     function ResetUserPasswordInDB($user_rec)
     {
-        $new_password = substr(md5(uniqid()),0,10);
+        $new_password = substr(md5(uniqid()), 0, 10);
 
-        if(false == $this->ChangePasswordInDB($user_rec,$new_password))
-        {
+        if (false == $this->ChangePasswordInDB($user_rec, $new_password)) {
             return false;
         }
         return $new_password;
@@ -484,29 +463,26 @@ class FGMembersite
     {
         $newpwd = $this->SanitizeForSQL($newpwd);
 
-        $qry = "Update $this->tablename Set password='".md5($newpwd)."' Where  id_user=".$user_rec['id_user']."";
+        $qry = "Update $this->tablename Set password='" . md5($newpwd) . "' Where  id_user=" . $user_rec['id_user'] . "";
 
-        if(!mysqli_query($this->connection, $qry ,$this->connection))
-        {
+        if (!mysqli_query($this->connection, $qry, $this->connection)) {
             $this->HandleDBError("Error updating the password \nquery:$qry");
             return false;
         }
         return true;
     }
 
-    function GetUserFromEmail($email,&$user_rec)
+    function GetUserFromEmail($email, &$user_rec)
     {
-        if(!$this->DBLogin())
-        {
+        if (!$this->DBLogin()) {
             $this->HandleError("Database login failed!");
             return false;
         }
         $email = $this->SanitizeForSQL($email);
 
-        $result = mysqli_query($this->connection,"Select * from $this->tablename where email='$email'",$this->connection);
+        $result = mysqli_query($this->connection, "Select * from $this->tablename where email='$email'", $this->connection);
 
-        if(!$result || mysqli_num_rows($result) <= 0)
-        {
+        if (!$result || mysqli_num_rows($result) <= 0) {
             $this->HandleError("There is no user with email: $email");
             return false;
         }
@@ -522,21 +498,20 @@ class FGMembersite
 
         $mailer->CharSet = 'utf-8';
 
-        $mailer->AddAddress($user_rec['email'],$user_rec['name']);
+        $mailer->AddAddress($user_rec['email'], $user_rec['name']);
 
-        $mailer->Subject = "Welcome to ".$this->sitename;
+        $mailer->Subject = "Welcome to " . $this->sitename;
 
         $mailer->From = $this->GetFromAddress();
 
-        $mailer->Body ="Hello ".$user_rec['name']."\r\n\r\n".
-            "Welcome! Your registration  with ".$this->sitename." is completed.\r\n".
-            "\r\n".
-            "Regards,\r\n".
-            "Webmaster\r\n".
+        $mailer->Body = "Hello " . $user_rec['name'] . "\r\n\r\n" .
+            "Welcome! Your registration  with " . $this->sitename . " is completed.\r\n" .
+            "\r\n" .
+            "Regards,\r\n" .
+            "Webmaster\r\n" .
             $this->sitename;
 
-        if(!$mailer->Send())
-        {
+        if (!$mailer->Send()) {
             $this->HandleError("Failed sending user welcome email.");
             return false;
         }
@@ -545,8 +520,7 @@ class FGMembersite
 
     function SendAdminIntimationOnRegComplete(&$user_rec)
     {
-        if(empty($this->admin_email))
-        {
+        if (empty($this->admin_email)) {
             return false;
         }
         $mailer = new PHPMailer();
@@ -555,16 +529,15 @@ class FGMembersite
 
         $mailer->AddAddress($this->admin_email);
 
-        $mailer->Subject = "Registration Completed: ".$user_rec['name'];
+        $mailer->Subject = "Registration Completed: " . $user_rec['name'];
 
         $mailer->From = $this->GetFromAddress();
 
-        $mailer->Body ="A new user registered at ".$this->sitename."\r\n".
-            "Name: ".$user_rec['name']."\r\n".
-            "Email address: ".$user_rec['email']."\r\n";
+        $mailer->Body = "A new user registered at " . $this->sitename . "\r\n" .
+            "Name: " . $user_rec['name'] . "\r\n" .
+            "Email address: " . $user_rec['email'] . "\r\n";
 
-        if(!$mailer->Send())
-        {
+        if (!$mailer->Send()) {
             return false;
         }
         return true;
@@ -572,7 +545,7 @@ class FGMembersite
 
     function GetResetPasswordCode($email)
     {
-        return substr(md5($email.$this->sitename.$this->rand_key),0,10);
+        return substr(md5($email . $this->sitename . $this->rand_key), 0, 10);
     }
 
     function SendResetPasswordLink($user_rec)
@@ -583,26 +556,25 @@ class FGMembersite
 
         $mailer->CharSet = 'utf-8';
 
-        $mailer->AddAddress($email,$user_rec['name']);
+        $mailer->AddAddress($email, $user_rec['name']);
 
-        $mailer->Subject = "Your reset password request at ".$this->sitename;
+        $mailer->Subject = "Your reset password request at " . $this->sitename;
 
         $mailer->From = $this->GetFromAddress();
 
-        $link = $this->GetAbsoluteURLFolder().
-            '/resetpwd.php?email='.
-            urlencode($email).'&code='.
+        $link = $this->GetAbsoluteURLFolder() .
+            '/resetpwd.php?email=' .
+            urlencode($email) . '&code=' .
             urlencode($this->GetResetPasswordCode($email));
 
-        $mailer->Body ="Hello ".$user_rec['name']."\r\n\r\n".
-            "There was a request to reset your password at ".$this->sitename."\r\n".
-            "Please click the link below to complete the request: \r\n".$link."\r\n".
-            "Regards,\r\n".
-            "Webmaster\r\n".
+        $mailer->Body = "Hello " . $user_rec['name'] . "\r\n\r\n" .
+            "There was a request to reset your password at " . $this->sitename . "\r\n" .
+            "Please click the link below to complete the request: \r\n" . $link . "\r\n" .
+            "Regards,\r\n" .
+            "Webmaster\r\n" .
             $this->sitename;
 
-        if(!$mailer->Send())
-        {
+        if (!$mailer->Send()) {
             return false;
         }
         return true;
@@ -616,26 +588,25 @@ class FGMembersite
 
         $mailer->CharSet = 'utf-8';
 
-        $mailer->AddAddress($email,$user_rec['name']);
+        $mailer->AddAddress($email, $user_rec['name']);
 
-        $mailer->Subject = "Your new password for ".$this->sitename;
+        $mailer->Subject = "Your new password for " . $this->sitename;
 
         $mailer->From = $this->GetFromAddress();
 
-        $mailer->Body ="Hello ".$user_rec['name']."\r\n\r\n".
-            "Your password is reset successfully. ".
-            "Here is your updated login:\r\n".
-            "username:".$user_rec['username']."\r\n".
-            "password:$new_password\r\n".
-            "\r\n".
-            "Login here: ".$this->GetAbsoluteURLFolder()."/login.php\r\n".
-            "\r\n".
-            "Regards,\r\n".
-            "Webmaster\r\n".
+        $mailer->Body = "Hello " . $user_rec['name'] . "\r\n\r\n" .
+            "Your password is reset successfully. " .
+            "Here is your updated login:\r\n" .
+            "username:" . $user_rec['username'] . "\r\n" .
+            "password:$new_password\r\n" .
+            "\r\n" .
+            "Login here: " . $this->GetAbsoluteURLFolder() . "/login.php\r\n" .
+            "\r\n" .
+            "Regards,\r\n" .
+            "Webmaster\r\n" .
             $this->sitename;
 
-        if(!$mailer->Send())
-        {
+        if (!$mailer->Send()) {
             return false;
         }
         return true;
@@ -644,27 +615,24 @@ class FGMembersite
     function ValidateRegistrationSubmission()
     {
         //This is a hidden input field. Humans won't fill this field.
-        if(!empty($_POST[$this->GetSpamTrapInputName()]) )
-        {
+        if (!empty($_POST[$this->GetSpamTrapInputName()])) {
             //The proper error is not given intentionally
             $this->HandleError("Automated submission prevention: case 2 failed");
             return false;
         }
 
         $validator = new FormValidator();
-        $validator->addValidation("name","req","Please fill in Name");
-        $validator->addValidation("email","email","The input for Email should be a valid email value");
-        $validator->addValidation("email","req","Please fill in Email");
-        $validator->addValidation("username","req","Please fill in UserName");
-        $validator->addValidation("password","req","Please fill in Password");
+        $validator->addValidation("name", "req", "Please fill in Name");
+        $validator->addValidation("email", "email", "The input for Email should be a valid email value");
+        $validator->addValidation("email", "req", "Please fill in Email");
+        $validator->addValidation("username", "req", "Please fill in UserName");
+        $validator->addValidation("password", "req", "Please fill in Password");
 
-        if(!$validator->ValidateForm())
-        {
-            $error='';
+        if (!$validator->ValidateForm()) {
+            $error = '';
             $error_hash = $validator->GetErrors();
-            foreach($error_hash as $inpname => $inp_err)
-            {
-                $error .= $inpname.':'.$inp_err."\n";
+            foreach ($error_hash as $inpname => $inp_err) {
+                $error .= $inpname . ':' . $inp_err . "\n";
             }
             $this->HandleError($error);
             return false;
@@ -699,40 +667,95 @@ class FGMembersite
         $formvars['biography'] = $this->Sanitize($_POST['biography']);
     }
 
-    function uploadImage(&$formvars)
+    function CollectCurrentProfileInformation(&$formvars)
     {
-       if(isset($_FILES['image'])){
-           $errors= array();
-           $file_name = $_FILES['image']['name'];
-           $file_size   =$_FILES['image']['size'];
-           $file_tmp =$_FILES['image']['tmp_name'];
-           $file_type=$_FILES['image']['type'];
-           $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
 
-           $expensions= array("jpeg","jpg","png");
+        if (!$this->DBLogin()) {
+            $this->HandleError("Database login failed!");
+            return false;
+        }
 
-           if(in_array($file_ext,$expensions)=== false){
-               $errors[]="extension not allowed, please choose a JPEG or PNG file.";
-           }
+        $result = mysqli_query($this->connection, "Select * from $this->tablename where email='" . $this->UserEmail() . "'");
+        if (!$result || mysqli_num_rows($result) <= 0) {
+            $this->HandleError("User Not found");
+            return false;
+        }
+        $row = mysqli_fetch_assoc($result);
 
-           if($file_size > 2097152){
-               $errors[]='File size must be excately 2 MB';
-           }
+        $formvars['title'] = $row['title'];
+        $formvars['gender'] = $row['gender'];
+        $formvars['name'] = $row['name'];
+        $formvars['public_email'] = $row['public_email'];
+        $formvars['telephone'] = $row['telephone'];
+        $formvars['skype'] = $row['skype'];
+        $formvars['faculty'] = $row['faculty'];
+        $formvars['date_of_birth'] = $row['date_of_birth'];
+        $formvars['place_of_birth'] = $row['place_of_birth'];
+        $formvars['address'] = $row['address'];
+        $formvars['website'] = $row['website'];
+        $formvars['interest'] = $row['interest'];
+        $formvars['biography'] = $row['biography'];
+    }
 
-           if(empty($errors)==true){
-               move_uploaded_file($file_tmp,"images/".$file_name);
-               echo "Success";
-           }else{
-               print_r($errors);
-           }
+    function uploadImage()
+    {
+        $target_dir = "images/uploads/";
+        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 
-           $image = addslashes(file_get_contents($_FILES['image']['tmp_name'])); //SQL Injection defence!
-           $image_name = addslashes($_FILES['image']['name']);
-           $sql = "INSERT INTO `product_images` (`id`, `image`, `image_name`) VALUES ('1', '{$image}', '{$image_name}')";
-           if (!mysqli_query($this->connection, $sql)) { // Error handling
-               echo "Something went wrong! :(";
-           }
-       }
+        // Check if image file is a actual image or fake image
+        if (isset($_POST["image_submitted"])) {
+            $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+            if ($check !== false) {
+                $uploadOk = 1;
+            } else {
+                echo "File is not an image.";
+                $uploadOk = 0;
+            }
+        }
+
+        // Check if file already exists
+        if (file_exists($target_file)) {
+            echo "Sorry, file already exists.";
+            $uploadOk = 0;
+        }
+
+        // Check file size
+        if ($_FILES["fileToUpload"]["size"] > 500000) {
+            echo "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+
+        // Allow certain file formats
+        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+            && $imageFileType != "gif"
+        ) {
+            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            $uploadOk = 0;
+        }
+
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+
+            // if everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "images/uploads/".$this->UserEmail().".".$imageFileType)) {
+//                if (!$this->DBLogin()) {
+//                    $this->HandleError("Database login failed!");
+//                    return false;
+//                }
+//                $query_stmt = "UPDATE $this->tablename SET profile_pic='" . $file_name . "' WHERE email= '" . $this->UserEmail() . "'";
+//                if (!mysqli_query($this->connection, $query_stmt)) {
+//                    echo(basename($_FILES["fileToUpload"]["name"]));
+//                    echo($this->UserEmail());
+//                }
+//                else{
+//                    echo(basename($_FILES["fileToUpload"]["name"]));
+//                }
+            }
+        }
 
     }
 
@@ -740,9 +763,9 @@ class FGMembersite
     {
         $mailer = $this->createPHPMailer();
         $mailer->AddAddress($this->admin_email, $formvars['name']);
-        $mailer->Subject = "New User Registration".$this->sitename;
+        $mailer->Subject = "New User Registration" . $this->sitename;
         $confirmcode = $formvars['confirmcode'];
-        $confirm_url = $this->GetAbsoluteURLFolder().'/confirmreg.php?code='.$confirmcode;
+        $confirm_url = $this->GetAbsoluteURLFolder() . '/confirmreg.php?code=' . $confirmcode;
         $mailer->SMTPOptions = array(
             'ssl' => array(
                 'verify_peer' => false,
@@ -751,17 +774,16 @@ class FGMembersite
             )
         );
 
-        $mailer->Body ="Hello ".$formvars['name'].",\r\n\r\n".
-            "<br><br>A new user has registered on ".$this->sitename."\r\n<br><br>".
-            "You can click the link below to confirm the user registration.\r\n<br><br>".
-            "$confirm_url\r\n".
-            "\r\n<br><br>".
-            "Regards,\r\n<br>".
-            "Webmaster\r\n<br>".
+        $mailer->Body = "Hello " . $formvars['name'] . ",\r\n\r\n" .
+            "<br><br>A new user has registered on " . $this->sitename . "\r\n<br><br>" .
+            "You can click the link below to confirm the user registration.\r\n<br><br>" .
+            "$confirm_url\r\n" .
+            "\r\n<br><br>" .
+            "Regards,\r\n<br>" .
+            "Webmaster\r\n<br>" .
             $this->sitename;
 
-        if(!$mailer->Send())
-        {
+        if (!$mailer->Send()) {
             $this->HandleError("Failed sending registration confirmation email.There might be wrong server configuration.
                                 Please check Username and password in configuration");
             return false;
@@ -778,8 +800,7 @@ class FGMembersite
 
     function SendAdminIntimationEmail(&$formvars)
     {
-        if(empty($this->admin_email))
-        {
+        if (empty($this->admin_email)) {
             return false;
         }
         $mailer = $this->createPHPMailer();
@@ -788,14 +809,14 @@ class FGMembersite
 
         $mailer->AddAddress($this->admin_email);
 
-        $mailer->Subject = "New registration: ".$formvars['name'];
+        $mailer->Subject = "New registration: " . $formvars['name'];
 
         $mailer->From = $this->GetFromAddress();
 
-        $mailer->Body ="A new user registered at ".$this->sitename."\r\n".
-            "Name: ".$formvars['name']."\r\n".
-            "Email address: ".$formvars['email']."\r\n".
-            "UserName: ".$formvars['username'];
+        $mailer->Body = "A new user registered at " . $this->sitename . "\r\n" .
+            "Name: " . $formvars['name'] . "\r\n" .
+            "Email address: " . $formvars['email'] . "\r\n" .
+            "UserName: " . $formvars['username'];
 
         // if(!$mailer->Send())
         // {
@@ -806,28 +827,23 @@ class FGMembersite
 
     function SaveToDatabase(&$formvars)
     {
-        if(!$this->DBLogin())
-        {
+        if (!$this->DBLogin()) {
             $this->HandleError("Database login failed!");
             return false;
         }
-        if(!$this->Ensuretable())
-        {
+        if (!$this->Ensuretable()) {
             return false;
         }
-        if(!$this->IsFieldUnique($formvars,'email'))
-        {
+        if (!$this->IsFieldUnique($formvars, 'email')) {
             $this->HandleError("This email is already registered");
             return false;
         }
 
-        if(!$this->IsFieldUnique($formvars,'username'))
-        {
+        if (!$this->IsFieldUnique($formvars, 'username')) {
             $this->HandleError("This UserName is already used. Please try another username");
             return false;
         }
-        if(!$this->InsertIntoDB($formvars))
-        {
+        if (!$this->InsertIntoDB($formvars)) {
             $this->HandleError("Inserting to Database failed!");
             return false;
         }
@@ -836,8 +852,7 @@ class FGMembersite
 
     function SaveProfileUpdateToDatabase(&$formvars)
     {
-        if(!$this->DBLogin())
-        {
+        if (!$this->DBLogin()) {
             $this->HandleError("Database login failed!");
             return false;
         }
@@ -850,21 +865,19 @@ class FGMembersite
 //            $this->HandleError("This email is already used");
 //            return false;
 //        }
-        if(!$this->InsertProfileUpdateIntoDB($formvars))
-        {
+        if (!$this->InsertProfileUpdateIntoDB($formvars)) {
             $this->HandleError("Inserting to Database failed!");
             return false;
         }
         return true;
     }
 
-    function IsFieldUnique($formvars,$fieldname)
+    function IsFieldUnique($formvars, $fieldname)
     {
         $field_val = $this->SanitizeForSQL($formvars[$fieldname]);
-        $qry = "select username from $this->tablename where $fieldname='".$field_val."'";
-        $result = mysqli_query($this->connection,$qry);
-        if($result && mysqli_num_rows($result) > 0)
-        {
+        $qry = "select username from $this->tablename where $fieldname='" . $field_val . "'";
+        $result = mysqli_query($this->connection, $qry);
+        if ($result && mysqli_num_rows($result) > 0) {
             return false;
         }
         return true;
@@ -873,20 +886,17 @@ class FGMembersite
     function DBLogin()
     {
 
-        $this->connection = mysqli_connect($this->db_host,$this->username,$this->pwd);
+        $this->connection = mysqli_connect($this->db_host, $this->username, $this->pwd);
 
-        if(!$this->connection)
-        {
+        if (!$this->connection) {
             $this->HandleDBError("Database Login failed! Please make sure that the DB login credentials provided are correct");
             return false;
         }
-        if(!mysqli_select_db($this->connection, $this->database))
-        {
-            $this->HandleDBError('Failed to select database: '.$this->database.' Please make sure that the database name provided is correct');
+        if (!mysqli_select_db($this->connection, $this->database)) {
+            $this->HandleDBError('Failed to select database: ' . $this->database . ' Please make sure that the database name provided is correct');
             return false;
         }
-        if(!mysqli_query($this->connection,"SET NAMES 'UTF8'"))
-        {
+        if (!mysqli_query($this->connection, "SET NAMES 'UTF8'")) {
             $this->HandleDBError('Error setting utf8 encoding');
             return false;
         }
@@ -895,9 +905,8 @@ class FGMembersite
 
     function Ensuretable()
     {
-        $result = mysqli_query($this->connection,"SHOW COLUMNS FROM $this->tablename");
-        if(!$result || mysqli_num_rows($result) <= 0)
-        {
+        $result = mysqli_query($this->connection, "SHOW COLUMNS FROM $this->tablename");
+        if (!$result || mysqli_num_rows($result) <= 0) {
             return $this->CreateTable();
         }
         return true;
@@ -905,33 +914,32 @@ class FGMembersite
 
     function CreateTable()
     {
-        $qry = "Create Table $this->tablename (".
-            "id_user INT NOT NULL AUTO_INCREMENT ,".
-            "name VARCHAR( 128 ) NOT NULL ,".
-            "email VARCHAR( 64 ) NOT NULL ,".
-            "university ENUM('TU Clausthal', 'Vancouver Island University', 'University of Tyumen', 'Tallin University') NOT NULL ,".
-            "username VARCHAR( 16 ) NOT NULL ,".
-            "password VARCHAR( 32 ) NOT NULL ,".
-            "confirmcode VARCHAR(32) ,".
-            "role ENUM('Guest','Member','Professor','Administrator') DEFAULT 'Guest', ".
-            "deleted INT NOT NULL DEFAULT '0', ".
-            "title ENUM('Prof','Dr', 'Master', 'Bachelor', 'Mr.','Ms.') DEFAULT 'Mr.', ".
-            "gender ENUM('Female','Male') DEFAULT 'Male', ".
-            "public_email VARCHAR( 64 ),".
-            "telephone VARCHAR( 20 ),".
-            "skype VARCHAR( 20 ),".
-            "faculty VARCHAR( 64 ),".
-            "date_of_birth DATE NOT NULL,".
-            "place_of_birth VARCHAR( 64 ),".
-            "address VARCHAR( 64 ),".
-            "website VARCHAR( 64 ),".
-            "interest VARCHAR( 64 ),".
-            "biography VARCHAR( 300 ),".
-            "PRIMARY KEY ( id_user )".
+        $qry = "Create Table $this->tablename (" .
+            "id_user INT NOT NULL AUTO_INCREMENT ," .
+            "name VARCHAR( 128 ) NOT NULL ," .
+            "email VARCHAR( 64 ) NOT NULL ," .
+            "university ENUM('TU Clausthal', 'Vancouver Island University', 'University of Tyumen', 'Tallin University') NOT NULL ," .
+            "username VARCHAR( 16 ) NOT NULL ," .
+            "password VARCHAR( 32 ) NOT NULL ," .
+            "confirmcode VARCHAR(32) ," .
+            "role ENUM('Guest','Member','Professor','Administrator') DEFAULT 'Guest', " .
+            "deleted INT NOT NULL DEFAULT '0', " .
+            "title ENUM('Prof','Dr', 'Master', 'Bachelor', 'Mr','Ms') DEFAULT 'Mr', " .
+            "gender ENUM('Female','Male') DEFAULT 'Male', " .
+            "public_email VARCHAR( 64 )," .
+            "telephone VARCHAR( 20 )," .
+            "skype VARCHAR( 20 )," .
+            "faculty VARCHAR( 64 )," .
+            "date_of_birth DATE NOT NULL," .
+            "place_of_birth VARCHAR( 64 )," .
+            "address VARCHAR( 64 )," .
+            "website VARCHAR( 64 )," .
+            "interest VARCHAR( 64 )," .
+            "biography VARCHAR( 300 )," .
+            "PRIMARY KEY ( id_user )" .
             ")";
 
-        if(!mysqli_query($this->connection,$qry))
-        {
+        if (!mysqli_query($this->connection, $qry)) {
             $this->HandleDBError("Error creating the table \nquery was\n $qry");
             return false;
         }
@@ -945,7 +953,7 @@ class FGMembersite
 
         $formvars['confirmcode'] = $confirmcode;
 
-        $insert_query = 'insert into '.$this->tablename.'(
+        $insert_query = 'insert into ' . $this->tablename . '(
                 name,
                 email,
                 university,
@@ -962,8 +970,7 @@ class FGMembersite
                 "' . md5($formvars['password']) . '",
                 "' . $confirmcode . '"
                 )';
-        if(!mysqli_query($this->connection, $insert_query ))
-        {
+        if (!mysqli_query($this->connection, $insert_query)) {
             $this->HandleDBError("Error inserting data to the table\nquery:$insert_query");
             return false;
         }
@@ -972,7 +979,7 @@ class FGMembersite
 
     function InsertProfileUpdateIntoDB(&$formvars)
     {
-        $query_stmt = "UPDATE fgusers3 SET 
+        $query_stmt = "UPDATE $this->tablename SET 
         
         title='" . $this->SanitizeForSQL($formvars['title']) . "',
         gender='" . $this->SanitizeForSQL($formvars['gender']) . "',
@@ -991,9 +998,8 @@ class FGMembersite
         WHERE email= '" . $this->UserEmail() . "'";
 
 
-        if(!mysqli_query($this->connection, $query_stmt ))
-        {
-            $this->HandleDBError("Error inserting data to the table\nquery:$insert_query");
+        if (!mysqli_query($this->connection, $query_stmt)) {
+            $this->HandleDBError("Error inserting data to the table\nquery:$query_stmt");
             return false;
         }
         return true;
@@ -1003,32 +1009,29 @@ class FGMembersite
     {
         $randno1 = rand();
         $randno2 = rand();
-        return md5($email.$this->rand_key.$randno1.''.$randno2);
+        return md5($email . $this->rand_key . $randno1 . '' . $randno2);
     }
 
     function SanitizeForSQL($str)
     {
-        if( function_exists( "mysqli_real_escape_string" ) )
-        {
-            $ret_str = mysqli_real_escape_string( $this->connection, $str );
-        }
-        else
-        {
-            $ret_str = addslashes( $str );
+        if (function_exists("mysqli_real_escape_string")) {
+            $ret_str = mysqli_real_escape_string($this->connection, $str);
+        } else {
+            $ret_str = addslashes($str);
         }
         return $ret_str;
     }
+
     /*
        Sanitize() function removes any potential threat from the
        data submitted. Prevents email injections or any other hacker attempts.
        if $remove_nl is true, newline chracters are removed from the input.
        */
-    function Sanitize($str,$remove_nl=true)
+    function Sanitize($str, $remove_nl = true)
     {
         $str = $this->StripSlashes($str);
 
-        if($remove_nl)
-        {
+        if ($remove_nl) {
             $injections = array('/(\n+)/i',
                 '/(\r+)/i',
                 '/(\t+)/i',
@@ -1037,7 +1040,7 @@ class FGMembersite
                 '/(%08+)/i',
                 '/(%09+)/i'
             );
-            $str = preg_replace($injections,'',$str);
+            $str = preg_replace($injections, '', $str);
         }
 
         return $str;
@@ -1045,8 +1048,7 @@ class FGMembersite
 
     function StripSlashes($str)
     {
-        if(get_magic_quotes_gpc())
-        {
+        if (get_magic_quotes_gpc()) {
             $str = stripslashes($str);
         }
         return $str;
@@ -1054,9 +1056,8 @@ class FGMembersite
 
     function getEntireDatabase()
     {
-        if($this->CheckUserRole()){
-            if(!$this->DBLogin())
-            {
+        if ($this->CheckUserRole()) {
+            if (!$this->DBLogin()) {
                 $this->HandleError("Database login failed!");
                 return false;
             }
@@ -1064,8 +1065,7 @@ class FGMembersite
             $query = "SELECT * FROM $this->tablename ORDER BY 'role'";
             $result = mysqli_query($this->connection, $query);
 
-            while($row = $result->fetch_array())
-            {
+            while ($row = $result->fetch_array()) {
                 $rows[] = $row;
             }
             return $rows;
@@ -1075,4 +1075,5 @@ class FGMembersite
         }
     }
 }
+
 ?>
