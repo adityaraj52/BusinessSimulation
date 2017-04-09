@@ -51,13 +51,13 @@ if (isset($_POST['submitted_login'])) {
 
 <body>
 
-<!--<!--Header-->
+
+<!--Header-->
 <header class="navbar navbar-fixed-top">
-    <a class="pull-left" href="index.php">
+    <a class="navbar-brand pull-left" href="index.php">
         <img src="images/logo.gif" alt=" " width="100%">
     </a>
     <div class="navbar-inner">
-
         <div class="container-fluid">
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <span class="icon-bar"></span>
@@ -65,9 +65,10 @@ if (isset($_POST['submitted_login'])) {
                 <span class="icon-bar"></span>
             </a>
 
-            <div class="nav-collapse collapse pull-right">
-                <ul class="nav">
+            <div class="nav-collapse pull-right">
+                <ul class="nav pull-right">
                     <li class="active"><a href="index.php">Home</a></li>
+
 
                     <li><a href="about-us.html">About Us</a></li>
 
@@ -100,15 +101,17 @@ if (isset($_POST['submitted_login'])) {
                     </li>
 
                     <li><a href="contact-us.html">Contact</a></li>
+
                     <li class="login">
                         <a href="login.php"><i class="icon-lock"> Member Login </i></a>
                     </li>
                 </ul>
             </div>
+
         </div>
     </div>
 </header>
-<!--<!-- /header -->
+<!-- /header -->
 
 <!--Title -->
 <section class="title" style="margin-top: 1cm">
@@ -165,7 +168,7 @@ if (isset($_POST['submitted_login'])) {
                 <!-- University -->
                 <div class='container text-center'>
                     <legend for="university"></legend>
-                    <select class="form-control input-xxlarge custom_button_size"  id="university" name='university' >
+                    <select class="form-control input-xxlarge" style="height: 50px"  id="university" name='university' >
                         <option value="TU Clausthal">TU Clausthal</option>
                         <option value="Vancouver Island University">Vancouver Island University</option>
                         <option value="University of Tyumen">University of Tyumen</option>
@@ -203,6 +206,17 @@ if (isset($_POST['submitted_login'])) {
                     <input type='submit' class="btn-large" name='Submit' style="width: 20%" value='Submit'/>
                 </div>
             </div>
+
+            <div class="form-group">
+                <!-- Submit Button -->
+                <div class='container'>
+                    <div class="row">
+                    <h5><span class='error'><?php echo $fgmembersite->GetErrorMessage(); ?></span></h5>
+                    </div>
+                </div>
+            </div>
+
+
 
         </fieldset>
     </form>

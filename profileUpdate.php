@@ -9,108 +9,129 @@ if (!$fgmembersite->CheckLogin()
 
 if (isset($_POST['submitted'])) {
     if ($fgmembersite->UpdateProfile()) {
-        $fgmembersite->RedirectToURL("dashboard2.php");
+        $fgmembersite->RedirectToURL("profileUpdate.php");
 
     }
 }
 
 if (isset($_POST['image_submitted'])) {
     if ($fgmembersite->uploadImage()) {
-        $fgmembersite->RedirectToURL("dashboard2.php");
+        $fgmembersite->RedirectToURL("profileUpdate.php");
     }
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
+<!--Head-->
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Home | Nova</title>
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width">
 
-    <title>Administration controls</title>
-
-    <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap-responsive.min.css">
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/others/css/main.css">
+    <link rel="stylesheet" href="vendor/others/css/formsignin.css">
+    <link rel="stylesheet" href="vendor/others/css/mySettings.css">
 
-    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.css">
 
-    <!-- Custom CSS -->
     <link href="vendor/others/css/simple-sidebar.css" rel="stylesheet">
-    <link href="vendor/others/css/mySettings.css" rel="stylesheet">
-    <link href="vendor/others/css/dashboard2.css" rel="stylesheet">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <script src="vendor/jquery/jquery.js"></script>
+    <script src="vendor/others/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 
-    <![endif]-->
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 </head>
+<!--Head-->
+
+<!DOCTYPE html>
+<html lang="en">
 
 <body onload="viewData()">
 
 <!--<!--Header-->
 <header class="navbar navbar-fixed-top">
+    <a class="navbar-brand pull-left" href="index.php">
+        <img src="images/logo.gif" alt=" " width="100%">
+    </a>
     <div class="navbar-inner">
-        <a href="#menu-toggle" data-toggle="collapse" class="btn btn-large pull-left" id="menu-toggle"
-           style="width: 210px; height: 15px; margin-top: 0cm; margin-bottom: 0cm">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
         </a>
-        <div class="container-fluid">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
 
-            <div class="nav-collapse collapse pull-right">
-                <ul class="nav">
-                    <li class="active"><a href="index.php">Home</a></li>
+        <div class="nav-collapse collapse pull-right">
+            <ul class="nav">
+                <li class="active"><a href="index.php">Home</a></li>
 
-                    <li><a href="#">About Us</a></li>
+                <li><a href="#">About Us</a></li>
 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Business Simulation <i
-                                    class="icon-angle-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Educational Concept</a></li>
-                            <li><a href="#">Course Structure</a></li>
-                            <li><a href="#">Experiences</a></li>
-                            <li><a href="#">Video</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Use</a></li>
-                        </ul>
-                    </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Business Simulation <i
+                                class="icon-angle-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Educational Concept</a></li>
+                        <li><a href="#">Course Structure</a></li>
+                        <li><a href="#">Experiences</a></li>
+                        <li><a href="#">Video</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                    </ul>
+                </li>
 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">International Partners <i
-                                    class="icon-angle-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="career.html">Tallin University</a></li>
-                            <li><a href="blog-item.html">Vancouver Island University</a></li>
-                            <li><a href="faq.html">University of TyumenI</a></li>
-                            <li><a href="pricing.html">Costs</a></li>
-                            <li class="divider"></li>
-                            <li><a href="privacy.html">Participate</a></li>
-                            <li><a href="terms.html">Terms of Use</a></li>
-                        </ul>
-                    </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">International Partners <i
+                                class="icon-angle-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="career.html">Tallin University</a></li>
+                        <li><a href="blog-item.html">Vancouver Island University</a></li>
+                        <li><a href="faq.html">University of TyumenI</a></li>
+                        <li><a href="pricing.html">Costs</a></li>
+                        <li class="divider"></li>
+                        <li><a href="privacy.html">Participate</a></li>
+                        <li><a href="terms.html">Terms of Use</a></li>
+                    </ul>
+                </li>
 
-                    <li><a href="contact-us.html">Contact</a></li>
-                    <li class="login">
-                        <a href="login.php"><i class="icon-lock"> Member Login </i></a>
-                    </li>
-                </ul>
-            </div>
+                <li><a href="contact-us.html">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle"
+                       data-toggle="dropdown"> Welcome <?PHP echo($fgmembersite->UserFullName()); ?> <i
+                                class="icon-angle-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="logout.php">Logout</a></li>
+
+                        <?php
+                        if ($fgmembersite->UserRole() == 'Administrator') {
+                            ?>
+                            <li><a href="dashboard.php">Manage Users</a></li>
+                            <?php
+                        } else if ($fgmembersite->UserRole() == 'Professor') {
+                            ?>
+                            <li><a href="dashboard.php">Manage Students</a></li>
+                            <?php
+                        } else {
+                            ?>
+                            <li><a href="dashboard.php">My Profile</a></li>
+                            <?php
+                        }
+                        ?>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
 </header>
@@ -127,36 +148,19 @@ if (isset($_POST['image_submitted'])) {
             </li>
 
             <li>
-                <form id="form-profilepic" action='<?php echo($fgmembersite->GetSelfScript()); ?>' method='post'
-                      enctype="multipart/form-data">
-                    <input type='hidden' name='image_submitted' id='image_submitted' value='1'/>
-                    <div class="container">
-                        <img src="<?php if (file_exists("images/uploads/" . $fgmembersite->UserEmail() . ".png"))
-                            echo("images/uploads/" . $fgmembersite->UserEmail() . ".png");
-                        else
-                            echo("http://s3.amazonaws.com/37assets/svn/765-default-avatar.png")
-                        ?>"
-                             class="img-thumbnail img-rounded img-responsive" "/>
-                        <div style="padding:10px;">
-                            <div class="uploadButton">
-                                <input type="file" id="fileToUpload" name="fileToUpload"/>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </li>
-
-            <li>
                 <a href="dashboard.php">Dashboard</a>
             </li>
             <li class="active">
-                <a href="dashboard2.php">Profile Update</a>
+                <a href="profileUpdate.php">Profile Update</a>
             </li>
             <li>
-                <a href="#">Overview</a>
+                <a href="uploadFiles.php">Post Documents</a>
             </li>
             <li>
-                <a href="#">Events</a>
+                <a href="recentPosts.php">Posts</a>
+            </li>
+            <li>
+                <a href="Events">Posts</a>
             </li>
             <li>
                 <a href="#">About</a>
@@ -173,30 +177,44 @@ if (isset($_POST['image_submitted'])) {
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
+
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12" style="margin-top: 1cm">
-                    <h1 align="center">Profile Update</h1>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-4" style="margin-top: 1cm">
+                <div class="col-lg-8" style="margin-top: 0.4cm">
                     <form id='updateprofile' class="" action='<?php echo($fgmembersite->GetSelfScript()); ?>'
                           method='post' accept-charset='UTF-8'>
                         <input type='hidden' name='submitted' id='submitted' value='1'/>
-
                         <?php
                         $formvars = $fgmembersite->CollectProfileData();
                         ?>
-
-
-                </div>
+               </div>
             </div>
 
-
             <div class="container-fluid">
-                <div class="col-lg-6" style="margin-top: 0cm">
+                <div class="row">
+                    <div class="col-4">
+                        <form id="form-profilepic" action='<?php echo($fgmembersite->GetSelfScript()); ?>' method='post'
+                              enctype="multipart/form-data">
+                            <input type='hidden' name='image_submitted' id='image_submitted' value='1'/>
+                            <div class="container">
+                                <img src="<?php if (file_exists("images/uploads/" . $fgmembersite->UserEmail() . ".png"))
+                                    echo("images/uploads/" . $fgmembersite->UserEmail() . ".png");
+                                else
+                                    echo("http://s3.amazonaws.com/37assets/svn/765-default-avatar.png")
+                                ?>"
+                                     class="img-thumbnail img-rounded img-responsive" "/>
+                                <div style="padding:10px;">
+                                    <div class="uploadButton">
+                                        <input type="file" id="fileToUpload" name="fileToUpload"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="row">
+                <div class="col-lg-6">
                     <div class="form-group row">
                         <label for="example-text-input" class="col-3 col-form-label">Title</label>
                         <div class="col-9">
@@ -297,7 +315,7 @@ if (isset($_POST['image_submitted'])) {
 
                 </div>
 
-                <div class="col-lg-6" style="margin-top: 0cm">
+                <div class="col-lg-6">
 
                     <div class="form-group row">
                         <label for="example-datetime-local-input" class="col-3 col-form-label">Date Of Birth</label>
@@ -1139,8 +1157,9 @@ if (isset($_POST['image_submitted'])) {
                     </div>
 
                 </div>
-
+                </div>
             </div>
+
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-4"></div>
@@ -1170,28 +1189,6 @@ if (isset($_POST['image_submitted'])) {
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="vendor/others/js/main.js"></script>
 
-<!--  Login form -->
-<div class="modal hide fade in" id="loginForm" aria-hidden="false">
-    <div class="modal-header">
-        <i class="icon-remove" data-dismiss="modal" aria-hidden="true"></i>
-        <h4>Login Form</h4>
-    </div>
-    <!--Modal Body-->
-    <div class="modal-body">
-        <form class="form-inline" action="index.html" method="post" id="form-login">
-            <input type="text" class="input-small" placeholder="Email">
-            <input type="password" class="input-small" placeholder="Password">
-            <label class="checkbox">
-                <input type="checkbox"> Remember me
-            </label>
-            <button type="submit" class="btn btn-primary">Sign in</button>
-        </form>
-        <a href="#">Forgot your password?</a>
-    </div>
-    <!--/Modal Body-->
-</div>
-<!--  /Login form -->
-
 
 <!-- Menu Toggle Script -->
 <script>
@@ -1207,7 +1204,7 @@ if (isset($_POST['image_submitted'])) {
     $(function () {
         $('input[type="file"]').change(function () {
             if ($(this).val() != "") {
-                $(this).css('color', '#333');
+                $(this).css('color', '#FFFFFF');
             } else {
                 $(this).css('color', 'transparent');
             }

@@ -22,7 +22,12 @@ $fgmembersite->InitDB(/*hostname*/
     /*database name*/
     'testdb',
     /*table name*/
-    'fgusers3');
+    'fgusers3',
+    /*table name fileupload*/
+    'fgusers3_fileupload',
+    /*table name eventupload*/
+    'fgusers3_eventupload'
+);
 
 //For better security. Get a random string from this link: http://tinyurl.com/randstr
 // and put it here

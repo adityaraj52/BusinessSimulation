@@ -1,5 +1,5 @@
 <?PHP
-require_once('resources/include/membersite_config.php');
+require_once("resources/phpmail/include/membersite_config.php");
 
 if(isset($_GET['code']))
 {
@@ -55,64 +55,6 @@ if(isset($_GET['code']))
 <!--Head-->
 <body>
 
-<!--<!--Header-->
-<header class="navbar navbar-fixed-top">
-    <a class="pull-left" href="index.php">
-        <img src="images/logo.gif" alt=" " width="100%">
-    </a>
-    <div class="navbar-inner">
-
-        <div class="container-fluid">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
-
-            <div class="nav-collapse collapse pull-right">
-                <ul class="nav">
-                    <li class="active"><a href="index.php">Home</a></li>
-
-                    <li><a href="about-us.html">About Us</a></li>
-
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Business Simulation <i
-                                    class="icon-angle-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="career.html">Educational Concept</a></li>
-                            <li><a href="blog-item.html">Course Structure</a></li>
-                            <li><a href="faq.html">Experiences</a></li>
-                            <li><a href="pricing.html">Video</a></li>
-                            <li class="divider"></li>
-                            <li><a href="privacy.html">Privacy Policy</a></li>
-                            <li><a href="terms.html">Terms of Use</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">International Partners <i
-                                    class="icon-angle-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="career.html">Tallin University</a></li>
-                            <li><a href="blog-item.html">Vancouver Island University</a></li>
-                            <li><a href="faq.html">University of TyumenI</a></li>
-                            <li><a href="pricing.html">Costs</a></li>
-                            <li class="divider"></li>
-                            <li><a href="privacy.html">Participate</a></li>
-                            <li><a href="terms.html">Terms of Use</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a href="contact-us.html">Contact</a></li>
-                    <li class="login">
-                        <a href="login.php"><i class="icon-lock"> Member Login </i></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</header>
-<!--<!-- /header -->
 
 <h2>Confirm registration</h2>
 <p>

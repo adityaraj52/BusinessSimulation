@@ -13,8 +13,6 @@ one member from each university
 
 chat function inside a group
 
-Link for adobec onnect
-
 tutors members and professirs
 
 Blubber feature in studip which enables to ask questions to professor, similar to general questions and FAQ
@@ -34,6 +32,7 @@ Questionnaire kind of thing as an assignment for students
 
 
 
-
+Link for adobe connect
+Link for Business simulation topsim
 
 

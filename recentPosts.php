@@ -4,8 +4,8 @@ require_once("resources/phpmail/include/membersite_config.php");
 if (!$fgmembersite->CheckLogin() ||
     !$fgmembersite->CheckUserProfOrMemberRole()
 ) {
-    $fgmembersite->RedirectToURL("index.php");
-    exit;
+//    $fgmembersite->RedirectToURL("index.php");
+//    exit;
 }
 ?>
 
@@ -29,7 +29,7 @@ if (!$fgmembersite->CheckLogin() ||
 
     <link rel="stylesheet" href="vendor/others/css/formsignin.css">
     <link rel="stylesheet" href="vendor/others/css/mySettings.css">
-<!--    <link href="vendor/others/css/dashboard2.css" rel="stylesheet">-->
+    <!--    <link href="vendor/others/css/dashboard2.css" rel="stylesheet">-->
 
     <link href="vendor/others/css/simple-sidebar.css" rel="stylesheet">
 
@@ -50,13 +50,12 @@ if (!$fgmembersite->CheckLogin() ||
 
 <body onload="viewData()">
 
-<!--<!--Header-->
+<!-- --Header-->
 <header class="navbar navbar-fixed-top">
     <a class="navbar-brand pull-left" href="index.php">
         <img src="images/logo.gif" alt=" " width="100%">
     </a>
     <div class="navbar-inner">
-
         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -100,7 +99,7 @@ if (!$fgmembersite->CheckLogin() ||
                 <li><a href="contact-us.html">Contact</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle"
-                       data-toggle="dropdown"> Welcome <?PHP echo($fgmembersite->UserFullName());?> <i
+                       data-toggle="dropdown"> Welcome <?PHP echo($fgmembersite->UserFullName()); ?> <i
                                 class="icon-angle-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="logout.php">Logout</a></li>
@@ -110,13 +109,11 @@ if (!$fgmembersite->CheckLogin() ||
                             ?>
                             <li><a href="dashboard.php">Manage Users</a></li>
                             <?php
-                        }
-                        else if ($fgmembersite->UserRole() == 'Professor') {
+                        } else if ($fgmembersite->UserRole() == 'Professor') {
                             ?>
                             <li><a href="dashboard.php">Manage Students</a></li>
                             <?php
-                        }
-                        else {
+                        } else {
                             ?>
                             <li><a href="dashboard.php">My Profile</a></li>
                             <?php
@@ -128,9 +125,9 @@ if (!$fgmembersite->CheckLogin() ||
         </div>
     </div>
 </header>
-<!--<!-- /header -->
+<!-- /header -->
 
-<!-- #wrapper-->
+
 <div id="wrapper">
 
     <!-- Sidebar -->
@@ -141,7 +138,7 @@ if (!$fgmembersite->CheckLogin() ||
                 </a>
             </li>
 
-            <li class="active">
+            <li>
                 <a href="dashboard.php">Dashboard</a>
             </li>
             <li>
@@ -150,7 +147,7 @@ if (!$fgmembersite->CheckLogin() ||
             <li>
                 <a href="uploadFiles.php">Post Documents</a>
             </li>
-            <li>
+            <li class="active">
                 <a href="recentPosts.php">Posts</a>
             </li>
             <li>
@@ -172,143 +169,125 @@ if (!$fgmembersite->CheckLogin() ||
     <!-- Page Content -->
     <div id="page-content-wrapper">
         <div class="container-fluid">
-            <div class="row" style="margin-top: 1cm">
-                <div class="col-4"></div>
-                <div class="col-5">
-                    <h1>Membership Information</h1>
+            <div class="row">
+                <div class="col-lg-12" style="margin-top: 1cm">
+                    <h1 align="">Team Posts</h1>
                 </div>
             </div>
-
         </div>
-
-
         <div class="container-fluid">
-            <div class="row" style="margin-top: 0.5cm">
-
-                <div class="col-1 "></div>
-                <div class="col-9 ">
-                    <!--                    <h2>Contextual Classes</h2>-->
-                    <!--                    <p>Classes used are: .active, .success, .info, .warning, and .danger.</p>-->
-                    <table id="tableedit" class="table table-bordered">
+            <div class="row">
+                <div>
+                    <table id="" align="" class="table tab-content table-bordered">
                         <thead>
                         <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>University</th>
-                            <th>Username</th>
-                            <th>Role</th>
+                            <th>User id</th>
+                            <th>File Name</th>
+                            <th>Time Stamp</th>
+                            <th>Uploaded By</th>
                             <th>Team</th>
-                            <?php
-                            if($fgmembersite->CheckUserRole()) {
-                            ?>
-                                <th>Edit/Delete</th>
-                            <?php
-                            }
-                            ?>
                         </tr>
                         </thead>
-                        <tbody></tbody>
+                        <tbody>
+                        <?php
+                        $result = $fgmembersite->getPostsTeamData();
+                        if ($result)
+                            while ($row = $result->fetch_assoc()) {
+                                ?>
+                                <tr>
+                                    <td><?php echo($row['id']); ?></td>
+                                    <td>
+                                        <a href="images/fileuploads/<?php echo($row[id] . $row['file_name']) ?>"><?php echo($row['file_name']); ?>
+                                    </td>
+                                    <td><?php echo($row['time_stamp']); ?></td>
+                                    <td><?php echo($row['uploaded_by']); ?></td>
+                                    <td><?php echo($row['team']); ?></td>
+                                </tr>
+
+                                <?php
+                            }
+                        ?>
+
+                        </tbody>
                     </table>
                 </div>
             </div>
         </div>
+
+        <?php
+
+        if ($fgmembersite->CollectProfileData()['team'] != 'Public') {
+            ?>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12" style="margin-top: 1cm">
+                        <h1 align="">Public Posts</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div>
+                        <!--                    <h2>Contextual Classes</h2>-->
+                        <!--                    <p>Classes used are: .active, .success, .info, .warning, and .danger.</p>-->
+                        <table id="" align="center" class="table tab-content table-bordered"
+                               style="max-width: 1024px">
+                            <thead>
+                            <tr>
+                                <th>User id</th>
+                                <th>File Name</th>
+                                <th>Time Stamp</th>
+                                <th>Uploaded By</th>
+                                <th>Team</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            $result = $fgmembersite->getPostsPublicData();
+                            if ($result)
+                                while ($row = $result->fetch_assoc()) {
+                                    ?>
+                                    <tr>
+                                        <td><?php echo($row['id']); ?></td>
+                                        <td>
+                                            <a href="images/fileuploads/<?php echo($row[id_user] . $row['file_name']) ?>"><?php echo($row['file_name']); ?></a>
+                                        </td>
+                                        <td><?php echo($row['time_stamp']); ?></td>
+                                        <td><?php echo($row['uploaded_by']); ?></td>
+                                        <td><?php echo($row['team']); ?></td>
+                                    </tr>
+
+                                    <?php
+                                }
+                            ?>
+                            </thead>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <?php
+        }
+        ?>
     </div>
-    <!-- /#page-content-wrapper -->
-</div>
-<!-- #wrapper-->
 
-<!-- jQuery -->
-<script src="vendor/jquery/jquery-slim.min.js"></script>
-<script src="vendor/jquery/jquery-1.9.1.min.js"></script>
-<script src="vendor/jquery/jquery.tabledit.js"></script>
-<script src="vendor/jquery/jquery.tabledit.min.js"></script>
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery-slim.min.js"></script>
+    <script src="vendor/jquery/jquery-1.9.1.min.js"></script>
+    <script src="vendor/jquery/jquery.tabledit.js"></script>
+    <script src="vendor/jquery/jquery.tabledit.min.js"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
-<!-- Menu Toggle Script -->
-<script>
-    $("#menu-toggle").click(function (e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-</script>
-
-<script>
-    function viewData() {
-        $.ajax({
-            url: 'process.php?p=<?echo($_SESSION['email_of_user']); ?>',
-            method: 'GET'
-        }).done(function (data) {
-            $('tbody').html(data)
-            tableData()
-        })
-    }
-
-    function tableData() {
-        $('#tableedit').Tabledit({
-            url: 'process.php',
-            eventType: 'dblclick',
-            editButton: true,
-            deleteButton: true,
-            hideIdentifier: true,
-            confirm: true,
-
-            buttons: {
-                edit: {
-                    class: 'btn btn-sm btn-warning',
-                    html: '<span class="glyphicon glyphicon-pencil"></span> Edit',
-                    action: 'edit'
-                },
-                delete: {
-                    class: 'btn btn-sm btn-danger',
-                    html: '<span class="glyphicon glyphicon-trash"></span> Trash',
-                    action: 'delete'
-                },
-                save: {
-                    class: 'btn btn-sm btn-success',
-                    html: 'Save'
-                },
-                restore: {
-                    class: 'btn btn-sm btn-warning',
-                    html: 'Restore',
-                    action: 'restore'
-                },
-                confirm: {
-                    class: 'btn btn-sm btn-default',
-                    html: 'Confirm'
-                }
-            },
-            columns: {
-                identifier: [0, 'id_user'],
-                <?php
-                if($_SESSION['role_of_user'] == 'Administrator'){
-                ?>
-                <!-- Activate this to make all fields editable-->
-//                editable: [[1, 'name'], [2, 'email'], [3, 'university', '{"1": "TU Clausthal", "2": "Vancouver Island University", "3": "University of Tyumen", "4":"Tallin University"}'], [4, 'username'], [5, 'role', '{"1": "Guest", "2": "Member", "3": "Professor", "4": "Administrator"}'], [6, 'team']]
-                editable: [[5, 'role', '{"1": "Guest", "2": "Member", "3": "Professor", "4": "Administrator"}'], [6, 'team', '{"1": "Public", "2": "A", "3": "B", "4": "C", "5": "D", "6": "E", "7": "F"}']]
-                <?php
-                }
-                ?>
-            },
-            onSuccess: function (data, textStatus, jqXHR) {
-                viewData();
-            },
-            onFail: function (jqXHR, textStatus, errorThrown) {
-                console.log('onFail(jqXHR, textStatus, errorThrown)');
-                console.log(jqXHR);
-                console.log(textStatus);
-                console.log(errorThrown);
-            },
-            onAjax: function (action, serialize) {
-                console.log('onAjax(action, serialize)');
-                console.log(action);
-                console.log(serialize);
-            }
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
         });
-    }
-</script>
+    </script>
 
 </body>
 

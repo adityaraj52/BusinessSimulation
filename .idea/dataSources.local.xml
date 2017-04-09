@@ -9,7 +9,9 @@
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper" />
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
+      <introspection-schemas>*:testdb</introspection-schemas>
       <resolve-scope>testdb:</resolve-scope>
+      <unqualified-resolve-schemas>testdb:</unqualified-resolve-schemas>
     </data-source>
   </component>
 </project>

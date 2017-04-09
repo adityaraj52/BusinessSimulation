@@ -72,3 +72,16 @@ legend {
     height: 7.5%;
 }
 
+.mytable{
+    width:500px;
+    border: 1px solid #ccc;
+}
+.mytable td{
+    border: 1px solid #ccc;
+}
+.id, .date, .action{
+    width:1px;
+}
+.date{
+    white-space: nowrap;
+}
