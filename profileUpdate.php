@@ -267,9 +267,7 @@ if (isset($_POST['image_submitted'])) {
                     <div class="form-group row">
                         <label for="example-text-input" class="col-3 col-form-label">Full Name</label>
                         <div class="col-9">
-                            <input class="form-control input-block-level" type="text"
-                                   value="<?php echo $formvars['name'] ?>"
-                                   name='name' id='name'>
+                            <input class="form-control input-block-level" type="text" value="<?php echo $formvars['name'] ?>" name='name' id='name'>
                         </div>
                     </div>
 

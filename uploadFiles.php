@@ -8,14 +8,18 @@
 
 require_once('resources/phpmail/include/membersite_config.php');
 
-if (!$fgmembersite->CheckLogin()
-) {
+if (!$fgmembersite->CheckLogin()) {
     $fgmembersite->RedirectToURL("index.php");
     exit;
 }
 
+if (isset($_POST['submit_event'])) {
+    if ($fgmembersite->UpdateEvents()) {
+    }
+}
+
 if (isset($_POST['submitted_file_upload'])) {
-    if (!$fgmembersite->UpdateFileUpload()) {
+    if ($fgmembersite->UpdateFileUpload()) {
     }
 }
 ?>
@@ -182,7 +186,7 @@ if (isset($_POST['submitted_file_upload'])) {
                     <div class="row offset-2">
                         <h3>Post Documents to groups</h3>
                     </div>
-                    <form id='updateprofile' action='<?php echo($fgmembersite->GetSelfScript()); ?>'
+                    <form id='updateprofile' action='<?php echo $fgmembersite->GetSelfScript(); ?>'
                           method='post'
                           accept-charset='UTF-8' enctype="multipart/form-data">
                         <input type='hidden' name='submitted_file_upload' id='submitted_file_upload' value='1'/>
@@ -221,77 +225,17 @@ if (isset($_POST['submitted_file_upload'])) {
 
                         <div class="form-control row">
                             <div class="col-6 offset-2">
-                                <button type="submit" class="btn btn-primary" style="width:80%;">Upload
+                                <button type="submit_file" class="btn btn-primary" style="width:80%;">Upload
                                 </button>
                             </div>
                         </div>
                     </form>
                 </div>
 
-                <?php
-                if($formvars['role'] == 'Administrator' || $formvars['role'] == 'Professor') {
-                    ?>
-                    <div class="col-lg-6" style="margin-top: 1cm">
 
-                        <div class="row offset-2">
-                            <h3>Post Events</h3>
-                        </div>
-                        <form id='updateprofile' action='<?php echo($fgmembersite->GetSelfScript()); ?>'
-                              method='post'
-                              accept-charset='UTF-8' enctype="multipart/form-data">
-                            <input type='hidden' name='submitted_file_upload' id='submitted_file_upload' value='1'/>
-                            <?php
-                            $formvars = $fgmembersite->CollectProfileData();
-                            ?>
-
-                            <div class="form-control row">
-                                <label for="example-text-input" class="col-3 col-form-label">Upload for Team</label>
-                                <div class="col-5">
-                                    <select class="form-control input-block-level" id="upload_team" name='upload_team'>
-                                        <?php if ($formvars['team'] != 'Public') { ?>
-                                            <option value="<?php echo($formvars['team']) ?>"><?php echo($formvars['team']) ?>
-                                            </option>
-                                            <?php
-                                        }
-                                        ?>
-                                        <option value="Public">Public
-                                        </option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-control row">
-                                <label for="example-text-input" class="col-3 col-form-label">Select File</label>
-                                <div class="col-5">
-                                    <input type="file" id="file_name" name="file_name">
-                                </div>
-                            </div>
-
-                            <div class="form-control row">
-                                <div class="col-6"></div>
-                                <div><h5><span class='error'><?php echo $fgmembersite->GetErrorMessage(); ?></span></h5>
-                                </div>
-                            </div>
-
-                            <div class="form-control row">
-                                <div class="col-6 offset-2">
-                                    <button type="submit" class="btn btn-primary" style="width:80%;">Upload
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-                    <?php
-                }
-                ?>
             </div>
         </div>
     </div>
-</div>
-</form>
-</div>
-<!-- /#page-content-wrapper -->
 </div>
 
 
@@ -303,152 +247,9 @@ if (isset($_POST['submitted_file_upload'])) {
 <script src="vendor/jquery/jquery.tabledit.js"></script>
 <script src="vendor/jquery/jquery.tabledit.min.js"></script>
 
-
 <!-- Bootstrap Core JavaScript -->
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="vendor/others/js/main.js"></script>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-            </div>
-            <div class="modal-body">
-                <div style="text-align: center;">
-                    <iframe src="http://docs.google.com/gview?url=http://www.pdf995.com/samples/pdf.pdf&embedded=true"
-                            style="width:500px; height:500px;" frameborder="0"></iframe>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Menu Toggle Script -->
-<script>
-    $("#menu-toggle").click(function (e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-
-    document.getElementById("fileToUpload").onchange = function () {
-        document.getElementById("form-profilepic").submit();
-    };
-
-    $(function () {
-        $('input[type="file"]').change(function () {
-            if ($(this).val() != "") {
-                $(this).css('color', '#333');
-            } else {
-                $(this).css('color', 'transparent');
-            }
-        });
-    });
-</script>
-
-<script>
-
-
-</script>
-
-<script>
-    function viewData() {
-        $.ajax({
-            url: 'process.php?p=<?echo($_SESSION['email_of_user']); ?>',
-            method: 'GET'
-        }).done(function (data) {
-            $('tbody').html(data)
-            tableData()
-        })
-    }
-
-    function tableData() {
-        $('#tableedit').Tabledit({
-            url: 'process.php',
-            eventType: 'dblclick',
-            editButton: true,
-            deleteButton: true,
-            hideIdentifier: true,
-            confirm: true,
-            buttons: {
-                edit: {
-                    class: 'btn btn-sm btn-warning',
-                    html: '<span class="glyphicon glyphicon-pencil"></span> Edit',
-                    action: 'edit'
-                },
-                delete: {
-                    class: 'btn btn-sm btn-danger',
-                    html: '<span class="glyphicon glyphicon-trash"></span> Trash',
-                    action: 'delete'
-                },
-                save: {
-                    class: 'btn btn-sm btn-success',
-                    html: 'Save'
-                },
-                restore: {
-                    class: 'btn btn-sm btn-warning',
-                    html: 'Restore',
-                    action: 'restore'
-                },
-                confirm: {
-                    class: 'btn btn-sm btn-default',
-                    html: 'Confirm'
-                }
-            },
-            columns: {
-                identifier: [0, 'id_user'],
-                <?php
-                if($_SESSION['role_of_user'] == 'Administrator'){
-                ?>
-                editable: [[1, 'name'], [2, 'email'], [3, 'university', '{"1": "TU Clausthal", "2": "Vancouver Island University", "3": "University of Tyumen", "4":"Tallin University"}'], [4, 'username'], [5, 'role', '{"1": "Guest", "2": "Member", "3": "Professor", "4": "Administrator"}']]
-                <?php
-                }
-                else if($_SESSION['role_of_user'] == 'Professor'){
-                ?>
-                editable: [[1, 'name'], [2, 'email'], [3, 'university', '{"1": "TU Clausthal", "2": "Vancouver Island University", "3": "University of Tyumen", "4":"Tallin University"}'], [4, 'username']]
-                <?php
-                }
-                ?>
-            },
-            onSuccess: function (data, textStatus, jqXHR) {
-                viewData();
-            },
-            onFail: function (jqXHR, textStatus, errorThrown) {
-                console.log('onFail(jqXHR, textStatus, errorThrown)');
-                console.log(jqXHR);
-                console.log(textStatus);
-                console.log(errorThrown);
-            },
-            onAjax: function (action, serialize) {
-                console.log('onAjax(action, serialize)');
-                console.log(action);
-                console.log(serialize);
-            }
-        });
-    }
-
-    $(function () {
-        $(".uploadButton").mousemove(function (e) {
-            var offL, offR, inpStart
-            offL = $(this).offset().left;
-            offT = $(this).offset().top;
-            aaa = $(this).find("input").width();
-            $(this).find("input").css({
-                left: e.pageX - aaa - 30,
-                top: e.pageY - offT - 10
-            })
-        });
-    });
-
-
-</script>
 
 
 </body>

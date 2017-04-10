@@ -711,29 +711,21 @@ class FGMembersite
     //#############################################################################################
     function UpdateEvents()
     {
-        if (!isset($_POST['submitted_events_upload'])) {
-            return false;
-        }
-
         $formvars = array();
 
-        $this->EnsureEventsUploadtable();
+        $this->EnsureEventUploadtable();
 
-        $this->CollectFileUploadRegistrationSubmission($formvars);
+        $this->CollectEventUploadRegistrationSubmission($formvars);
 
-        if (!$this->InsertFileUploadInfoIntoDB($formvars)) {
+        if (!$this->InsertEventUploadInfoIntoDB($formvars)) {
             $this->HandleError("Unable to upload file info into database");
             return false;
         }
 
-        if(!$this->uploadfile($formvars)){
-            $this->HandleError("Unable to Move File");
-            return false;
-        }
         return true;
     }
 
-    function EnsureEventsUploadtable()
+    function EnsureEventUploadtable()
     {
 
         if (!$this->DBLogin()) {
@@ -749,9 +741,9 @@ class FGMembersite
 
     function CreateEventUploadTable()
     {
-        $qry = "Create Table $this->tablename_fileupload (" .
+        $qry = "Create Table $this->tablename_eventupload(" .
             "id INT references $this->tablename(id_user)," .
-            "event_information VARCHAR( 500 ) NOT NULL ," .
+            "event_information VARCHAR( 128 ) NOT NULL ," .
             "time_stamp VARCHAR( 128 ) NOT NULL ," .
             "uploaded_by VARCHAR( 128 ) NOT NULL ," .
             "team VARCHAR(6) NOT NULL " .
@@ -769,14 +761,14 @@ class FGMembersite
     function CollectEventUploadRegistrationSubmission(&$formvars)
     {
         $formvars['upload_team'] = $this->Sanitize($_POST['upload_team']);
-        $formvars['event_information'] = $this->Sanitize($_POST['event_information']);
+        $formvars['events'] = $this->Sanitize($_POST['events']);
     }
 
     function InsertEventUploadInfoIntoDB(&$formvars)
     {
         $result = mysqli_query($this->connection, "Select * from $this->tablename where email='" . $this->UserEmail() . "'");
 
-        if (!$result || mysqli_num_rows($result) <= 0) {
+        if (!$result || mysqli_num_rows($result) <= 0 || $formvars['events'] == "" || $formvars['events'] == null) {
             $this->HandleError("User Not found");
             return false;
         }
@@ -795,7 +787,7 @@ class FGMembersite
                 values
                 (
                 "' . $this->SanitizeForSQL($row['id_user']) . '",
-                "' . $this->SanitizeForSQL($row['event_information']) . '",
+                "' . $this->SanitizeForSQL($row['events']) . '",
                 "' . $this->SanitizeForSQL($date) . '",
                 "' . $this->SanitizeForSQL($row['name']) . '",
                 "' . $this->SanitizeForSQL($formvars['upload_team']) . '"
@@ -857,8 +849,123 @@ class FGMembersite
 
 
 
+    function UpdateVideoUpload()
+    {
+        $formvars = array();
+
+        $this->EnsureVideoUploadtable();
+
+        $this->CollectFileUploadRegistrationSubmission($formvars);
+
+        if (!$this->InsertFileUploadInfoIntoDB($formvars)) {
+            $this->HandleError("Unable to upload file info into database");
+            return false;
+        }
+
+        if(!$this->uploadfile($formvars)){
+            $this->HandleError("Unable to Move File");
+            return false;
+        }
+        return true;
+    }
+
+    function EnsureVideoUploadtable()
+    {
+
+        if (!$this->DBLogin()) {
+            $this->HandleError("Database login failed!");
+            return false;
+        }
+        $result = mysqli_query($this->connection, "SHOW COLUMNS FROM $this->tablename_fileupload");
+        if (!$result || mysqli_num_rows($result) <= 0) {
+            return $this->CreatefileUploadTable();
+        }
+        return true;
+    }
+
+    function CreateVideoUploadTable()
+    {
+        $qry = "Create Table $this->tablename_fileupload (" .
+            "id INT references $this->tablename(id_user)," .
+            "file_name VARCHAR( 128 ) NOT NULL ," .
+            "time_stamp VARCHAR( 128 ) NOT NULL ," .
+            "uploaded_by VARCHAR( 128 ) NOT NULL ," .
+            "team VARCHAR(6) NOT NULL " .
+            ")
+            COLLATE utf8_bin";
+        if (!mysqli_query($this->connection, $qry)) {
+            $this->HandleDBError("Error creating the table \nquery was\n $qry");
+            return false;
+        }
+        echo("Table created");
+        return true;
+    }
+    function uploadVideos(){
+        $my_data = $this->CollectProfileData();
+        $uploaddir = 'images/fileuploads/';
+        $uploadfile = $uploaddir . basename($_FILES['file_name']['name']);
+        echo($uploadfile);
+        if (move_uploaded_file($_FILES['file_name']['tmp_name'], $uploaddir.$my_data['id_user'].basename($_FILES['file_name']['name']))){
+            $this->HandleError("File was successfully uploaded");
+            return true;
+        }
+        else {
+            $this->HandleError("Invalid File");
+            return false;
+        }
 
 
+    // =============  File Upload Code d  ===========================================
+    $target_dir = "images/videouploads/";
+
+    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+    // Check if file already exists
+    if (file_exists($target_file)) {
+        echo "Sorry, file already exists.";
+        $uploadOk = 0;
+    }
+
+     // Check file size -- Kept for 500Mb
+    if ($_FILES["fileToUpload"]["size"] > 500000000) {
+        echo "Sorry, your file is too large.";
+        $uploadOk = 0;
+    }
+
+    // Allow certain file formats
+    if($imageFileType != "wmv" && $imageFileType != "mp4" && $imageFileType != "avi" && $imageFileType != "MP4") {
+        echo "Sorry, only wmv, mp4 & avi files are allowed.";
+        $uploadOk = 0;
+    }
+
+    // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+        echo "Sorry, your file was not uploaded.";
+        // if everything is ok, try to upload file
+    } else {
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+            echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+    }
+    // ===============================================  File Upload Code u  ==========================================================
+
+
+    // =============  Connectivity for DATABASE d ===================================
+
+
+        $vidname = $_FILES["fileToUpload"]["name"] . "";
+    $vidsize = $_FILES["fileToUpload"]["size"] . "";
+    $vidtype = $_FILES["fileToUpload"]["type"] . "";
+
+    $sql = "INSERT INTO videos (name, size, type) VALUES ('$vidname','$vidsize','$vidtype')";
+
+    // =============  Connectivity for DATABASE u ===================================
+
+    }
 
 
 
