@@ -19,7 +19,7 @@ http://www.html-form-guide.com/php-form/php-login-form.html
 
 */
 
-require_once('/Applications/AMPPS/www/BusinessSimulation/resources/phpmail/phpmailer/PHPMailerAutoload.php');
+require_once('phpmailer/PHPMailerAutoload.php');
 require_once("membersite_config.php");
 require_once("formvalidator.php");
 
@@ -135,7 +135,6 @@ class FGMembersite
     }
     function DBLogin()
     {
-
         $this->connection = mysqli_connect($this->db_host, $this->username, $this->pwd);
 
         if (!$this->connection) {
@@ -152,7 +151,49 @@ class FGMembersite
         }
         return true;
     }
+    // To get the team of a user in viewfiles.php
+    function CollectProfileData()
+    {
+        $formvars = array();
 
+        $this->CollectCurrentProfileInformation($formvars);
+
+        return $formvars;
+    }
+    // Used in dashboard2 to pre-fill the profile page
+    function CollectCurrentProfileInformation(&$formvars)
+    {
+
+        if (!$this->DBLogin()) {
+            $this->HandleError("Database login failed!");
+            return false;
+        }
+
+        $result = mysqli_query($this->connection, "Select * from $this->tablename where email='" . $this->UserEmail() . "'");
+        if (!$result || mysqli_num_rows($result) <= 0) {
+            $this->HandleError("User Not found");
+            return false;
+        }
+        $row = mysqli_fetch_assoc($result);
+
+        $formvars['id_user'] = $row['id_user'];
+        $formvars['title'] = $row['title'];
+        $formvars['gender'] = $row['gender'];
+        $formvars['name'] = $row['name'];
+        $formvars['public_email'] = $row['public_email'];
+        $formvars['telephone'] = $row['telephone'];
+        $formvars['skype'] = $row['skype'];
+        $formvars['faculty'] = $row['faculty'];
+        $formvars['date_of_birth'] = $row['date_of_birth'];
+        $formvars['place_of_birth'] = $row['place_of_birth'];
+        $formvars['nationality'] = $row['nationality'];
+        $formvars['address'] = $row['address'];
+        $formvars['website'] = $row['website'];
+        $formvars['interest'] = $row['interest'];
+        $formvars['biography'] = $row['biography'];
+        $formvars['team'] = $row['team'];
+        $formvars['role'] = $row['role'];
+    }
     //#############################################################################################
     //           START OF              General Methods
     //#############################################################################################
@@ -190,6 +231,7 @@ class FGMembersite
             "faculty VARCHAR( 64 )," .
             "date_of_birth DATE NOT NULL," .
             "place_of_birth VARCHAR( 64 )," .
+            "nationality VARCHAR( 64 )," .
             "address VARCHAR( 64 )," .
             "website VARCHAR( 64 )," .
             "interest VARCHAR( 64 )," .
@@ -433,6 +475,7 @@ class FGMembersite
     function UpdateProfile()
     {
         if (!isset($_POST['submitted'])) {
+            $this->HandleDBError("Error as not got post information");
             return false;
         }
 
@@ -459,6 +502,7 @@ class FGMembersite
         $formvars['faculty'] = $this->Sanitize($_POST['faculty']);
         $formvars['date_of_birth'] = $this->Sanitize($_POST['date_of_birth']);
         $formvars['place_of_birth'] = $this->Sanitize($_POST['place_of_birth']);
+        $formvars['nationality'] = $this->Sanitize($_POST['nationality']);
         $formvars['address'] = $this->Sanitize($_POST['address']);
         $formvars['website'] = $this->Sanitize($_POST['website']);
         $formvars['interest'] = $this->Sanitize($_POST['interest']);
@@ -484,6 +528,7 @@ class FGMembersite
         faculty='" . $this->SanitizeForSQL($formvars['faculty']) . "',
         date_of_birth='" . $this->SanitizeForSQL($formvars['date_of_birth']) . "',
         place_of_birth='" . $this->SanitizeForSQL($formvars['place_of_birth']) . "',
+        nationality='" . $this->SanitizeForSQL($formvars['nationality']) . "',
         address='" . $this->SanitizeForSQL($formvars['address']) . "',
         website='" . $this->SanitizeForSQL($formvars['website']) . "',
         interest='" . $this->SanitizeForSQL($formvars['interest']) . "',
@@ -1508,50 +1553,6 @@ class FGMembersite
             /* free result set */
             $result->close();
         }
-    }
-
-    // To get the team of a user in viewfiles.php
-    function CollectProfileData()
-    {
-        $formvars = array();
-
-        $this->CollectCurrentProfileInformation($formvars);
-
-        return $formvars;
-    }
-
-    // Used in dashboard2 to pre-fill the profile page
-    function CollectCurrentProfileInformation(&$formvars)
-    {
-
-        if (!$this->DBLogin()) {
-            $this->HandleError("Database login failed!");
-            return false;
-        }
-
-        $result = mysqli_query($this->connection, "Select * from $this->tablename where email='" . $this->UserEmail() . "'");
-        if (!$result || mysqli_num_rows($result) <= 0) {
-            $this->HandleError("User Not found");
-            return false;
-        }
-        $row = mysqli_fetch_assoc($result);
-
-        $formvars['id_user'] = $row['id_user'];
-        $formvars['title'] = $row['title'];
-        $formvars['gender'] = $row['gender'];
-        $formvars['name'] = $row['name'];
-        $formvars['public_email'] = $row['public_email'];
-        $formvars['telephone'] = $row['telephone'];
-        $formvars['skype'] = $row['skype'];
-        $formvars['faculty'] = $row['faculty'];
-        $formvars['date_of_birth'] = $row['date_of_birth'];
-        $formvars['place_of_birth'] = $row['place_of_birth'];
-        $formvars['address'] = $row['address'];
-        $formvars['website'] = $row['website'];
-        $formvars['interest'] = $row['interest'];
-        $formvars['biography'] = $row['biography'];
-        $formvars['team'] = $row['team'];
-        $formvars['role'] = $row['role'];
     }
 
 }

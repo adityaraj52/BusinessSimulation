@@ -5,15 +5,118 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58b459dd-277c-49b4-b2b4-0932ad77429c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/Business_Simulation_Customers.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/Simulation.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/future-technologies.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/sample/slider/img1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/sample/slider/img2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/sample/slider/img3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/PHPMailerAutoload.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/VERSION" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/class.phpmailer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/class.phpmaileroauth.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/class.phpmaileroauthgoogle.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/class.pop3.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/class.smtp.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/composer.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/DKIM.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/code_generator.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/contactform.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/contents.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/contentsutf8.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/exceptions.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/gmail.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/gmail_xoauth.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/images/phpmailer.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/images/phpmailer_mini.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/mail.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/mailing_list.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/pop_before_smtp.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/scripts/XRegExp.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/scripts/shAutoloader.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/scripts/shBrushPhp.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/scripts/shCore.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/scripts/shLegacy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/send_file_upload.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/send_multiple_file_upload.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/sendmail.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/signed-mail.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/smtp.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/smtp_check.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/smtp_no_auth.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/ssl_options.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/styles/shCore.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/styles/shCoreDefault.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/styles/shCoreDjango.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/styles/shCoreEclipse.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/styles/shCoreEmacs.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/styles/shCoreFadeToGrey.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/styles/shCoreMDUltra.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/styles/shCoreMidnight.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/styles/shCoreRDark.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/styles/shThemeAppleScript.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/styles/shThemeDefault.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/styles/shThemeDjango.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/styles/shThemeEclipse.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/styles/shThemeEmacs.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/styles/shThemeFadeToGrey.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/styles/shThemeMDUltra.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/styles/shThemeMidnight.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/styles/shThemeRDark.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/styles/shThemeVisualStudio.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/examples/styles/wrapping.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/extras/EasyPeasyICS.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/extras/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/extras/htmlfilter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/extras/ntlm_sasl_client.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/get_oauth_token.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-am.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-ar.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-az.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-be.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-bg.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-ca.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-ch.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-cs.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-da.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-de.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-el.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-eo.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-es.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-et.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-fa.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-fi.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-fo.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-fr.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-gl.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-he.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-hr.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-hu.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-id.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-it.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-ja.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-ka.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-ko.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-lt.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-lv.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-ms.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-nb.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-nl.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-pl.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-pt.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-pt_br.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-ro.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-ru.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-sk.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-sl.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-sr.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-sv.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-tr.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-uk.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-vi.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-zh.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/phpmail/phpmailer/language/phpmailer.lang-zh_cn.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login-home.php" afterPath="$PROJECT_DIR$/login-home.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profileUpdate.php" afterPath="$PROJECT_DIR$/profileUpdate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/phpmail/include/fg_membersite.php" afterPath="$PROJECT_DIR$/resources/phpmail/include/fg_membersite.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/phpmail/include/membersite_config.php" afterPath="$PROJECT_DIR$/resources/phpmail/include/membersite_config.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -41,56 +144,72 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.10764872">
+    <splitter split-orientation="horizontal" split-proportion="0.32331902">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="uploadFiles.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/uploadFiles.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="254">
-                  <caret line="238" column="6" lean-forward="true" selection-start-line="238" selection-start-column="6" selection-end-line="238" selection-end-column="6" />
-                  <folding>
-                    <element signature="e#6#91#0#PHP" expanded="true" />
-                    <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
-                    <element signature="n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                    <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                    <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#button#0;n#div#0;n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="publicVideos.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/publicVideos.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="46">
-                  <caret line="2" column="59" lean-forward="false" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="try.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/try.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="23">
-                  <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#42#2332#0#PHP" expanded="false" />
-                    <element signature="e#155#178#0#HTML" expanded="true" />
-                    <element signature="e#2078#2096#0#HTML" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="register.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/register.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="251">
-                  <caret line="136" column="97" lean-forward="false" selection-start-line="136" selection-start-column="52" selection-end-line="136" selection-end-column="97" />
+                <state relative-caret-position="305">
+                  <caret line="214" column="0" lean-forward="false" selection-start-line="213" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="profileUpdate.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/profileUpdate.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="316">
+                  <caret line="1160" column="56" lean-forward="false" selection-start-line="1160" selection-start-column="56" selection-end-line="1160" selection-end-column="56" />
+                  <folding>
+                    <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#div#4;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#div#5;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#div#6;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#div#1;n#div#1;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#div#2;n#div#1;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#div#4;n#div#1;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#div#5;n#div#1;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#div#3;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                    <marker date="1491838886000" expanded="false" signature="10702:11574" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="membersite_config.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/resources/phpmail/include/membersite_config.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="506">
+                  <caret line="22" column="9" lean-forward="false" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="process.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/process.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1035">
+                  <caret line="45" column="43" lean-forward="false" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
+                  <folding>
+                    <marker date="1491672610000" expanded="true" signature="308:371" ph="SELECT unive... fgusers3" />
+                    <marker date="1491672610000" expanded="true" signature="574:632" ph="SELECT * FRO... fgusers3" />
+                    <marker date="1491672610000" expanded="true" signature="679:708" ph="SELECT * FRO... fgusers3" />
+                    <marker date="1491672610000" expanded="true" signature="679:713" ph="SELECT * FRO... fgusers3" />
+                    <marker date="1491672610000" expanded="true" signature="679:731" ph="SELECT * FRO... fgusers3" />
+                    <marker date="1491672610000" expanded="true" signature="1380:1628" ph="UPDATE `fgus... " />
+                    <marker date="1491672610000" expanded="true" signature="1654:1923" ph="UPDATE fguse... " />
+                    <marker date="1491672610000" expanded="true" signature="1949:2072" ph="UPDATE fguse... " />
+                    <marker date="1491672610000" expanded="true" signature="2184:2255" ph="UPDATE fguse... " />
+                    <marker date="1491672610000" expanded="true" signature="2331:2402" ph="UPDATE fguse... " />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -99,75 +218,187 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="team3.jpg" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/images/sample/team3.jpg">
-              <provider selected="true" editor-type-id="images">
-                <state />
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/login.php">
+          <file leaf-file-name="fg_membersite.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/resources/phpmail/include/fg_membersite.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="330">
-                  <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="116" selection-end-column="16" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/index.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="202">
-                  <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="189" selection-end-column="14" />
+                <state relative-caret-position="-610">
+                  <caret line="161" column="5" lean-forward="false" selection-start-line="161" selection-start-column="5" selection-end-line="161" selection-end-column="5" />
                   <folding>
-                    <element signature="n#head#0;n#!!top" expanded="false" />
-                    <element signature="n#header#0;n#body#0;n#!!top" expanded="false" />
-                    <element signature="n#section#0;n#body#0;n#!!top" expanded="false" />
+                    <element signature="n#FGMembersite#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#SetAdminEmail#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#SetWebsiteName#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#SetRandomKey#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#createPHPMailer#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#DBLogin#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#CollectProfileData#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#CollectCurrentProfileInformation#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#5422#5540#0#PHP" expanded="false" />
+                    <element signature="e#5676#5810#0#PHP" expanded="false" />
+                    <element signature="e#8944#9014#0#PHP" expanded="false" />
+                    <element signature="e#9054#9137#0#PHP" expanded="false" />
+                    <element signature="e#9291#9378#0#PHP" expanded="false" />
+                    <element signature="n#ValidateRegistrationSubmission#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#9623#9851#0#PHP" expanded="false" />
+                    <element signature="e#10320#10640#0#PHP" expanded="false" />
+                    <element signature="e#10443#10564#0#PHP" expanded="false" />
+                    <element signature="n#CollectRegistrationSubmission#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#SaveToDatabase#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#11193#11311#0#PHP" expanded="false" />
+                    <element signature="e#11320#11384#0#PHP" expanded="false" />
+                    <element signature="e#11393#11545#0#PHP" expanded="false" />
+                    <element signature="e#11554#11735#0#PHP" expanded="false" />
+                    <element signature="e#11744#11883#0#PHP" expanded="false" />
+                    <element signature="n#SendUserConfirmationEmail#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#SendAdminIntimationEmail#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#13190#13258#0#PHP" expanded="false" />
+                    <element signature="e#13765#13788#0#PHP" expanded="false" />
+                    <element signature="n#InsertIntoDB#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#14718#14900#0#PHP" expanded="false" />
+                    <element signature="n#IsFieldUnique#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#15211#15293#0#PHP" expanded="false" />
+                    <element signature="n#Ensuretable#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#15452#15551#0#PHP" expanded="false" />
+                    <element signature="n#GetSpamTrapInputName#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#CollectProfileUpdateInformation#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#SaveProfileUpdateToDatabase#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#uploadImage#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#20087#20204#0#PHP" expanded="false" />
+                    <element signature="e#20730#21173#0#PHP" expanded="false" />
+                    <element signature="e#20892#21162#0#PHP" expanded="false" />
+                    <element signature="e#21087#21162#0#PHP" expanded="false" />
+                    <element signature="n#UpdateFileUpload#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#EnsureFileUploadtable#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#22379#22497#0#PHP" expanded="false" />
+                    <element signature="e#22606#22715#0#PHP" expanded="false" />
+                    <element signature="n#CreatefileUploadTable#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#23165#23327#0#PHP" expanded="false" />
+                    <element signature="n#CollectFileUploadRegistrationSubmission#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#InsertFileUploadInfoIntoDB#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#uploadfile#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#UpdateEvents#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#EnsureEventUploadtable#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#26775#26885#0#PHP" expanded="false" />
+                    <element signature="n#CreateEventUploadTable#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#CollectEventUploadRegistrationSubmission#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#InsertEventUploadInfoIntoDB#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#29796#29914#0#PHP" expanded="false" />
+                    <element signature="e#30191#30309#0#PHP" expanded="false" />
+                    <element signature="n#EnsureVideoUploadtable#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#31310#31428#0#PHP" expanded="false" />
+                    <element signature="e#31537#31646#0#PHP" expanded="false" />
+                    <element signature="n#CreateVideoUploadTable#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#32097#32259#0#PHP" expanded="false" />
+                    <element signature="n#ConfirmUser#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#34829#34990#0#PHP" expanded="false" />
+                    <element signature="e#35028#35116#0#PHP" expanded="false" />
+                    <element signature="n#Login#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#35291#35413#0#PHP" expanded="false" />
+                    <element signature="e#35423#35545#0#PHP" expanded="false" />
+                    <element signature="e#35648#35711#0#PHP" expanded="false" />
+                    <element signature="e#35720#35807#0#PHP" expanded="false" />
+                    <element signature="n#CheckLogin#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#35938#36001#0#PHP" expanded="false" />
+                    <element signature="e#36063#36135#0#PHP" expanded="false" />
+                    <element signature="n#CheckUserRole#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#36207#36340#0#PHP" expanded="false" />
+                    <element signature="n#CheckUserProfOrMemberRole#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#36403#36528#0#PHP" expanded="false" />
+                    <element signature="n#UserFullName#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#UserEmail#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#UserRole#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#LogOut#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#EmailResetPasswordLink#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#37144#37260#0#PHP" expanded="false" />
+                    <element signature="e#37298#37402#0#PHP" expanded="false" />
+                    <element signature="e#37411#37503#0#PHP" expanded="false" />
+                    <element signature="n#ResetPassword#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#37575#37690#0#PHP" expanded="false" />
+                    <element signature="e#37699#37818#0#PHP" expanded="false" />
+                    <element signature="e#37904#38042#0#PHP" expanded="false" />
+                    <element signature="e#38081#38167#0#PHP" expanded="false" />
+                    <element signature="e#38242#38395#0#PHP" expanded="false" />
+                    <element signature="e#38405#38567#0#PHP" expanded="false" />
+                    <element signature="n#ChangePassword#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#38640#38753#0#PHP" expanded="false" />
+                    <element signature="e#38763#38887#0#PHP" expanded="false" />
+                    <element signature="e#38896#39020#0#PHP" expanded="false" />
+                    <element signature="e#39059#39157#0#PHP" expanded="false" />
+                    <element signature="e#39207#39352#0#PHP" expanded="false" />
+                    <element signature="e#39404#39493#0#PHP" expanded="false" />
+                    <element signature="n#SafeDisplay#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#39718#39784#0#PHP" expanded="false" />
+                    <element signature="n#RedirectToURL#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#39981#40048#0#PHP" expanded="false" />
+                    <element signature="n#HandleError#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#HandleDBError#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#GetFromAddress#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#40464#40548#0#PHP" expanded="false" />
+                    <element signature="n#GetLoginSessionVar#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#41288#41465#0#PHP" expanded="false" />
+                    <element signature="n#UpdateDBRecForConfirmation#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#41760#41878#0#PHP" expanded="false" />
+                    <element signature="e#42077#42216#0#PHP" expanded="false" />
+                    <element signature="e#42453#42617#0#PHP" expanded="false" />
+                    <element signature="n#ResetUserPasswordInDB#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#42761#42864#0#PHP" expanded="false" />
+                    <element signature="n#ChangePasswordInDB#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#43142#43320#0#PHP" expanded="false" />
+                    <element signature="n#GetUserFromEmail#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#43413#43531#0#PHP" expanded="false" />
+                    <element signature="e#43715#43870#0#PHP" expanded="false" />
+                    <element signature="n#SendUserWelcomeEmail#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#44532#44661#0#PHP" expanded="false" />
+                    <element signature="n#SendAdminIntimationOnRegComplete#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#44762#44830#0#PHP" expanded="false" />
+                    <element signature="e#45283#45342#0#PHP" expanded="false" />
+                    <element signature="n#GetResetPasswordCode#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#SendResetPasswordLink#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#46391#46450#0#PHP" expanded="false" />
+                    <element signature="n#SendNewPassword#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#47321#47380#0#PHP" expanded="false" />
+                    <element signature="n#GetAbsoluteURLFolder#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#MakeConfirmationMd5#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="n#SanitizeForSQL#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#47908#48102#0#PHP" expanded="false" />
+                    <element signature="e#48045#48102#0#PHP" expanded="false" />
+                    <element signature="e#48139#48371#0#PHP" expanded="false" />
+                    <element signature="n#Sanitize#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#48476#48789#0#PHP" expanded="false" />
+                    <element signature="e#48520#48722#0#PHP" expanded="false" />
+                    <element signature="n#StripSlashes#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#48865#48943#0#PHP" expanded="false" />
+                    <element signature="n#getEntireDatabase#0;n#FGMembersite#0;n#!!top" expanded="false" />
+                    <element signature="e#49019#49526#0#PHP" expanded="false" />
+                    <element signature="e#49061#49191#0#PHP" expanded="false" />
+                    <element signature="e#49340#49425#0#PHP" expanded="false" />
+                    <marker date="1491838886000" expanded="true" signature="5593:5664" ph="Select * fro... ${$this-&gt;tablename}" />
+                    <marker date="1491838886000" expanded="true" signature="7297:8620" ph="Create Table... ${$this-&gt;tablename}" />
+                    <marker date="1491838886000" expanded="true" signature="7297:8638" ph="Create Table... ${$this-&gt;tablename}" />
+                    <marker date="1491838886000" expanded="true" signature="7297:8667" ph="Create Table... ${$this-&gt;tablename}" />
+                    <marker date="1491838886000" expanded="true" signature="7297:8669" ph="Create Table... ${$this-&gt;tablename}" />
+                    <marker date="1491838886000" expanded="true" signature="14064:14707" ph="insert into ${$this-&gt;tablename}... " />
+                    <marker date="1491838886000" expanded="true" signature="15068:15143" ph="select usern... ${$this-&gt;tablename}" />
+                    <marker date="1491838886000" expanded="true" signature="18034:19161" ph="UPDATE ${$th... " />
+                    <marker date="1491838886000" expanded="true" signature="22803:23154" ph="Create Table... ${$this-&gt;tablename_fileupload}" />
+                    <marker date="1491838886000" expanded="true" signature="23759:23830" ph="Select * fro... ${$this-&gt;tablename}" />
+                    <marker date="1491838886000" expanded="true" signature="24138:24713" ph="insert into ${$this-&gt;tablename_fileupload}... " />
+                    <marker date="1491838886000" expanded="true" signature="26974:27333" ph="Create Table... ${$this-&gt;tablename_fileupload}" />
+                    <marker date="1491838886000" expanded="true" signature="27934:28005" ph="Select * fro... ${$this-&gt;tablename}" />
+                    <marker date="1491838886000" expanded="true" signature="28373:28956" ph="insert into ${$this-&gt;tablename_fileupload}... " />
+                    <marker date="1491838886000" expanded="true" signature="30015:30093" ph="SELECT * FRO... ${$this-&gt;tablename_fileupload}" />
+                    <marker date="1491838886000" expanded="true" signature="30015:30113" ph="SELECT * FRO... ${$this-&gt;tablename_fileupload}" />
+                    <marker date="1491838886000" expanded="true" signature="30361:30422" ph="SELECT * FRO... ${$this-&gt;tablename_fileupload}" />
+                    <marker date="1491838886000" expanded="true" signature="30361:30442" ph="SELECT * FRO... ${$this-&gt;tablename_fileupload}" />
+                    <marker date="1491838886000" expanded="true" signature="31735:32086" ph="Create Table... ${$this-&gt;tablename_fileupload}" />
+                    <marker date="1491838886000" expanded="true" signature="34606:34685" ph="INSERT INTO videos... " />
+                    <marker date="1491838886000" expanded="true" signature="41102:41218" ph="Select name,... ${$this-&gt;tablename}" />
+                    <marker date="1491838886000" expanded="true" signature="41992:42065" ph="Select name,... ${$this-&gt;tablename}" />
+                    <marker date="1491838886000" expanded="true" signature="42364:42441" ph="Update ${$th... " />
+                    <marker date="1491838886000" expanded="true" signature="43027:43131" ph="Update ${$th... " />
+                    <marker date="1491838886000" expanded="true" signature="43632:43683" ph="Select * fro... ${$this-&gt;tablename}" />
+                    <marker date="1491838886000" expanded="true" signature="49215:49261" ph="SELECT * FRO... ${$this-&gt;tablename}" />
                   </folding>
                 </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="login-home.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/login-home.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="313">
-                  <caret line="207" column="14" lean-forward="false" selection-start-line="207" selection-start-column="14" selection-end-line="207" selection-end-column="14" />
-                  <folding>
-                    <element signature="n#header#0;n#body#0;n#!!top" expanded="false" />
-                    <element signature="n#section#0;n#body#0;n#!!top" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="team4.jpg" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/images/sample/team4.jpg">
-              <provider selected="true" editor-type-id="images">
-                <state />
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="business_logo.png" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/images/business_logo.png">
-              <provider selected="true" editor-type-id="images">
-                <state />
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="create_your_own.jpg" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/images/create_your_own.jpg">
-              <provider selected="true" editor-type-id="images">
-                <state />
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="logo.gif" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/images/logo.gif">
-              <provider selected="true" editor-type-id="images">
-                <state />
               </provider>
             </entry>
           </file>
@@ -185,11 +416,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>error_message</find>
-      <find>col-lg</find>
-      <find>margin</find>
-      <find>col-md</find>
-      <find>HandleError</find>
       <find>initdb</find>
       <find>meta</find>
       <find>fgmem</find>
@@ -210,11 +436,16 @@
       <find>selfscr</find>
       <find>&lt;input</find>
       <find>hidden</find>
-      <find>selfsc</find>
       <find>submit_file</find>
       <find>submitted_file_upload</find>
-      <find>submitted_event_upload</find>
       <find>updatefile</find>
+      <find>database</find>
+      <find>submitted_event_upload</find>
+      <find>$this-&gt;conne</find>
+      <find>selfsc</find>
+      <find>submitted</find>
+      <find>form</find>
+      <find>margin-top</find>
     </findStrings>
     <replaceStrings>
       <replace>var $</replace>
@@ -291,14 +522,14 @@
         <option value="$PROJECT_DIR$/confirmreg.php" />
         <option value="$PROJECT_DIR$/thank-you.html" />
         <option value="$PROJECT_DIR$/recentPosts.php" />
-        <option value="$PROJECT_DIR$/resources/phpmail/include/membersite_config.php" />
-        <option value="$PROJECT_DIR$/profileUpdate.php" />
         <option value="$PROJECT_DIR$/uploadFiles.php" />
         <option value="$PROJECT_DIR$/try.php" />
         <option value="$PROJECT_DIR$/publicVideos.php" />
-        <option value="$PROJECT_DIR$/resources/phpmail/include/fg_membersite.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/login-home.php" />
+        <option value="$PROJECT_DIR$/resources/phpmail/include/membersite_config.php" />
+        <option value="$PROJECT_DIR$/profileUpdate.php" />
+        <option value="$PROJECT_DIR$/resources/phpmail/include/fg_membersite.php" />
       </list>
     </option>
   </component>
@@ -373,6 +604,10 @@
               <option name="myItemId" value="phpmail" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -428,15 +663,16 @@
     <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/phpmail/include" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/phpmail/include" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/resources/phpmail" />
       <recent name="$PROJECT_DIR$/vendor/slider/js" />
       <recent name="$PROJECT_DIR$/vendor/jquery" />
-      <recent name="$PROJECT_DIR$/vendor/slider/css" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -556,12 +792,12 @@
       <workItem from="1491227536847" duration="1724000" />
       <workItem from="1491331654279" duration="440000" />
       <workItem from="1491332170184" duration="8648000" />
-      <workItem from="1491652873740" duration="34771000" />
+      <workItem from="1491652873740" duration="38320000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="254998000" />
+    <option name="totallyTimeSpent" value="258547000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -576,7 +812,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24177396" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24177396" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16998827" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -585,7 +821,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24457832" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24457832" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -657,14 +893,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/bootstrap/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="14" column="8" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/bootstrap/css/bootstrap-grid.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12219">
@@ -793,25 +1021,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/process.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="45" column="43" lean-forward="false" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
-          <folding>
-            <marker date="1491672610000" expanded="true" signature="308:371" ph="SELECT unive... fgusers3" />
-            <marker date="1491672610000" expanded="true" signature="574:632" ph="SELECT * FRO... fgusers3" />
-            <marker date="1491672610000" expanded="true" signature="679:708" ph="SELECT * FRO... fgusers3" />
-            <marker date="1491672610000" expanded="true" signature="679:713" ph="SELECT * FRO... fgusers3" />
-            <marker date="1491672610000" expanded="true" signature="679:731" ph="SELECT * FRO... fgusers3" />
-            <marker date="1491672610000" expanded="true" signature="1380:1628" ph="UPDATE `fgus... " />
-            <marker date="1491672610000" expanded="true" signature="1654:1923" ph="UPDATE fguse... " />
-            <marker date="1491672610000" expanded="true" signature="1949:2072" ph="UPDATE fguse... " />
-            <marker date="1491672610000" expanded="true" signature="2184:2255" ph="UPDATE fguse... " />
-            <marker date="1491672610000" expanded="true" signature="2331:2402" ph="UPDATE fguse... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
@@ -885,261 +1094,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/profileUpdate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1756">
-          <caret line="269" column="86" lean-forward="false" selection-start-line="269" selection-start-column="86" selection-end-line="269" selection-end-column="86" />
-          <folding>
-            <element signature="e#72#167#0#PHP" expanded="false" />
-            <element signature="e#207#310#0#PHP" expanded="false" />
-            <element signature="e#358#458#0#PHP" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#69228#69958#0#PHP" expanded="false" />
-            <element signature="e#69649#69958#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/phpmail/include/membersite_config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="14" column="11" lean-forward="false" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="136" column="97" lean-forward="false" selection-start-line="136" selection-start-column="52" selection-end-line="136" selection-end-column="97" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadFiles.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="238" column="6" lean-forward="true" selection-start-line="238" selection-start-column="6" selection-end-line="238" selection-end-column="6" />
-          <folding>
-            <element signature="e#6#91#0#PHP" expanded="true" />
-            <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/try.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="e#42#2332#0#PHP" expanded="false" />
-            <element signature="e#155#178#0#HTML" expanded="true" />
-            <element signature="e#2078#2096#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/publicVideos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="59" lean-forward="false" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/phpmail/include/fg_membersite.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="857" column="0" lean-forward="false" selection-start-line="857" selection-start-column="0" selection-end-line="857" selection-end-column="66" />
-          <folding>
-            <element signature="n#FGMembersite#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="n#SetAdminEmail#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="n#SetWebsiteName#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="n#SetRandomKey#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="n#DBLogin#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#4504#4693#0#PHP" expanded="false" />
-            <element signature="e#4702#4946#0#PHP" expanded="false" />
-            <element signature="e#4955#5115#0#PHP" expanded="false" />
-            <element signature="n#CreateTable#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="n#RegisterUser#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#7341#7411#0#PHP" expanded="false" />
-            <element signature="e#7451#7534#0#PHP" expanded="false" />
-            <element signature="e#7602#7678#0#PHP" expanded="false" />
-            <element signature="e#7688#7775#0#PHP" expanded="false" />
-            <element signature="n#ValidateRegistrationSubmission#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#8020#8248#0#PHP" expanded="false" />
-            <element signature="e#8717#9037#0#PHP" expanded="false" />
-            <element signature="e#8840#8961#0#PHP" expanded="false" />
-            <element signature="n#CollectRegistrationSubmission#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="n#SaveToDatabase#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#9590#9708#0#PHP" expanded="false" />
-            <element signature="e#9717#9781#0#PHP" expanded="false" />
-            <element signature="e#9790#9942#0#PHP" expanded="false" />
-            <element signature="e#9951#10132#0#PHP" expanded="false" />
-            <element signature="e#10141#10280#0#PHP" expanded="false" />
-            <element signature="n#SendUserConfirmationEmail#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="n#SendAdminIntimationEmail#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#11587#11655#0#PHP" expanded="false" />
-            <element signature="e#12162#12185#0#PHP" expanded="false" />
-            <element signature="n#InsertIntoDB#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#13115#13297#0#PHP" expanded="false" />
-            <element signature="n#IsFieldUnique#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#13608#13690#0#PHP" expanded="false" />
-            <element signature="n#Ensuretable#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#13849#13948#0#PHP" expanded="false" />
-            <element signature="n#GetSpamTrapInputName#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#14737#14807#0#PHP" expanded="false" />
-            <element signature="n#CollectProfileUpdateInformation#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="n#SaveProfileUpdateToDatabase#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#16142#16260#0#PHP" expanded="false" />
-            <element signature="e#17346#17524#0#PHP" expanded="false" />
-            <element signature="n#uploadImage#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#18259#18376#0#PHP" expanded="false" />
-            <element signature="e#18902#19345#0#PHP" expanded="false" />
-            <element signature="e#19064#19334#0#PHP" expanded="false" />
-            <element signature="e#19259#19334#0#PHP" expanded="false" />
-            <element signature="n#UpdateFileUpload#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="n#EnsureFileUploadtable#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#20551#20669#0#PHP" expanded="false" />
-            <element signature="e#20778#20887#0#PHP" expanded="false" />
-            <element signature="n#CreatefileUploadTable#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#21337#21499#0#PHP" expanded="false" />
-            <element signature="n#CollectFileUploadRegistrationSubmission#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="n#InsertFileUploadInfoIntoDB#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="n#uploadfile#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="n#UpdateEvents#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="n#EnsureEventUploadtable#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#24947#25057#0#PHP" expanded="false" />
-            <element signature="n#CreateEventUploadTable#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="n#CollectEventUploadRegistrationSubmission#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="n#InsertEventUploadInfoIntoDB#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#27968#28086#0#PHP" expanded="false" />
-            <element signature="e#28363#28481#0#PHP" expanded="false" />
-            <element signature="n#EnsureVideoUploadtable#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#29482#29600#0#PHP" expanded="false" />
-            <element signature="e#29709#29818#0#PHP" expanded="false" />
-            <element signature="n#CreateVideoUploadTable#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#30269#30431#0#PHP" expanded="false" />
-            <element signature="n#ConfirmUser#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#33001#33162#0#PHP" expanded="false" />
-            <element signature="e#33200#33288#0#PHP" expanded="false" />
-            <element signature="n#Login#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#33463#33585#0#PHP" expanded="false" />
-            <element signature="e#33595#33717#0#PHP" expanded="false" />
-            <element signature="e#33820#33883#0#PHP" expanded="false" />
-            <element signature="e#33892#33979#0#PHP" expanded="false" />
-            <element signature="n#CheckLogin#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#34110#34173#0#PHP" expanded="false" />
-            <element signature="e#34235#34307#0#PHP" expanded="false" />
-            <element signature="n#CheckUserRole#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#34379#34512#0#PHP" expanded="false" />
-            <element signature="n#CheckUserProfOrMemberRole#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#34575#34700#0#PHP" expanded="false" />
-            <element signature="n#UserFullName#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="n#UserEmail#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="n#UserRole#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="n#LogOut#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="n#EmailResetPasswordLink#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#35316#35432#0#PHP" expanded="false" />
-            <element signature="e#35470#35574#0#PHP" expanded="false" />
-            <element signature="e#35583#35675#0#PHP" expanded="false" />
-            <element signature="n#ResetPassword#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#35747#35862#0#PHP" expanded="false" />
-            <element signature="e#35871#35990#0#PHP" expanded="false" />
-            <element signature="e#36076#36214#0#PHP" expanded="false" />
-            <element signature="e#36253#36339#0#PHP" expanded="false" />
-            <element signature="e#36414#36567#0#PHP" expanded="false" />
-            <element signature="e#36577#36739#0#PHP" expanded="false" />
-            <element signature="n#ChangePassword#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#36812#36925#0#PHP" expanded="false" />
-            <element signature="e#36935#37059#0#PHP" expanded="false" />
-            <element signature="e#37068#37192#0#PHP" expanded="false" />
-            <element signature="e#37231#37329#0#PHP" expanded="false" />
-            <element signature="e#37379#37524#0#PHP" expanded="false" />
-            <element signature="e#37576#37665#0#PHP" expanded="false" />
-            <element signature="n#SafeDisplay#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#37890#37956#0#PHP" expanded="false" />
-            <element signature="n#RedirectToURL#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#38153#38220#0#PHP" expanded="false" />
-            <element signature="n#HandleError#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="n#HandleDBError#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="n#GetFromAddress#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#38636#38720#0#PHP" expanded="false" />
-            <element signature="n#GetLoginSessionVar#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#39460#39637#0#PHP" expanded="false" />
-            <element signature="n#UpdateDBRecForConfirmation#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#39932#40050#0#PHP" expanded="false" />
-            <element signature="e#40249#40388#0#PHP" expanded="false" />
-            <element signature="e#40625#40789#0#PHP" expanded="false" />
-            <element signature="n#ResetUserPasswordInDB#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#40933#41036#0#PHP" expanded="false" />
-            <element signature="n#ChangePasswordInDB#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#41314#41492#0#PHP" expanded="false" />
-            <element signature="n#GetUserFromEmail#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#41585#41703#0#PHP" expanded="false" />
-            <element signature="e#41887#42042#0#PHP" expanded="false" />
-            <element signature="n#SendUserWelcomeEmail#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#42704#42833#0#PHP" expanded="false" />
-            <element signature="n#SendAdminIntimationOnRegComplete#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#42934#43002#0#PHP" expanded="false" />
-            <element signature="e#43455#43514#0#PHP" expanded="false" />
-            <element signature="n#GetResetPasswordCode#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="n#SendResetPasswordLink#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#44563#44622#0#PHP" expanded="false" />
-            <element signature="n#SendNewPassword#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#45493#45552#0#PHP" expanded="false" />
-            <element signature="n#GetAbsoluteURLFolder#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="n#MakeConfirmationMd5#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="n#SanitizeForSQL#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#46080#46274#0#PHP" expanded="false" />
-            <element signature="e#46217#46274#0#PHP" expanded="false" />
-            <element signature="e#46311#46543#0#PHP" expanded="false" />
-            <element signature="n#Sanitize#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#46648#46961#0#PHP" expanded="false" />
-            <element signature="e#46692#46894#0#PHP" expanded="false" />
-            <element signature="n#StripSlashes#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#47037#47115#0#PHP" expanded="false" />
-            <element signature="n#getEntireDatabase#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#47191#47698#0#PHP" expanded="false" />
-            <element signature="e#47233#47363#0#PHP" expanded="false" />
-            <element signature="e#47512#47597#0#PHP" expanded="false" />
-            <element signature="n#CollectCurrentProfileInformation#0;n#FGMembersite#0;n#!!top" expanded="false" />
-            <element signature="e#48048#48166#0#PHP" expanded="false" />
-            <element signature="e#48302#48436#0#PHP" expanded="false" />
-            <marker date="1491805322000" expanded="true" signature="5737:7017" ph="Create Table... ${$this-&gt;tablename}" />
-            <marker date="1491805322000" expanded="true" signature="5737:7035" ph="Create Table... ${$this-&gt;tablename}" />
-            <marker date="1491805322000" expanded="true" signature="5737:7064" ph="Create Table... ${$this-&gt;tablename}" />
-            <marker date="1491805322000" expanded="true" signature="5737:7066" ph="Create Table... ${$this-&gt;tablename}" />
-            <marker date="1491805322000" expanded="true" signature="12461:13104" ph="insert into ${$this-&gt;tablename}... " />
-            <marker date="1491805322000" expanded="true" signature="13465:13540" ph="select usern... ${$this-&gt;tablename}" />
-            <marker date="1491805322000" expanded="true" signature="16285:17333" ph="UPDATE ${$th... " />
-            <marker date="1491805322000" expanded="true" signature="20975:21326" ph="Create Table... ${$this-&gt;tablename_fileupload}" />
-            <marker date="1491805322000" expanded="true" signature="21931:22002" ph="Select * fro... ${$this-&gt;tablename}" />
-            <marker date="1491805322000" expanded="true" signature="22310:22885" ph="insert into ${$this-&gt;tablename_fileupload}... " />
-            <marker date="1491805322000" expanded="true" signature="25146:25505" ph="Create Table... ${$this-&gt;tablename_fileupload}" />
-            <marker date="1491805322000" expanded="true" signature="26106:26177" ph="Select * fro... ${$this-&gt;tablename}" />
-            <marker date="1491805322000" expanded="true" signature="26545:27128" ph="insert into ${$this-&gt;tablename_fileupload}... " />
-            <marker date="1491805322000" expanded="true" signature="28187:28265" ph="SELECT * FRO... ${$this-&gt;tablename_fileupload}" />
-            <marker date="1491805322000" expanded="true" signature="28187:28285" ph="SELECT * FRO... ${$this-&gt;tablename_fileupload}" />
-            <marker date="1491805322000" expanded="true" signature="28533:28594" ph="SELECT * FRO... ${$this-&gt;tablename_fileupload}" />
-            <marker date="1491805322000" expanded="true" signature="28533:28614" ph="SELECT * FRO... ${$this-&gt;tablename_fileupload}" />
-            <marker date="1491805322000" expanded="true" signature="29907:30258" ph="Create Table... ${$this-&gt;tablename_fileupload}" />
-            <marker date="1491805322000" expanded="true" signature="32778:32857" ph="INSERT INTO videos... " />
-            <marker date="1491805322000" expanded="true" signature="39274:39390" ph="Select name,... ${$this-&gt;tablename}" />
-            <marker date="1491805322000" expanded="true" signature="40164:40237" ph="Select name,... ${$this-&gt;tablename}" />
-            <marker date="1491805322000" expanded="true" signature="40536:40613" ph="Update ${$th... " />
-            <marker date="1491805322000" expanded="true" signature="41199:41303" ph="Update ${$th... " />
-            <marker date="1491805322000" expanded="true" signature="41804:41855" ph="Select * fro... ${$this-&gt;tablename}" />
-            <marker date="1491805322000" expanded="true" signature="47387:47433" ph="SELECT * FRO... ${$this-&gt;tablename}" />
-            <marker date="1491805322000" expanded="true" signature="48219:48290" ph="Select * fro... ${$this-&gt;tablename}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/sample/clients/client1.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1175,32 +1129,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/images/sample/team3.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/sample/team4.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/business_logo.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/Business_Simulation_Customers.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/create_your_own.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/logo.gif">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -1222,10 +1151,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="116" selection-end-column="16" />
+        <state relative-caret-position="307">
+          <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/sample/team3.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
@@ -1242,11 +1176,315 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/login-home.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="207" column="14" lean-forward="false" selection-start-line="207" selection-start-column="14" selection-end-line="207" selection-end-column="14" />
+        <state relative-caret-position="414">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
             <element signature="n#header#0;n#body#0;n#!!top" expanded="false" />
             <element signature="n#section#0;n#body#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/sample/team4.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/business_logo.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/create_your_own.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/logo.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadFiles.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2461">
+          <caret line="238" column="6" lean-forward="false" selection-start-line="238" selection-start-column="6" selection-end-line="238" selection-end-column="6" />
+          <folding>
+            <element signature="e#6#91#0#PHP" expanded="true" />
+            <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/phpmail/include/formvalidator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/publicVideos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="59" lean-forward="false" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/try.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="e#42#2332#0#PHP" expanded="false" />
+            <element signature="e#155#178#0#HTML" expanded="true" />
+            <element signature="e#2078#2096#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/process.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="45" column="43" lean-forward="false" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
+          <folding>
+            <marker date="1491672610000" expanded="true" signature="308:371" ph="SELECT unive... fgusers3" />
+            <marker date="1491672610000" expanded="true" signature="574:632" ph="SELECT * FRO... fgusers3" />
+            <marker date="1491672610000" expanded="true" signature="679:708" ph="SELECT * FRO... fgusers3" />
+            <marker date="1491672610000" expanded="true" signature="679:713" ph="SELECT * FRO... fgusers3" />
+            <marker date="1491672610000" expanded="true" signature="679:731" ph="SELECT * FRO... fgusers3" />
+            <marker date="1491672610000" expanded="true" signature="1380:1628" ph="UPDATE `fgus... " />
+            <marker date="1491672610000" expanded="true" signature="1654:1923" ph="UPDATE fguse... " />
+            <marker date="1491672610000" expanded="true" signature="1949:2072" ph="UPDATE fguse... " />
+            <marker date="1491672610000" expanded="true" signature="2184:2255" ph="UPDATE fguse... " />
+            <marker date="1491672610000" expanded="true" signature="2331:2402" ph="UPDATE fguse... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/phpmail/include/membersite_config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="22" column="9" lean-forward="false" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="214" column="0" lean-forward="false" selection-start-line="213" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profileUpdate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="1160" column="56" lean-forward="false" selection-start-line="1160" selection-start-column="56" selection-end-line="1160" selection-end-column="56" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#4;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#5;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#6;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#1;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#1;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#4;n#div#1;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#5;n#div#1;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <marker date="1491838886000" expanded="false" signature="10702:11574" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/phpmail/include/fg_membersite.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-610">
+          <caret line="161" column="5" lean-forward="false" selection-start-line="161" selection-start-column="5" selection-end-line="161" selection-end-column="5" />
+          <folding>
+            <element signature="n#FGMembersite#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#SetAdminEmail#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#SetWebsiteName#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#SetRandomKey#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#createPHPMailer#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#DBLogin#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#CollectProfileData#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#CollectCurrentProfileInformation#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#5422#5540#0#PHP" expanded="false" />
+            <element signature="e#5676#5810#0#PHP" expanded="false" />
+            <element signature="e#8944#9014#0#PHP" expanded="false" />
+            <element signature="e#9054#9137#0#PHP" expanded="false" />
+            <element signature="e#9291#9378#0#PHP" expanded="false" />
+            <element signature="n#ValidateRegistrationSubmission#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#9623#9851#0#PHP" expanded="false" />
+            <element signature="e#10320#10640#0#PHP" expanded="false" />
+            <element signature="e#10443#10564#0#PHP" expanded="false" />
+            <element signature="n#CollectRegistrationSubmission#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#SaveToDatabase#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#11193#11311#0#PHP" expanded="false" />
+            <element signature="e#11320#11384#0#PHP" expanded="false" />
+            <element signature="e#11393#11545#0#PHP" expanded="false" />
+            <element signature="e#11554#11735#0#PHP" expanded="false" />
+            <element signature="e#11744#11883#0#PHP" expanded="false" />
+            <element signature="n#SendUserConfirmationEmail#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#SendAdminIntimationEmail#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#13190#13258#0#PHP" expanded="false" />
+            <element signature="e#13765#13788#0#PHP" expanded="false" />
+            <element signature="n#InsertIntoDB#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#14718#14900#0#PHP" expanded="false" />
+            <element signature="n#IsFieldUnique#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#15211#15293#0#PHP" expanded="false" />
+            <element signature="n#Ensuretable#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#15452#15551#0#PHP" expanded="false" />
+            <element signature="n#GetSpamTrapInputName#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#CollectProfileUpdateInformation#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#SaveProfileUpdateToDatabase#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#uploadImage#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#20087#20204#0#PHP" expanded="false" />
+            <element signature="e#20730#21173#0#PHP" expanded="false" />
+            <element signature="e#20892#21162#0#PHP" expanded="false" />
+            <element signature="e#21087#21162#0#PHP" expanded="false" />
+            <element signature="n#UpdateFileUpload#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#EnsureFileUploadtable#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#22379#22497#0#PHP" expanded="false" />
+            <element signature="e#22606#22715#0#PHP" expanded="false" />
+            <element signature="n#CreatefileUploadTable#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#23165#23327#0#PHP" expanded="false" />
+            <element signature="n#CollectFileUploadRegistrationSubmission#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#InsertFileUploadInfoIntoDB#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#uploadfile#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#UpdateEvents#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#EnsureEventUploadtable#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#26775#26885#0#PHP" expanded="false" />
+            <element signature="n#CreateEventUploadTable#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#CollectEventUploadRegistrationSubmission#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#InsertEventUploadInfoIntoDB#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#29796#29914#0#PHP" expanded="false" />
+            <element signature="e#30191#30309#0#PHP" expanded="false" />
+            <element signature="n#EnsureVideoUploadtable#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#31310#31428#0#PHP" expanded="false" />
+            <element signature="e#31537#31646#0#PHP" expanded="false" />
+            <element signature="n#CreateVideoUploadTable#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#32097#32259#0#PHP" expanded="false" />
+            <element signature="n#ConfirmUser#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#34829#34990#0#PHP" expanded="false" />
+            <element signature="e#35028#35116#0#PHP" expanded="false" />
+            <element signature="n#Login#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#35291#35413#0#PHP" expanded="false" />
+            <element signature="e#35423#35545#0#PHP" expanded="false" />
+            <element signature="e#35648#35711#0#PHP" expanded="false" />
+            <element signature="e#35720#35807#0#PHP" expanded="false" />
+            <element signature="n#CheckLogin#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#35938#36001#0#PHP" expanded="false" />
+            <element signature="e#36063#36135#0#PHP" expanded="false" />
+            <element signature="n#CheckUserRole#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#36207#36340#0#PHP" expanded="false" />
+            <element signature="n#CheckUserProfOrMemberRole#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#36403#36528#0#PHP" expanded="false" />
+            <element signature="n#UserFullName#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#UserEmail#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#UserRole#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#LogOut#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#EmailResetPasswordLink#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#37144#37260#0#PHP" expanded="false" />
+            <element signature="e#37298#37402#0#PHP" expanded="false" />
+            <element signature="e#37411#37503#0#PHP" expanded="false" />
+            <element signature="n#ResetPassword#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#37575#37690#0#PHP" expanded="false" />
+            <element signature="e#37699#37818#0#PHP" expanded="false" />
+            <element signature="e#37904#38042#0#PHP" expanded="false" />
+            <element signature="e#38081#38167#0#PHP" expanded="false" />
+            <element signature="e#38242#38395#0#PHP" expanded="false" />
+            <element signature="e#38405#38567#0#PHP" expanded="false" />
+            <element signature="n#ChangePassword#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#38640#38753#0#PHP" expanded="false" />
+            <element signature="e#38763#38887#0#PHP" expanded="false" />
+            <element signature="e#38896#39020#0#PHP" expanded="false" />
+            <element signature="e#39059#39157#0#PHP" expanded="false" />
+            <element signature="e#39207#39352#0#PHP" expanded="false" />
+            <element signature="e#39404#39493#0#PHP" expanded="false" />
+            <element signature="n#SafeDisplay#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#39718#39784#0#PHP" expanded="false" />
+            <element signature="n#RedirectToURL#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#39981#40048#0#PHP" expanded="false" />
+            <element signature="n#HandleError#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#HandleDBError#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#GetFromAddress#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#40464#40548#0#PHP" expanded="false" />
+            <element signature="n#GetLoginSessionVar#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#41288#41465#0#PHP" expanded="false" />
+            <element signature="n#UpdateDBRecForConfirmation#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#41760#41878#0#PHP" expanded="false" />
+            <element signature="e#42077#42216#0#PHP" expanded="false" />
+            <element signature="e#42453#42617#0#PHP" expanded="false" />
+            <element signature="n#ResetUserPasswordInDB#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#42761#42864#0#PHP" expanded="false" />
+            <element signature="n#ChangePasswordInDB#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#43142#43320#0#PHP" expanded="false" />
+            <element signature="n#GetUserFromEmail#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#43413#43531#0#PHP" expanded="false" />
+            <element signature="e#43715#43870#0#PHP" expanded="false" />
+            <element signature="n#SendUserWelcomeEmail#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#44532#44661#0#PHP" expanded="false" />
+            <element signature="n#SendAdminIntimationOnRegComplete#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#44762#44830#0#PHP" expanded="false" />
+            <element signature="e#45283#45342#0#PHP" expanded="false" />
+            <element signature="n#GetResetPasswordCode#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#SendResetPasswordLink#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#46391#46450#0#PHP" expanded="false" />
+            <element signature="n#SendNewPassword#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#47321#47380#0#PHP" expanded="false" />
+            <element signature="n#GetAbsoluteURLFolder#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#MakeConfirmationMd5#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="n#SanitizeForSQL#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#47908#48102#0#PHP" expanded="false" />
+            <element signature="e#48045#48102#0#PHP" expanded="false" />
+            <element signature="e#48139#48371#0#PHP" expanded="false" />
+            <element signature="n#Sanitize#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#48476#48789#0#PHP" expanded="false" />
+            <element signature="e#48520#48722#0#PHP" expanded="false" />
+            <element signature="n#StripSlashes#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#48865#48943#0#PHP" expanded="false" />
+            <element signature="n#getEntireDatabase#0;n#FGMembersite#0;n#!!top" expanded="false" />
+            <element signature="e#49019#49526#0#PHP" expanded="false" />
+            <element signature="e#49061#49191#0#PHP" expanded="false" />
+            <element signature="e#49340#49425#0#PHP" expanded="false" />
+            <marker date="1491838886000" expanded="true" signature="5593:5664" ph="Select * fro... ${$this-&gt;tablename}" />
+            <marker date="1491838886000" expanded="true" signature="7297:8620" ph="Create Table... ${$this-&gt;tablename}" />
+            <marker date="1491838886000" expanded="true" signature="7297:8638" ph="Create Table... ${$this-&gt;tablename}" />
+            <marker date="1491838886000" expanded="true" signature="7297:8667" ph="Create Table... ${$this-&gt;tablename}" />
+            <marker date="1491838886000" expanded="true" signature="7297:8669" ph="Create Table... ${$this-&gt;tablename}" />
+            <marker date="1491838886000" expanded="true" signature="14064:14707" ph="insert into ${$this-&gt;tablename}... " />
+            <marker date="1491838886000" expanded="true" signature="15068:15143" ph="select usern... ${$this-&gt;tablename}" />
+            <marker date="1491838886000" expanded="true" signature="18034:19161" ph="UPDATE ${$th... " />
+            <marker date="1491838886000" expanded="true" signature="22803:23154" ph="Create Table... ${$this-&gt;tablename_fileupload}" />
+            <marker date="1491838886000" expanded="true" signature="23759:23830" ph="Select * fro... ${$this-&gt;tablename}" />
+            <marker date="1491838886000" expanded="true" signature="24138:24713" ph="insert into ${$this-&gt;tablename_fileupload}... " />
+            <marker date="1491838886000" expanded="true" signature="26974:27333" ph="Create Table... ${$this-&gt;tablename_fileupload}" />
+            <marker date="1491838886000" expanded="true" signature="27934:28005" ph="Select * fro... ${$this-&gt;tablename}" />
+            <marker date="1491838886000" expanded="true" signature="28373:28956" ph="insert into ${$this-&gt;tablename_fileupload}... " />
+            <marker date="1491838886000" expanded="true" signature="30015:30093" ph="SELECT * FRO... ${$this-&gt;tablename_fileupload}" />
+            <marker date="1491838886000" expanded="true" signature="30015:30113" ph="SELECT * FRO... ${$this-&gt;tablename_fileupload}" />
+            <marker date="1491838886000" expanded="true" signature="30361:30422" ph="SELECT * FRO... ${$this-&gt;tablename_fileupload}" />
+            <marker date="1491838886000" expanded="true" signature="30361:30442" ph="SELECT * FRO... ${$this-&gt;tablename_fileupload}" />
+            <marker date="1491838886000" expanded="true" signature="31735:32086" ph="Create Table... ${$this-&gt;tablename_fileupload}" />
+            <marker date="1491838886000" expanded="true" signature="34606:34685" ph="INSERT INTO videos... " />
+            <marker date="1491838886000" expanded="true" signature="41102:41218" ph="Select name,... ${$this-&gt;tablename}" />
+            <marker date="1491838886000" expanded="true" signature="41992:42065" ph="Select name,... ${$this-&gt;tablename}" />
+            <marker date="1491838886000" expanded="true" signature="42364:42441" ph="Update ${$th... " />
+            <marker date="1491838886000" expanded="true" signature="43027:43131" ph="Update ${$th... " />
+            <marker date="1491838886000" expanded="true" signature="43632:43683" ph="Select * fro... ${$this-&gt;tablename}" />
+            <marker date="1491838886000" expanded="true" signature="49215:49261" ph="SELECT * FRO... ${$this-&gt;tablename}" />
           </folding>
         </state>
       </provider>

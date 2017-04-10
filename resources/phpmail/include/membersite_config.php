@@ -20,7 +20,7 @@ $fgmembersite->InitDB(/*hostname*/
     /*password*/
     'mysql',
     /*database name*/
-    'testdb',
+    'icln',
     /*table name*/
     'fgusers3',
     /*table name fileupload*/
