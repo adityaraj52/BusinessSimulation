@@ -120,7 +120,7 @@ if ($fgmembersite->CheckLogin()) {
                  data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
                 <div class="sl-slide-inner">
                     <div class="container">
-                        <img class="pull-right" src='images/Business_Simulation_Customers.jpg' width="60%"
+                        <img class="pull-right" src='images/sample/slider/Business_Simulation_Customers.jpg' width="60%"
                              height="100%" alt=""/>
                         <h2>Creative Ideas</h2>
                         <h3 class="gap">Ideas that inspire and help others.</h3>
@@ -135,7 +135,7 @@ if ($fgmembersite->CheckLogin()) {
                  data-slice1-scale="1.5" data-slice2-scale="1.5">
                 <div class="sl-slide-inner">
                     <div class="container">
-                        <img class="pull-right" src='images/Simulation.png' alt=""/>
+                        <img class="pull-right" src='images/sample/slider/Simulation.png' alt=""/>
                         <h2>Future Technology</h2>
                         <h3 class="gap">Future of Business Simulation</h3>
                         <a class="btn btn-large btn-transparent" href="#">Learn More</a>
@@ -149,7 +149,7 @@ if ($fgmembersite->CheckLogin()) {
                  data-slice1-scale="2" data-slice2-scale="1">
                 <div class="sl-slide-inner">
                     <div class="container">
-                        <img class="pull-right" src='images/future-technologies.jpg' alt="" width="60%"
+                        <img class="pull-right" src='images/sample/slider/future-technologies.jpg' alt="" width="60%"
                              height="100%"/>
                         <h2>Unique Solutions</h2>
                         <h3 class="gap">Solutions that help millions</h3>
@@ -157,7 +157,22 @@ if ($fgmembersite->CheckLogin()) {
                     </div>
                 </div>
             </div>
-            <!--Slider Item2-->
+            <!--Slider Item3-->
+
+            <!--Slider Item4-->
+            <div class="sl-slide item3" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3"
+                 data-slice1-scale="2" data-slice2-scale="1">
+                <div class="sl-slide-inner">
+                    <div class="container">
+                        <img class="pull-right" src='images/sample/slider/TUClausthal_Campus_International1.jpg' alt="" width="60%"
+                             height="100%"/>
+                        <h2>Success</h2>
+                        <h3 class="gap">International Partnerships</h3>
+                        <a class="btn btn-large btn-transparent" href="#">Ways to Success</a>
+                    </div>
+                </div>
+            </div>
+            <!--Slider Item4-->
 
         </div>
         <!--/Slider Items-->
