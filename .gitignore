@@ -1,2 +1,6 @@
 .DS_Store
 .gitignore
+images/fileuploads/**
+images/videouploads/**
+images/webfiles/ICLN_ImageFIlm_master_15_06_2017.mp4
+*.mp4
